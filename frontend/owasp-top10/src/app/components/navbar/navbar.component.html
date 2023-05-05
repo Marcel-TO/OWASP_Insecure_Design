@@ -1,0 +1,57 @@
+<!--Navigation Bar Signed Out User-->
+<header class="navigation-not-signedin">
+    <div class="navigation-container">
+        <a href="#home"><img class="logo" src="/assets/pictures/Logos/Logo-04.jpg"></a>
+
+        <ul class="navigation-menu">
+            <li class="navigation-item">
+                <a class="navigation-link">My Devices</a>
+            </li>
+            <li class="navigation-item">
+                <a class="navigation-link" href="#mostUsedProgrammingSites">History</a>
+            </li>
+            <li class="navigation-item">
+                <a [matMenuTriggerFor]="menu"><img class="profile" src="/assets/pictures/profile_icon_unknown.png"></a>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item disabled>
+                      <mat-icon>settings</mat-icon>
+                      <span>Settings</span>
+                    </button>
+                    <button mat-menu-item [routerLink]="['/login']">
+                      <mat-icon>fingerprint</mat-icon>
+                      <span>Log In</span>
+                    </button>
+                  </mat-menu>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<!--Navigation Bar Signed In User-->
+<header class="navigation-signedin">
+    <div class="navigation-container">
+        <a href="#home"><img class="logo" src="/assets/pictures/Logos/Logo-04.jpg"></a>
+
+        <ul class="navigation-menu">
+            <li class="navigation-item">
+                <a class="navigation-link">My Devices</a>
+            </li>
+            <li class="navigation-item">
+                <a class="navigation-link" href="#mostUsedProgrammingSites">History</a>
+            </li>
+            <li class="navigation-item">
+                <a [routerLink]="['/login']" [matMenuTriggerFor]="menu"><img class="profile" src="/assets/pictures/profile_icon_unknown.png"></a>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item disabled>
+                      <mat-icon>settings</mat-icon>
+                      <span>Settings</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>exit_to_app</mat-icon>
+                      <span>Log out</span>
+                    </button>
+                  </mat-menu>
+            </li>
+        </ul>
+    </div>
+</header>

@@ -1,0 +1,163 @@
+// * {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+//   font-family: 'Kumbh Sans', sans-serif;
+//   scroll-behavior: smooth;
+//   cursor:default;
+// }
+
+/*NAVIGATION BAR*/
+.navigation-not-signedin {
+    box-sizing: border-box;
+    background: #fff;
+    height: 5rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    // position: sticky;
+    // top: 0;
+    // z-index: 999;
+  }
+  
+  .navigation-container {
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+  }
+  
+  .navigation-menu {
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: right;
+    list-style: none;
+  }
+  
+  .navigation-item {
+    height: 5rem;
+    padding: 0rem 1rem;
+    border: rgba(210, 210, 210, 0.27);
+    border-style: none none none solid;
+  }
+  
+  .navigation-link {
+    color: #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    text-decoration: none;
+    height: 100%;
+    transition: all 0.3s ease;
+  }
+  
+  .navigation-link:hover {
+    animation: text-animation 1s linear 0.2s normal;
+    animation-fill-mode: forwards;
+    cursor: pointer;
+  }
+  
+  .logo {
+    position: absolute;
+    left: 0;
+    top: 0;
+    justify-content: center;
+    // width: 14rem;
+    height: 5rem;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  .profile {
+    position: relative;
+    justify-content: center;
+    width: 3rem;
+    margin-top: 10px;
+    margin: 10px;
+    cursor: pointer;
+  }
+  
+  @keyframes text-animation {
+  
+    0% {
+      background: linear-gradient(to right, #000, #000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+  
+    10% {
+      background: linear-gradient(to right, #00FFF7, #000 10%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    20% {
+      background: linear-gradient(to right, #00FFF7, #000 20%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    30% {
+      background: linear-gradient(to right, #00FFF7, #000 30%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    40% {
+      background: linear-gradient(to right, #00FFF7, #000 40%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    50% {
+      background: linear-gradient(to right, #00FFF7, #000 50%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    60% {
+      background: linear-gradient(to right, #00FFF7, #000 60%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    70% {
+      background: linear-gradient(to right, #00FFF7, #000 70%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    80% {
+      background: linear-gradient(to right, #00FFF7, #000 80%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    90% {
+      background: linear-gradient(to right, #00FFF7, #000 90%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    99% {
+      background: linear-gradient(to right, #00FFF7, #000 99%, #000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  
+    100% {
+      background-color: #00FFF7;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .navigation-signedin {
+    display: none;
+  }
