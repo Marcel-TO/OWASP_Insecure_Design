@@ -1,12 +1,13 @@
 
 using MySql.Data.MySqlClient;
+using System.Collections;
 namespace SmartHomeApi.Api_Source_Code.Repositories;
 public interface IRepository<T>
 {
-    public void Insert(T entry);
-    public void Update(T entry);
-    public void Delete(T entry);
-    public void GetAll();
-    public void FindByCondition(Func<T,bool> condition);
+    Tuple<bool,int> Insert(T entry);
+    bool Update(T entry);
+    bool Delete(int entry);
+    IEnumerable<T> GetAll();
+    T FindByCondition(Func<string,bool> condition);
     
 }
