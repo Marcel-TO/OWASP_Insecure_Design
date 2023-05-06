@@ -1,11 +1,12 @@
-<app-navbar></app-navbar>
+<app-navbar id="navbar"></app-navbar>
+<app-background></app-background>
 <div class="login-container">
     <h1 class="header">Login</h1>
     <form class="signin-form">
       <mat-form-field class="signin-full-width">
         <mat-label>Email</mat-label>
         <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-                placeholder="Ex. pat@example.com">
+                placeholder="Ex. user@example.com">
         <mat-hint>Errors appear instantly!</mat-hint>
         <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
           Please enter a valid email address
@@ -25,5 +26,4 @@
       </mat-form-field>
     </form>
     <button class="login-btn" (click)="onClick()" [routerLink]="['/']">Log In</button>
-    <button>Test</button>
 </div>

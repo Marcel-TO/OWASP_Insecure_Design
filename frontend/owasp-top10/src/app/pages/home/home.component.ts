@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -8,13 +8,11 @@ import { User } from 'src/app/models/user';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-    public user: User | undefined;
-
-    constructor(private router: ActivatedRoute) {}
+    constructor(private router: Router) {
+    }
 
     ngOnInit(): void {
-      this.user = this.router.snapshot.queryParams['user'];
-      console.log(this.user?.username)
+      // this.user = this.router.snapshot.queryParams['user'];
     }
 
 }

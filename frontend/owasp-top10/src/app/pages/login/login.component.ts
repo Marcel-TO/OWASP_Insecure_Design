@@ -24,13 +24,11 @@ export class LoginComponent implements OnInit{
       email: 'bla',
       password: 'ttt'
     } ;
-
-    console.log("generating: " + this.currentUser.username)
   }
 
   public onClick() {
-    console.log("inside login: " + this.currentUser?.username)
-    this.router.navigate(['/'], {queryParams: {user: this.currentUser}});
+    // console.log("inside login: " + this.currentUser?.username)
+    this.router.navigate(['/'], {state: this.currentUser});
   }
 }
 

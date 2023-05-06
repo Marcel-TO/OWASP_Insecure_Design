@@ -1,14 +1,5 @@
-// * {
-//   box-sizing: border-box;
-//   margin: 0;
-//   padding: 0;
-//   font-family: 'Kumbh Sans', sans-serif;
-//   scroll-behavior: smooth;
-//   cursor:default;
-// }
-
 /*NAVIGATION BAR*/
-.navigation-not-signedin {
+#not-signedin {
     box-sizing: border-box;
     background: #fff;
     height: 5rem;
@@ -16,9 +7,8 @@
     justify-content: center;
     align-items: center;
     font-size: 1.2rem;
-    // position: sticky;
-    // top: 0;
-    // z-index: 999;
+    font-family: Raleway, sans-serif;
+    visibility: visible;
   }
   
   .navigation-container {
@@ -54,12 +44,14 @@
     text-decoration: none;
     height: 100%;
     transition: all 0.3s ease;
+    font-family: Raleway, sans-serif;
   }
   
   .navigation-link:hover {
-    animation: text-animation 1s linear 0.2s normal;
+    animation: text-animation 0.2s linear 0.2s normal;
     animation-fill-mode: forwards;
     cursor: pointer;
+    font-size: bold;
   }
   
   .logo {
@@ -68,8 +60,7 @@
     top: 0;
     justify-content: center;
     // width: 14rem;
-    height: 5rem;
-    margin: 10px;
+    height: 8rem;
     cursor: pointer;
   }
 
@@ -92,72 +83,80 @@
   
   
     10% {
-      background: linear-gradient(to right, #00FFF7, #000 10%, #000 100%);
+      background: linear-gradient(to right, #00FFF2, #000 10%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     20% {
-      background: linear-gradient(to right, #00FFF7, #000 20%, #000 100%);
+      background: linear-gradient(to right, #00d5cb, #000 20%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     30% {
-      background: linear-gradient(to right, #00FFF7, #000 30%, #000 100%);
+      background: linear-gradient(to right, #00d5cb, #000 30%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     40% {
-      background: linear-gradient(to right, #00FFF7, #000 40%, #000 100%);
+      background: linear-gradient(to right, #00d5cb, #000 40%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     50% {
-      background: linear-gradient(to right, #00FFF7, #000 50%, #000 100%);
+      background: linear-gradient(to right, #00d5cb, #000 50%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     60% {
-      background: linear-gradient(to right, #00FFF7, #000 60%, #000 100%);
+      background: linear-gradient(to right, #00d5cb, #000 60%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     70% {
-      background: linear-gradient(to right, #00FFF7, #000 70%, #000 100%);
+      background: linear-gradient(to right, #00d5cb, #000 70%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     80% {
-      background: linear-gradient(to right, #00FFF7, #000 80%, #000 100%);
+      background: linear-gradient(to right, #00d5cb, #000 80%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     90% {
-      background: linear-gradient(to right, #00FFF7, #000 90%, #000 100%);
+      background: linear-gradient(to right, #00d5cb, #000 90%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     99% {
-      background: linear-gradient(to right, #00FFF7, #000 99%, #000 100%);
+      background: linear-gradient(to right, #00d5cb, #000 99%, #000 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   
     100% {
-      background-color: #00FFF7;
+      background-color: #00d5cb;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
   }
 
-  .navigation-signedin {
-    display: none;
+  #signedin {
+    box-sizing: border-box;
+    background: #fff;
+    height: 5rem;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-family: Raleway, sans-serif;
+    visibility: hidden;
   }
