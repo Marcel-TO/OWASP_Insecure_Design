@@ -63,7 +63,7 @@ public class ActuatorRepo : IRepository<Actuator>
                         reader.GetInt32("actuator_id"),
                         reader.GetString("name"),
                         reader.GetInt32("target_temperature"),
-                        reader.GetInt32("system_id")
+                        reader.GetInt32("account_id")
                     ));
                 }
                 reader.Close();

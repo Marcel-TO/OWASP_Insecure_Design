@@ -41,5 +41,23 @@ public class ActuatorController : ControllerBase
         }
         return NotFound("Actuator not inserted");
     }   
+
+    [HttpPost("update")]
+    public IActionResult UpdateSensor(Actuator actuator)
+    {   
+        var isUpdated = this._repository.Update(actuator);
+        if(isUpdated)
+        {
+            return Ok("Actautor updated");
+        }
+        return NotFound("Actautor not updated");
+    }   
+
+   [HttpGet]
+    public IActionResult GetSensors()
+    {   
+        var sensors = this._repository.GetAll();
+        return Ok(sensors);
+    }    
    
 }

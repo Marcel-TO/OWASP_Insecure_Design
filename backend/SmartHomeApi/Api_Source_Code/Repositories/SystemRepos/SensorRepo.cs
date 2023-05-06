@@ -37,7 +37,7 @@ public class SensorRepo : IRepository<Sensor>
         using (MySqlConnection conn = GetConnection())
         {
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand($"UPDATE sensors SET name = \"{entry.Name}\", temp = {entry.Temperature}, status = \"{entry.Status}\", WHERE actuator_id = {entry.Id}",conn);
+            MySqlCommand cmd = new MySqlCommand($"UPDATE sensors SET name = \"{entry.Name}\", temp = {entry.Temperature}, status = \"{entry.Status}\" WHERE sensor_id = {entry.Id}",conn);
             int rowsAffected = cmd.ExecuteNonQuery();   
             conn.Close();
             return rowsAffected > 0;
@@ -68,7 +68,7 @@ public class SensorRepo : IRepository<Sensor>
                         reader.GetString("name"),
                         reader.GetInt32("temp"),
                         reader.GetString("status"),
-                        reader.GetInt32("system_id")
+                        reader.GetInt32("account_id")
                     ));
                 }
                 reader.Close();

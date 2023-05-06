@@ -45,4 +45,23 @@ public class SensorController : ControllerBase
         }
         return NotFound("Sensor not inserted");
     }   
+    
+    [HttpPost("update")]
+    public IActionResult UpdateSensor(Sensor sensor)
+    {   
+        var isUpdated = this._repository.Update(sensor);
+        if(isUpdated)
+        {
+            return Ok("Sensor updated");
+        }
+        return NotFound("Sensor not updated");
+    }  
+
+
+    [HttpGet]
+    public IActionResult GetSensors()
+    {   
+        var sensors = this._repository.GetAll();
+        return Ok(sensors);
+    }    
 }
