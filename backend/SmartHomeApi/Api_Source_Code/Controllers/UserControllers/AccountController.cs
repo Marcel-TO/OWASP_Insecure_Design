@@ -4,6 +4,7 @@ using SmartHomeApi.Api_Source_Code.Repositories.UserRepo;
 using SmartHomeApi.Api_Source_Code.Models.UserModel;
 using SmartHomeApi.Api_Source_Code.Models.SystemModel;
 using System.Collections;
+using Microsoft.AspNetCore.Identity;
 using System.Net;
 namespace SmartHomeApi.Api_Source_Code.Controllers.UserControllers;
 
@@ -23,11 +24,11 @@ public class AccountController : ControllerBase
     [HttpPost("login")]
     public IActionResult Login(Login login)
     {   
-      List<Account> users = this._repository.GetUserByLogin(login); 
-      if (users.Count < 1){
-        return NotFound("User not found!");
+      var tuple = this._repository.Login(login); 
+      if(tuple.Item1 == PasswordVerificationResult.Success || tuple.Item1 == PasswordVerificationResult.SuccessRehashNeeded){
+        return Ok(tuple.Item2);
       }   
-      return Ok(users[0]);
+      return NotFound("Uer not found to be logged in as!");
     }
 
     [HttpPost("create")]

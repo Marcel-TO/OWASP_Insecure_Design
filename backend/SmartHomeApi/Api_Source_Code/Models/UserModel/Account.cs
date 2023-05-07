@@ -10,4 +10,11 @@ public class Account{
         this.UserName = userName;
         this.Password = password;
     }
+
+    public Account(){
+        this.Id = 0;
+        this.Role = "";
+        this.UserName = "";
+        this.Password = "";
+    }
 }

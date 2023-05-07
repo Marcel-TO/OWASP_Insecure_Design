@@ -2,10 +2,16 @@
 using MySql.Data;
 using MySqlConnector;
 using SmartHomeApi.Api_Source_Code.Models.UserModel;
+using System.Security.Cryptography;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 namespace SmartHomeApi.Api_Source_Code.Repositories.UserRepo;
 public class AccountRepo : IRepository<Account>
 {
-    public AccountRepo(){}
+    private readonly PasswordHasher passwordHasher;
+    public AccountRepo(){
+        this.passwordHasher = new PasswordHasher();
+    }
 
     private MySqlConnection GetConnection()
     {
@@ -13,7 +19,8 @@ public class AccountRepo : IRepository<Account>
     }
 
 
-    public Tuple<bool,int> Insert(Account entry){
+    public Tuple<bool,int> Insert(Account entry)
+    {
         
         using (MySqlConnection conn = GetConnection())
         {
@@ -22,9 +29,11 @@ public class AccountRepo : IRepository<Account>
             MySqlCommand cmd = new MySqlCommand(@"Insert Into accounts (role,username,password) VALUES(@role,@username,@password)", conn);
 
 
+            string hashedPassword = this.passwordHasher.HashPassword(entry.Password);
+
             cmd.Parameters.Add("@role", MySqlDbType.VarChar).Value = entry.Role;
             cmd.Parameters.Add("@username",  MySqlDbType.VarChar).Value = entry.UserName;
-            cmd.Parameters.Add("@password",  MySqlDbType.VarChar).Value = entry.Password;
+            cmd.Parameters.Add("@password",  MySqlDbType.VarChar).Value = hashedPassword;
 
 
             int rowsAffected = cmd.ExecuteNonQuery(); 
@@ -87,27 +96,32 @@ public class AccountRepo : IRepository<Account>
     }
 
 
-    public List<Account> GetUserByLogin(Login login){
+    public Tuple<PasswordVerificationResult,Account> Login(Login login){
+       
         List<Account> list = new List<Account>();
         using (MySqlConnection conn = GetConnection())
         {
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand($"SELECT account_id, role, username, devices_id FROM accounts WHERE username =  \"{login.UserName}\" AND password =  \"{login.Password}\"", conn);
+            MySqlCommand cmd = new MySqlCommand($"SELECT * FROM accounts WHERE username =  \"{login.UserName}\"", conn);
             using (MySqlDataReader reader = cmd.ExecuteReader())
             {
                 while (reader.Read())
                 {
-                    list.Add(new Account(
+                    string password = reader.GetString("password");
+                    PasswordVerificationResult verificationResult = this.passwordHasher.VerifyHashedPassword(password,login.Password);
+                    if(verificationResult == PasswordVerificationResult.Success || verificationResult == PasswordVerificationResult.SuccessRehashNeeded){
+                       return Tuple.Create(verificationResult, new Account(
                         reader.GetInt32("account_id"),
                         reader.GetString("role"),
                         reader.GetString("username"),
-                        ""
-                    ));
+                        "")); 
+                    }
+                    
                 }
                 reader.Close();
             }
             conn.Close();
         }
-        return list;
+        return Tuple.Create<PasswordVerificationResult,Account>(PasswordVerificationResult.Failed, new Account());
     }
 }
