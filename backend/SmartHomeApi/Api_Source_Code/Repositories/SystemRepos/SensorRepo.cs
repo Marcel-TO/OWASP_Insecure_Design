@@ -47,7 +47,7 @@ public class SensorRepo : IRepository<Sensor>
         using (MySqlConnection conn = GetConnection())
         {
             conn.Open();
-            MySqlCommand cmd = new MySqlCommand($"DELETE FROM sensors WHERE actuator_id = {id}", conn);
+            MySqlCommand cmd = new MySqlCommand($"DELETE FROM sensors WHERE sensor_id = {id}", conn);
             int rowsAffected = cmd.ExecuteNonQuery();    
             conn.Close();
             return rowsAffected > 0;
