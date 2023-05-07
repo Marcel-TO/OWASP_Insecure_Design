@@ -8,16 +8,19 @@ import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
+import { BackgroundComponent } from './components/background/background.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { DevicesComponent } from './pages/devices/devices.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
-import { BackgroundComponent } from './components/background/background.component';
-import { HistoryComponent } from './pages/history/history.component';
-import { DevicesComponent } from './pages/devices/devices.component';
-import { SettingsComponent } from './pages/settings/settings.component';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,10 @@ import { SettingsComponent } from './pages/settings/settings.component';
     FormsModule,
     ReactiveFormsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatExpansionModule,
+    MatSliderModule,
+    MatChipsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
