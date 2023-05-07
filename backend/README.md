@@ -20,35 +20,32 @@ The backend for this project has been done with `MySQL` and `ASP.NET CORE 7.0`.
 
 The database model is as following:
 
-#### Tables:
+### Tables
 **_accounts_**
 
-| account_id    | role          | username  | | account_id    | role          | username  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 || ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| account_id | role | username | password |
+|:----------:|:----:|:--------:|:--------:|
+|     . . .    | . . .  |   . . .    |   . . .    |
 
-### Accounts
+**_actuators_**
 
-- account*id
-  \*\*\_Contains the id of the account.*\*\*
-- role
-  **_Represents the role of the account holder._**
-- username
+| actuator_id | name | target_temperature | account_id |
+|:----------:|:-----:|:------------------:|:----------:|
+|     . . .    |  . . .  |        . . .         |    . . .     |
 
-  **_Contains the user name of the account holder._**
+**_sensors_**
 
-- password
 
-  **_Contains the password holder._**
+| sensor_id | name | temp | status | account_id |
+|:---------:|:----:|:----:|:------:|:----------:|
+|     . . .   | . . .  |  . . . |   . . .  |    . . .   |
 
-Actuators
-Sensors
 
 ## API
 
----
+### Endpoints
+Account
+Sensor
+Actuator
+System
+
