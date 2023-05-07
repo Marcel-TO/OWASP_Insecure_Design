@@ -1,12 +1,8 @@
 # Backend
 
-The backend for this project has been done with MySQL and ASP.NET CORE 7.0.
+The backend for this project has been done with `MySQL` and `ASP.NET CORE 7.0`.
 
 ## Database
-
-s
-
-## Setup
 
 ### MySQL Server
 
@@ -20,11 +16,21 @@ s
 
 - `Version 8.0.33`
 
-## Database Model
+### Model/Schema
 
 The database model is as following:
 
-### Tables:
+#### Tables:
+**_accounts_**
+
+| account_id    | role          | username  | | account_id    | role          | username  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 || ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
 ### Accounts
 
