@@ -1,18 +1,18 @@
 <!--Navigation Bar Signed Out User-->
-<header id="not-signedin">
+<header [hidden]="isSigned">
     <div class="navigation-container">
-        <a [routerLink]="['/']"><img class="logo" src="/assets/pictures/Logo.png"></a>
+        <a [routerLink]="['/']" [queryParams]="{username: currentUser}"><img class="logo" src="/assets/pictures/Logo.png"></a>
 
         <ul class="navigation-menu">
             <li class="navigation-item">
-                <a class="navigation-link">My Devices</a>
+                <a class="navigation-link" [routerLink]="['/devices']" [queryParams]="{username: currentUser}">My Devices</a>
             </li>
             <li class="navigation-item">
-                <a class="navigation-link" href="#mostUsedProgrammingSites">History</a>
+                <a class="navigation-link" [routerLink]="['/history']" [queryParams]="{username: currentUser}">History</a>
             </li>
             <li class="navigation-item">
-                <a [matMenuTriggerFor]="menu"><img class="profile" src="/assets/pictures/Icons/Profile_empty.png"></a>
-                <mat-menu #menu="matMenu">
+                <a [matMenuTriggerFor]="menuOut" id="profile-icon"><img class="profile" src="/assets/pictures/Icons/Profile_empty.png"/></a>
+                <mat-menu #menuOut="matMenu">
                     <button mat-menu-item disabled>
                       <mat-icon>settings</mat-icon>
                       <span class="navigation-link">Settings</span>
@@ -28,27 +28,27 @@
 </header>
 
 <!--Navigation Bar Signed In User-->
-<header id="signedin">
+<header [hidden]="!isSigned">
     <div class="navigation-container">
-        <a [routerLink]="['/']"><img class="logo" src="/assets/pictures/Logo.png"></a>
+        <a [routerLink]="['/']" [queryParams]="{username: currentUser}"><img class="logo" src="/assets/pictures/Logo.png"></a>
 
         <ul class="navigation-menu">
             <li class="navigation-item">
-                <a class="navigation-link">My Devices</a>
+                <a class="navigation-link" [routerLink]="['/devices']" [queryParams]="{username: currentUser}">My Devices</a>
             </li>
             <li class="navigation-item">
-                <a class="navigation-link" href="#mostUsedProgrammingSites">History</a>
+                <a class="navigation-link" [routerLink]="['/history']" [queryParams]="{username: currentUser}">History</a>
             </li>
             <li class="navigation-item">
-                <a [routerLink]="['/login']" [matMenuTriggerFor]="menu"><img class="profile" src="/assets/pictures/Icons/Profile.png"></a>
-                <mat-menu #menu="matMenu">
-                    <button mat-menu-item disabled>
+                <a [matMenuTriggerFor]="menuIn" id="profile-icon"><img class="profile" src="/assets/pictures/Icons/Profile.png"/></a>
+                <mat-menu #menuIn="matMenu">
+                    <button mat-menu-item [routerLink]="['/settings']" [queryParams]="{username: currentUser}">
                       <mat-icon>settings</mat-icon>
-                      <span>Settings</span>
+                      <span class="navigation-link">Settings</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item (click)="onLogout()">
                       <mat-icon>exit_to_app</mat-icon>
-                      <span>Log out</span>
+                      <span class="navigation-link">Log Out</span>
                     </button>
                   </mat-menu>
             </li>

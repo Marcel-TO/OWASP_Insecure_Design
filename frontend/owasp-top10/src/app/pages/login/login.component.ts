@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit{
 
   public onClick() {
     // console.log("inside login: " + this.currentUser?.username)
-    this.router.navigate(['/'], {state: this.currentUser});
+    // this.router.navigate(['/'], {state: this.currentUser});
+    this.router.navigate(['/'], {queryParams: {username: this.currentUser?.username}})
   }
 }
 

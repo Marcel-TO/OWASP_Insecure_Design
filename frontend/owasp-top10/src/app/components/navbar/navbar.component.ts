@@ -1,28 +1,31 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
-  public user;
-  constructor(private router: Router) {
-    this.user = this.router.getCurrentNavigation()?.extras.state;
-    if (this.user != null) {
-      let unsigned = document.getElementById('not-signedin');
-      let signed = document.getElementById('signedin');
-      console.log(unsigned)
-      if (signed != null) {
-        signed.style.visibility = 'visible';
-        console.log("set signed")
-      }
-      if (unsigned != null) {
-        unsigned.style.visibility = 'hidden'
-        console.log("hide unsign")
-      }
+export class NavbarComponent implements OnInit {
+  public currentUser = undefined;
+  public undefinedUser = undefined;
+  public isSigned = false
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  }
+  ngOnInit(): void {
+    this.currentUser  = this.activatedRoute.snapshot.queryParams['username'];
+    if (this.currentUser != undefined) {
+      this.isSigned = true;
     }
+    else {
+      this.isSigned = false;
+    }
+  }
+
+  public onLogout() {
+    this.currentUser = undefined;
+    this.isSigned = false;
+    this.router.navigate(['/']);
   }
 
 }

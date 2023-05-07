@@ -15,6 +15,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { BackgroundComponent } from './components/background/background.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { DevicesComponent } from './pages/devices/devices.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { BackgroundComponent } from './components/background/background.componen
     NotFoundComponent,
     NavbarComponent,
     LoginComponent,
-    BackgroundComponent
+    BackgroundComponent,
+    HistoryComponent,
+    DevicesComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
