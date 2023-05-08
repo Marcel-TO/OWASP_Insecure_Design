@@ -13,6 +13,9 @@ import { HistoryComponent } from './pages/history/history.component';
 import { DevicesComponent } from './pages/devices/devices.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { DeviceShowcaseComponent } from './pages/device-showcase/device-showcase.component';
+import { TempSettingsComponent } from './pages/temp-settings/temp-settings.component';
+import { LightSettingsComponent } from './pages/light-settings/light-settings.component';
+import { ShutterSettingsComponent } from './pages/shutter-settings/shutter-settings.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -35,7 +38,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     HistoryComponent,
     DevicesComponent,
     SettingsComponent,
-    DeviceShowcaseComponent
+    DeviceShowcaseComponent,
+    TempSettingsComponent,
+    LightSettingsComponent,
+    ShutterSettingsComponent
   ],
   imports: [
     BrowserModule,

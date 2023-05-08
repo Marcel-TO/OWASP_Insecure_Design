@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router'
+import { Sensor } from 'src/app/models/sensor';
+import { Actuator } from 'src/app/models/actuator';
 
 @Component({
   selector: 'app-devices',
@@ -8,50 +10,23 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DevicesComponent implements OnInit {
   public currentUser?: string;
-  public items?: string[];
-  public degree = 20;
-  public isOpen = false;
   
   constructor(private activatedRoute: ActivatedRoute) {
   }
 
-  public onClickDrawer() {
-    let drawer = document.getElementById('drawer');
-    let menu = document.getElementById('tempMenu');
-
-    if (this.isOpen) {
-      this.isOpen = false;
-      if (menu != null) {
-        menu.style.display = "none";
-      }
-      if (drawer != null) {
-        // toggle drawer
-      }
-    }
-  }
-
-  public onIncreaseTemp() {
-    if (this.degree < 30) {
-      this.degree += 1;
-    }
-  }
-
-  public onDegreaseTemp() {
-    if (this.degree > 14) {
-      this.degree -= 1;
-    }
-  }
-
   ngOnInit(): void {
     this.currentUser = this.activatedRoute.snapshot.queryParams['username'];
-    let unsigned = document.getElementById('unsignedDevices');
-    let devices = document.getElementById('device');
+    let devices = document.getElementById('devices');
+    let unsigned = document.getElementById('unsignedDevs');
+    console.log(this.currentUser)
+    console.log(unsigned)
     if (this.currentUser == undefined) {
       if (devices != null) {
-        devices.style.display = "none"
+        devices.style.display = 'none'
       }
       if (unsigned != null) {
         unsigned.style.display = 'unset'
+        console.log('changed')
       }
     }
     else {
@@ -59,7 +34,6 @@ export class DevicesComponent implements OnInit {
         unsigned.style.display = 'none'
       }
     }
-    
-    this.items = ['Temp 1', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Tempdfjasdjföasdjföj 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3'];
   }
 }
+

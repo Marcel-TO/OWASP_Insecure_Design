@@ -1,34 +1,22 @@
 <app-navbar></app-navbar>
 <app-background></app-background>
-<div class="devices-container" id="device">
-    <mat-drawer-container class="example-container" autosize>
-        <mat-drawer #drawer class="example-sidenav" mode="side">
-            <p *ngFor="let item of items">{{item}}</p>
-        </mat-drawer>
-      
-        <!-- <div class="example-sidenav-content">
-          <a class="toggle-btn" type="button" (click)="drawer.toggle()">
-            <img src="/assets/pictures/Icons/Temperatur.png"/>
-          </a>
-        </div> -->
+<div class="devices-container" id="devices">
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Temperatur.png" [routerLink]="['/devices/temp-settings']" [queryParams]="{username: currentUser}"/>
+        <h1 class="device-name">Temperature</h1>
+    </div>
 
-        <div class="device-item">
-            <img class="device-image" src="/assets/pictures/Icons/Temperatur.png" (click)="drawer.toggle()"/>
-            <h1 class="device-name">Temperature</h1>
-            <div class="tempMenu" id="tempMenu">
-                <div class="change-container">
-                    <button class="change-btn" (click)="onDegreaseTemp()">-</button>
-                    <h1 class="text">{{degree}} °C</h1>
-                    <button class="change-btn" (click)="onIncreaseTemp()">+</button>
-                </div>
-                <button class="set-btn">Set</button>
-                <!-- <button class="presets-btn">Presets</button> -->
-            </div>
-        </div>
-      
-      </mat-drawer-container>
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Light.png"/>
+        <h1 class="device-name">Light</h1>
+    </div>
+
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Shutter.png"/>
+        <h1 class="device-name">Shutter</h1>
+    </div>
 </div>
 
-<div class="unsigned" id="unsignedDevices">
+<div class="unsigned" id="unsignedDevs">
     <h1 class="title">Please log in to get access to your devices</h1>
 </div>

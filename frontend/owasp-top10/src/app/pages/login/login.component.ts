@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, ReactiveFormsModule, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { User } from 'src/app/models/user';
+import { Account } from 'src/app/models/account';
 
 @Component({
   selector: 'app-login',
@@ -14,14 +14,15 @@ export class LoginComponent implements OnInit{
   matcher = new MyErrorStateMatcher();
   passwordFormControl = new FormControl('', [Validators.required, Validators.min(3)]);
   isHiding = true;
-  currentUser: User | undefined = undefined;
+  currentUser: Account | undefined = undefined;
 
   constructor(private router: Router) {}
   
   ngOnInit(): void {
     this.currentUser = {
+      id: '007',
+      role: 'admin',
       username: 'testuser',
-      email: 'bla',
       password: 'ttt'
     } ;
   }

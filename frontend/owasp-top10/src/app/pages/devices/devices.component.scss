@@ -1,48 +1,19 @@
-mat-drawer-container {
-    background-color: transparent;
-}
-
-mat-drawer {
-    background-color: black;
-    color: white;
-    font-family: Raleway, sans-serif;
-}
-
-.example-container {
-    height: 90vh;
-    width: 100vw;
-  }
-  
-  .example-sidenav-content {
-    display: flex;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .example-sidenav {
-    padding: 20px;
-  }
-
-  .toggle-btn {
-    cursor: pointer;
-
-    img {
-        width: 60%;
-        justify-content: center;
-    }
-  }
-
-  .device-item {
+app-background {
     position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    top: 100%;
+}
+
+.devices-container {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    width: 33%;
-    cursor: pointer;
-    align-items: center;
     text-align: center;
+    margin-top: 8em;
+}
+
+.device-item {
+    justify-content: center;
+    width: 50%;
 }
 
 .device-name {
@@ -51,53 +22,13 @@ mat-drawer {
     font-weight: bold;
 }
 
-.menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-}
-
 .device-image {
-    width: 60%;
-}
-
-.change-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.text {
-    font-family: Raleway, sans-serif;
-    font-size: 20px;
-}
-
-.change-btn {
-    background-color: black;
-    border: solid black;
-    color: white;
-    font-family: Raleway, sans-serif;
-    font-weight: bold;
-    height: 1.5rem;
-    width: 1.5rem;
-    justify-content: center;
-    margin: 4px 10px;
+    width: 70%;
     cursor: pointer;
 }
 
-.set-btn {
-    position: relative;
-    border: solid black;
-    color: white;
-    background-color: black;
-    width: 30%;
-    height: 2rem;
-    // margin: 2rem;
-    font-size: large;
-    cursor: pointer;
-    font-family: Raleway, sans-serif;
+#unsigned {
+    display: none;
 }
 
 .title {

@@ -7,6 +7,9 @@ import { DevicesComponent } from './pages/devices/devices.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { DeviceShowcaseComponent } from './pages/device-showcase/device-showcase.component';
+import { TempSettingsComponent } from './pages/temp-settings/temp-settings.component';
+import { LightSettingsComponent } from './pages/light-settings/light-settings.component';
+import { ShutterSettingsComponent } from './pages/shutter-settings/shutter-settings.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -14,6 +17,9 @@ const routes: Routes = [
   {path: 'devices', component: DevicesComponent},
   {path: 'history', component: HistoryComponent},
   {path: 'settings', component: SettingsComponent},
+  {path: 'devices/temp-settings', component: TempSettingsComponent},
+  {path: 'devices/light-settings', component: LightSettingsComponent},
+  {path: 'devices/shutter-settings', component: ShutterSettingsComponent},
   {path: 'device-showcase', component: DeviceShowcaseComponent},
   {path: '**', component: NotFoundComponent},
 ];
