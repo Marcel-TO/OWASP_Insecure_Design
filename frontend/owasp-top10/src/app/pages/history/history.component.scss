@@ -1,0 +1,14 @@
+#unsigned {
+    display: none;
+}
+
+.title {
+    position: absolute;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    font-size: 3rem;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.5em;
+}
