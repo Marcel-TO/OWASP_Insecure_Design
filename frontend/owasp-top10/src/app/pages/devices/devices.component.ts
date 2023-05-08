@@ -7,10 +7,28 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./devices.component.scss']
 })
 export class DevicesComponent implements OnInit {
-  public degree = 20
-  public currentUser = undefined;
+  public currentUser?: string;
+  public items?: string[];
+  public degree = 20;
+  public isOpen = false;
   
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute) {
+  }
+
+  public onClickDrawer() {
+    let drawer = document.getElementById('drawer');
+    let menu = document.getElementById('tempMenu');
+
+    if (this.isOpen) {
+      this.isOpen = false;
+      if (menu != null) {
+        menu.style.display = "none";
+      }
+      if (drawer != null) {
+        // toggle drawer
+      }
+    }
+  }
 
   public onIncreaseTemp() {
     if (this.degree < 30) {
@@ -26,17 +44,14 @@ export class DevicesComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentUser = this.activatedRoute.snapshot.queryParams['username'];
-    let devices = document.getElementById('devices');
     let unsigned = document.getElementById('unsignedDevices');
-    console.log(this.currentUser)
-    console.log(unsigned)
+    let devices = document.getElementById('device');
     if (this.currentUser == undefined) {
       if (devices != null) {
-        devices.style.display = 'none'
+        devices.style.display = "none"
       }
       if (unsigned != null) {
         unsigned.style.display = 'unset'
-        console.log('changed')
       }
     }
     else {
@@ -44,5 +59,7 @@ export class DevicesComponent implements OnInit {
         unsigned.style.display = 'none'
       }
     }
+    
+    this.items = ['Temp 1', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Tempdfjasdjföasdjföj 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3', 'Temp 2', 'Temp 3'];
   }
 }

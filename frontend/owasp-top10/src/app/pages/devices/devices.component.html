@@ -1,60 +1,32 @@
 <app-navbar></app-navbar>
 <app-background></app-background>
-<div class="devices-container" id="devices">
-    <div class="device-item">
-        <img class="device-image" src="/assets/pictures/Icons/Temperatur.png"/>
-        <h1 class="device-name">Temperature</h1>
-        <div class="tempMenu">
-            <div class="change-container">
-                <button class="change-btn" (click)="onDegreaseTemp()">-</button>
-                <h1 class="text">{{degree}} °C</h1>
-                <button class="change-btn" (click)="onIncreaseTemp()">+</button>
+<div class="devices-container" id="device">
+    <mat-drawer-container class="example-container" autosize>
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+            <p *ngFor="let item of items">{{item}}</p>
+        </mat-drawer>
+      
+        <!-- <div class="example-sidenav-content">
+          <a class="toggle-btn" type="button" (click)="drawer.toggle()">
+            <img src="/assets/pictures/Icons/Temperatur.png"/>
+          </a>
+        </div> -->
+
+        <div class="device-item">
+            <img class="device-image" src="/assets/pictures/Icons/Temperatur.png" (click)="drawer.toggle()"/>
+            <h1 class="device-name">Temperature</h1>
+            <div class="tempMenu" id="tempMenu">
+                <div class="change-container">
+                    <button class="change-btn" (click)="onDegreaseTemp()">-</button>
+                    <h1 class="text">{{degree}} °C</h1>
+                    <button class="change-btn" (click)="onIncreaseTemp()">+</button>
+                </div>
+                <button class="set-btn">Set</button>
+                <!-- <button class="presets-btn">Presets</button> -->
             </div>
-            <button class="set-btn">Set</button>
-            <!-- <button class="presets-btn">Presets</button> -->
         </div>
-    </div>
-
-    <div class="device-item">
-        <img class="device-image" src="/assets/pictures/Icons/Light.png"/>
-        <h1 class="device-name">Light</h1>
-        <div class="tempMenu">
-            <div class="change-container">
-                <p class="text">darker</p>
-                <mat-slider><input matSliderThumb></mat-slider>
-                <p class="text">brighter</p>
-            </div>
-            <div class="change-container">
-                <p class="text">cold</p>
-                <mat-slider><input matSliderThumb></mat-slider>
-                <p class="text">warm</p>
-            </div>
-
-            <button class="set-btn">Set</button>
-            <!-- <button class="presets-btn">Presets</button> -->
-        </div>
-    </div>
-
-    <div class="device-item">
-        <img class="device-image" src="/assets/pictures/Icons/Shutter.png"/>
-        <h1 class="device-name">Shutter</h1>
-        <div class="menu">
-            <p class="text ">shutter | livingroom</p>
-            <mat-chip-listbox class="menu">
-                <mat-chip-option selected>opened</mat-chip-option>
-                <mat-chip-option>closed</mat-chip-option>
-            </mat-chip-listbox>
-
-            <p class="text ">shutter | bedroom</p>
-            <mat-chip-listbox class="menu">
-                <mat-chip-option selected>opened</mat-chip-option>
-                <mat-chip-option>closed</mat-chip-option>
-            </mat-chip-listbox>
-
-            <!-- <button class="set-btn">Set</button> -->
-            <!-- <button class="presets-btn">Presets</button> -->
-        </div>
-    </div>
+      
+      </mat-drawer-container>
 </div>
 
 <div class="unsigned" id="unsignedDevices">

@@ -17,6 +17,10 @@
                       <mat-icon>settings</mat-icon>
                       <span class="navigation-link">Settings</span>
                     </button>
+                    <button mat-menu-item [routerLink]="['/device-showcase']" [queryParams]="{username: currentUser}" disabled>
+                        <mat-icon>devices_other</mat-icon>
+                        <span class="navigation-link">Device Settings Showcase</span>
+                    </button>
                     <button mat-menu-item [routerLink]="['/login']">
                       <mat-icon>fingerprint</mat-icon>
                       <span class="navigation-link">Log In</span>
@@ -45,6 +49,10 @@
                     <button mat-menu-item [routerLink]="['/settings']" [queryParams]="{username: currentUser}">
                       <mat-icon>settings</mat-icon>
                       <span class="navigation-link">Settings</span>
+                    </button>
+                    <button mat-menu-item [routerLink]="['/device-showcase']" [queryParams]="{username: currentUser}">
+                        <mat-icon>devices_other</mat-icon>
+                        <span class="navigation-link">Device Settings Showcase</span>
                     </button>
                     <button mat-menu-item (click)="onLogout()">
                       <mat-icon>exit_to_app</mat-icon>

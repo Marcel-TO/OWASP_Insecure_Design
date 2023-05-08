@@ -12,6 +12,7 @@ import { BackgroundComponent } from './components/background/background.componen
 import { HistoryComponent } from './pages/history/history.component';
 import { DevicesComponent } from './pages/devices/devices.component';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { DeviceShowcaseComponent } from './pages/device-showcase/device-showcase.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -21,6 +22,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {MatChipsModule} from '@angular/material/chips';
     BackgroundComponent,
     HistoryComponent,
     DevicesComponent,
-    SettingsComponent
+    SettingsComponent,
+    DeviceShowcaseComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatMenuModule,
     MatExpansionModule,
     MatSliderModule,
-    MatChipsModule
+    MatChipsModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]
