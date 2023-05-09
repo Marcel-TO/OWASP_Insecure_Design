@@ -1,5 +1,8 @@
 mat-drawer-container {
     background-color: transparent;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
 
 mat-drawer {
@@ -7,13 +10,14 @@ mat-drawer {
     color: white;
     font-family: Raleway, sans-serif;
     font-size: 20px;
-    line-height: 30px;
+    line-height: 2em;
     border-radius: 0 10% 10% 0;
 }
 
 .drawer-container {
     height: 90vh;
     width: 100vw;
+    margin-top: 2em;
   }
   
   .drawer-sidenav-content {
@@ -116,4 +120,5 @@ mat-drawer {
 
 .single-sensor {
     cursor: pointer;
+    margin: 0 4em 0 2em;
 }

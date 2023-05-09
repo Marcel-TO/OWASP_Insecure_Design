@@ -8,6 +8,7 @@ app-background {
     flex-direction: row;
     justify-content: center;
     text-align: center;
+    margin-top: 10em;
 }
 
 .device-item {
@@ -30,7 +31,7 @@ app-background {
 }
 
 .device-image {
-    width: 60%;
+    width: 40%;
 }
 
 .change-container {

@@ -9,6 +9,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BackgroundComponent } from './components/background/background.component';
+import { BackgroundLeftComponent } from './components/background-left/background-left.component';
+import { BackgroundMiddleComponent } from './components/background-middle/background-middle.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { DevicesComponent } from './pages/devices/devices.component';
 import { SettingsComponent } from './pages/settings/settings.component';
@@ -35,6 +37,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     NavbarComponent,
     LoginComponent,
     BackgroundComponent,
+    BackgroundLeftComponent,
+    BackgroundMiddleComponent,
     HistoryComponent,
     DevicesComponent,
     SettingsComponent,

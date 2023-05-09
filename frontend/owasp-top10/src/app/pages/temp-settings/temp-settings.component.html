@@ -1,13 +1,13 @@
 <app-navbar></app-navbar>
-<app-background></app-background>
+<app-background-left></app-background-left>
 <div class="devices-container" id="device">
     <mat-drawer-container class="drawer-container" autosize>
         <mat-drawer #drawer class="drawer-sidenav" mode="side">
-            <p class="single-sensor" (click)="selectDevice(sensor)" *ngFor="let sensor of sensors">{{sensor.name}}</p>
+            <p class="single-sensor" id="sensor-btn" (click)="selectDevice(sensor)" *ngFor="let sensor of sensors">{{sensor.name}}</p>
         </mat-drawer>
 
         <div class="device-item">
-            <img class="device-image" src="/assets/pictures/Icons/Temperatur.png" (click)="drawer.toggle()"/>
+            <img class="device-image" src="/assets/pictures/Icons/Temperature.png" (click)="drawer.toggle()"/>
             <h1 class="device-name">{{currentSensor?.name}}</h1>
             <div class="tempMenu" id="tempMenu">
                 <div class="change-container">

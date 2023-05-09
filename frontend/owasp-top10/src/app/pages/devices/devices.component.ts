@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
-import { Sensor } from 'src/app/models/sensor';
-import { Actuator } from 'src/app/models/actuator';
 
 @Component({
   selector: 'app-devices',

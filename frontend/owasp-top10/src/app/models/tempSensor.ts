@@ -1,4 +1,4 @@
-export interface Sensor {
+export interface TempSensor {
     id: string,
     name: string
     temp: number,

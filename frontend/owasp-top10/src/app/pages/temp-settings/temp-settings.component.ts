@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Actuator } from 'src/app/models/actuator';
-import { Sensor } from 'src/app/models/sensor';
+import { TempSensor } from 'src/app/models/tempSensor';
 
 @Component({
   selector: 'app-temp-settings',
@@ -10,8 +10,8 @@ import { Sensor } from 'src/app/models/sensor';
 })
 export class TempSettingsComponent {
   public currentUser?: string;
-  public currentSensor?: Sensor;
-  public sensors?: Sensor[];
+  public currentSensor?: TempSensor;
+  public sensors?: TempSensor[];
   public actuators?: Actuator[];
   public degree = 20;
   public isOpen = false;
@@ -20,16 +20,12 @@ export class TempSettingsComponent {
   }
 
   public onClickDrawer() {
-    let drawer = document.getElementById('drawer');
     let menu = document.getElementById('tempMenu');
 
     if (this.isOpen) {
       this.isOpen = false;
       if (menu != null) {
         menu.style.display = "none";
-      }
-      if (drawer != null) {
-        // toggle drawer
       }
     }
   }
@@ -46,7 +42,7 @@ export class TempSettingsComponent {
     }
   }
 
-  public selectDevice(sensor: Sensor) {
+  public selectDevice(sensor: TempSensor) {
     this.currentSensor = sensor;
     
   }

@@ -1,18 +1,18 @@
 <app-navbar></app-navbar>
-<app-background></app-background>
+<app-background-middle></app-background-middle>
 <div class="devices-container" id="devices">
     <div class="device-item">
-        <img class="device-image" src="/assets/pictures/Icons/Temperatur.png" [routerLink]="['/devices/temp-settings']" [queryParams]="{username: currentUser}"/>
+        <img class="device-image" src="/assets/pictures/Icons/Temperature.png" [routerLink]="['/devices/temp-settings']" [queryParams]="{username: currentUser}"/>
         <h1 class="device-name">Temperature</h1>
     </div>
 
     <div class="device-item">
-        <img class="device-image" src="/assets/pictures/Icons/Light.png"/>
+        <img class="device-image" src="/assets/pictures/Icons/Light.png" [routerLink]="['/devices/light-settings']" [queryParams]="{username: currentUser}"/>
         <h1 class="device-name">Light</h1>
     </div>
 
     <div class="device-item">
-        <img class="device-image" src="/assets/pictures/Icons/Shutter.png"/>
+        <img class="device-image" src="/assets/pictures/Icons/Shutter.png" [routerLink]="['/devices/shutter-settings']" [queryParams]="{username: currentUser}"/>
         <h1 class="device-name">Shutter</h1>
     </div>
 </div>
