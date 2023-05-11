@@ -3,6 +3,7 @@ import {FormControl, ReactiveFormsModule, FormGroupDirective, NgForm, Validators
 import {ErrorStateMatcher} from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
+import { Modelfactory } from 'src/app/models/modelfactory';
 
 @Component({
   selector: 'app-login',
@@ -15,16 +16,17 @@ export class LoginComponent implements OnInit{
   passwordFormControl = new FormControl('', [Validators.required, Validators.min(3)]);
   isHiding = true;
   currentUser: Account | undefined = undefined;
+  allUsers?: Account[]
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    let modelfactory = new Modelfactory()
+    this.allUsers = modelfactory.Accounts;
+  }
   
   ngOnInit(): void {
-    this.currentUser = {
-      id: '007',
-      role: 'admin',
-      username: 'testuser',
-      password: 'ttt'
-    } ;
+    if (this.allUsers != null) {
+      this.currentUser = this.allUsers[0]
+    }
   }
 
   public onClick() {

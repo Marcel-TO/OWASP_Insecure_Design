@@ -1,9 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatAccordion } from '@angular/material/expansion';
+import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';
 import { LightSensor } from 'src/app/models/lightSensor';
 import { ShutterSensor } from 'src/app/models/shutterSensor';
 import { TempSensor } from 'src/app/models/tempSensor';
+import { Modelfactory } from 'src/app/models/modelfactory';
+import { Account } from 'src/app/models/account';
 
 @Component({
   selector: 'app-settings',
@@ -11,31 +14,33 @@ import { TempSensor } from 'src/app/models/tempSensor';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  @ViewChild(MatAccordion) accordion?: MatAccordion;
   public currentUser?: string;
+  public accounts?: Account[];
   public tempSensors?: TempSensor[];
   public lightSensors?: LightSensor[];
   public shutterSensors?: ShutterSensor[];
+  usernameFormControl = new FormControl('', [Validators.required, Validators.min(3)]);
+  matcher = new MyErrorStateMatcher();
+  passwordFormControl = new FormControl('', [Validators.required, Validators.min(3)]);
+  isHiding = true;
 
   constructor(private activatedRoute: ActivatedRoute) {
-    this.tempSensors = [{id: '001', name: 'Temp-Livingroom', temp: 24, status: 'on', account_id: 'testuser'},
-    {id: '002', name: 'Temp-Bedroom', temp: 18, status: 'on', account_id: 'testuser'},
-    {id: '003', name: 'Temp-Kitchen', temp: 26, status: 'on', account_id: 'testuser'},
-    {id: '004', name: 'Temp-Bathroom', temp: 25, status: 'on', account_id: 'testuser'}];
-    this.lightSensors = [{id: '001', name: 'Light_Livingroom', brightness: 4, warmness: 6, account_id: 'testuser'},
-    {id: '002', name: 'Light_Kitchen', brightness: 8, warmness: 3, account_id: 'testuser'},
-    {id: '003', name: 'Light_Bedroom', brightness: 4, warmness: 6, account_id: 'testuser'},
-    {id: '004', name: 'Light_Upstairs', brightness: 0, warmness: 0, account_id: 'testuser'}];
-    this.shutterSensors = [{id: '001', name: 'Shutter Livingroom', isOpen: true, account_id: 'testuser'},
-    {id: '002', name: 'Shutter Kitchen', isOpen: false, account_id: 'testuser'},
-    {id: '003', name: 'Shutter Bedroom', isOpen: true, account_id: 'testuser'},
-    {id: '004', name: 'Shutter Terrace', isOpen: false, account_id: 'testuser'}];
+    let modelFactory = new Modelfactory();
+    this.accounts = modelFactory.Accounts;
+    this.tempSensors = modelFactory.TempSensors;
+    this.lightSensors = modelFactory.LightSensors;
+    this.shutterSensors = modelFactory.ShutterSensors;
+  }
+
+  public onClick() {
+
   }
 
   ngOnInit(): void {
     this.currentUser = this.activatedRoute.snapshot.queryParams['username'];
     let unsigned = document.getElementById('unsignedSettings');
     let devices = document.getElementById('device');
+    let adminSettings = document.getElementById('admin-settings');
     if (this.currentUser == undefined) {
       if (devices != null) {
         devices.style.display = "none"
@@ -45,10 +50,29 @@ export class SettingsComponent implements OnInit {
       }
     }
     else {
-      if (unsigned != null) {
-        unsigned.style.display = 'none'
+      if (this.accounts != null) {
+        if (unsigned != null) {
+          unsigned.style.display = 'none'
+        }
+
+        for (let acc of this.accounts) {
+          if (acc.username == this.currentUser) {
+            if (acc.role != 'admin') {
+              if (adminSettings != null) {
+                adminSettings.style.display = 'none';
+              }
+            }
+          }
+        }
       }
     }
   }
+}
 
+/** Error when invalid control is dirty, touched, or submitted. */
+export class MyErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
+    const isSubmitted = form && form.submitted;
+    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  }
 }

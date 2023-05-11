@@ -11,7 +11,6 @@
 
 .text {
     font-family: Raleway, sans-serif;
-    color: black;
     font-weight: bold;
 }
   
@@ -70,4 +69,48 @@ input {
     display: flex;
     flex-direction: column;
     width: 200px;
+}
+
+.normal-user-settings {
+    margin: 5em;
+
+    .change-profile-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        border: 4px solid black;
+        width: 30%;
+        background-color: white;
+        left: 50%;
+        transform: translate(-50%,0);
+      
+        .header {
+          margin-top: 1rem;
+        }
+      
+        .signin-form {
+          display: flex;
+          min-width: 100px;
+          max-width: 20vm;
+          width: 100%;
+        
+          .signin-full-width {
+            width: 100%;
+            margin: 1rem 2rem;
+          }
+        }
+      
+        .change-btn {
+          border: solid black;
+          color: white;
+          background-color: black;
+          width: 60%;
+          height: 2rem;
+          margin: 2rem;
+          font-size: large;
+          cursor: pointer;
+        }
+      }
 }

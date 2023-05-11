@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <app-background-middle></app-background-middle>
 
-<div class="admin-settings">
+<div class="admin-settings" id="admin-settings">
     <div class="admin-settings-device-container">
         <h1 class="text">Temperature Devices</h1>
         <mat-accordion class="expansion-headers-align" multi>
@@ -69,7 +69,7 @@
                     {{sensor.name}}
                 </mat-panel-title>
                 <mat-panel-description class="text">
-                    Is Opened: {{sensor.isOpen}}
+                    Is Open: {{sensor.isOpen}}
                     <img class="icon" src="/assets/pictures/Icons/Shutter.png"/>
                 </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -86,6 +86,36 @@
                 <mat-card-content><button class="add-device-btn">Add Shutter Device</button></mat-card-content>
             </mat-card>      
         </mat-accordion>
+    </div>
+</div>
+
+<div class="normal-user-settings">
+    <div class="change-profile-container">
+        <h1 class="header">Change Profile</h1>
+        <form class="signin-form">
+          <mat-form-field class="signin-full-width">
+            <mat-label>{{currentUser}}</mat-label>
+            <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher"
+                    placeholder={{currentUser}}>
+            <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="!usernameFormControl.hasError('required')">
+              Please enter a valid username
+            </mat-error>
+            <mat-error *ngIf="usernameFormControl.hasError('required')">
+              Username is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+        <form class="signin-form">
+          <mat-form-field class="signin-full-width">
+            <input matInput placeholder="New Password" [type]="isHiding ? 'password' : 'text'" [formControl]="passwordFormControl" required>
+            <mat-icon matSuffix (click)="isHiding = !isHiding">{{isHiding ? 'visibility_off' : 'visibility'}}</mat-icon>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+        <button class="change-btn" (click)="onClick()" [routerLink]="['/']">Change Profile</button>
     </div>
 </div>
 
