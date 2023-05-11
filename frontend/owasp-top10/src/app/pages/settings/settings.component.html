@@ -1,3 +1,94 @@
 <app-navbar></app-navbar>
-<app-background></app-background>
-<p>Settings works!</p>
+<app-background-middle></app-background-middle>
+
+<div class="admin-settings">
+    <div class="admin-settings-device-container">
+        <h1 class="text">Temperature Devices</h1>
+        <mat-accordion class="expansion-headers-align" multi>
+            <mat-expansion-panel *ngFor="let sensor of tempSensors">
+                <mat-expansion-panel-header>
+                <mat-panel-title class="text">
+                    {{sensor.name}}
+                </mat-panel-title>
+                <mat-panel-description class="text">
+                    {{sensor.temp}}°C
+                    <img class="icon" src="/assets/pictures/Icons/Temperature.png"/>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                
+                <div class="expansion-content">
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{sensor.name}}</mat-label>
+                        <input matInput placeholder="new name:"/>
+                        </mat-form-field>
+        
+                        <button class="set-btn">Set</button>
+                </div>
+            </mat-expansion-panel>
+            <mat-card class="add-device">
+                <mat-card-content><button class="add-device-btn">Add Temperature Device</button></mat-card-content>
+            </mat-card>   
+        </mat-accordion>
+    </div>
+
+    <div class="admin-settings-device-container">
+        <h1 class="text">Light Devices</h1>
+        <mat-accordion class="expansion-headers-align" multi>
+            <mat-expansion-panel *ngFor="let sensor of lightSensors">
+                <mat-expansion-panel-header>
+                <mat-panel-title class="text">
+                    {{sensor.name}}
+                </mat-panel-title>
+                <mat-panel-description class="text">
+                    <mat-slider min="0" max="10" disabled><input matSliderThumb [(ngModel)]="sensor.brightness">brightness</mat-slider>
+                    <mat-slider min="0" max="10" disabled><input matSliderThumb [(ngModel)]="sensor.warmness">warmness</mat-slider>
+                    <img class="icon" src="/assets/pictures/Icons/Light.png"/>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                
+                <div class="expansion-content">
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{sensor.name}}</mat-label>
+                        <input matInput placeholder="new name:"/>
+                        </mat-form-field>
+                        <button class="set-btn">Set</button>
+                </div>
+            </mat-expansion-panel>
+            <mat-card class="add-device">
+                <mat-card-content><button class="add-device-btn">Add Light Device</button></mat-card-content>
+            </mat-card>            
+        </mat-accordion>
+    </div>
+
+    <div class="admin-settings-device-container">
+        <h1 class="text">Shutter Devices</h1>
+        <mat-accordion class="expansion-headers-align" multi>
+            <mat-expansion-panel *ngFor="let sensor of shutterSensors">
+                <mat-expansion-panel-header>
+                <mat-panel-title class="text">
+                    {{sensor.name}}
+                </mat-panel-title>
+                <mat-panel-description class="text">
+                    Is Opened: {{sensor.isOpen}}
+                    <img class="icon" src="/assets/pictures/Icons/Shutter.png"/>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                
+                <div class="expansion-content">
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{sensor.name}}</mat-label>
+                        <input matInput placeholder="new name:"/>
+                        </mat-form-field>
+                        <button class="set-btn">Set</button>
+                </div>
+            </mat-expansion-panel>
+            <mat-card class="add-device">
+                <mat-card-content><button class="add-device-btn">Add Shutter Device</button></mat-card-content>
+            </mat-card>      
+        </mat-accordion>
+    </div>
+</div>
+
+<div class="unsigned" id="unsignedSettings">
+    <h1 class="title">Please log in to get access to your devices</h1>
+</div>

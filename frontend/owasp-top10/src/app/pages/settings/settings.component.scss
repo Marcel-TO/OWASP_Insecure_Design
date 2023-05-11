@@ -1,0 +1,73 @@
+.title {
+    position: absolute;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    font-size: 3rem;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.5em;
+}
+
+.text {
+    font-family: Raleway, sans-serif;
+    color: black;
+    font-weight: bold;
+}
+  
+.expansion-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+    font-family: Raleway, sans-serif;
+}
+  
+.expansion-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+    font-family: Raleway, sans-serif;
+}
+
+.admin-settings {
+    font-family: Raleway, sans-serif;
+    margin: 5rem;
+
+    .admin-settings-device-container {
+        margin-top: 8rem;
+    }
+}
+
+input {
+    height: 50px;
+}
+
+.icon {
+    width: 35px;
+}
+
+.set-btn {
+    border: solid black;
+    color: white;
+    background-color: black;
+    height: 50px;
+    font-size: large;
+    cursor: pointer;
+    font-family: Raleway, sans-serif;
+}
+
+.add-device {
+    .add-device-btn {
+        border: solid transparent;
+        color: black;
+        background-color: transparent;
+        width: 100%;
+        font-size: large;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: Raleway, sans-serif;
+    }
+}
+
+.expansion-content {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
