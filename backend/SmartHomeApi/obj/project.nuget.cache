@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yZLlJOAiWLkjLPXbprQWqQ3ThQbaKjhTUd8HNOIKoilGJohVMArIcAwBhyt3C1y6LTEXRbDPWm1kpO3IobHH7Q==",
+  "dgSpecHash": "qc4yy7DypURjTLBoe6Fgo8xMEfUpuJ2LsnZ/NlBb3qFrjoK5TZB1SgHTTQC4NeTcJ25B1fsTlnKn9ZJNLF4hQw==",
   "success": true,
   "projectFilePath": "C:\\Users\\chris\\Desktop\\Fh\\4.Semester\\It-Sicherheit\\Uebung_2\\OWASP_Insecure_Design\\backend\\SmartHomeApi\\SmartHomeApi.csproj",
   "expectedPackageFiles": [
@@ -71,7 +71,9 @@
     "C:\\Users\\chris\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\chris\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\chris\\.nuget\\packages\\mysql.data\\8.0.33\\mysql.data.8.0.33.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\mysql.data.entityframeworkcore\\8.0.22\\mysql.data.entityframeworkcore.8.0.22.nupkg.sha512",
     "C:\\Users\\chris\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512",
+    "C:\\Users\\chris\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "C:\\Users\\chris\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\chris\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
     "C:\\Users\\chris\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",

@@ -16,7 +16,9 @@
           "Microsoft.EntityFrameworkCore.Design": "7.0.5",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
           "MySql.Data": "8.0.33",
+          "MySql.Data.EntityFrameworkCore": "8.0.22",
           "MySqlConnector": "2.2.5",
+          "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
           "Swashbuckle.AspNetCore": "6.4.0"
         },
         "runtime": {
@@ -648,11 +650,35 @@
           }
         }
       },
+      "MySql.Data.EntityFrameworkCore/8.0.22": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.5",
+          "MySql.Data": "8.0.33"
+        },
+        "runtime": {
+          "lib/netstandard2.1/MySql.Data.EntityFrameworkCore.dll": {
+            "assemblyVersion": "8.0.22.0",
+            "fileVersion": "8.0.22.0"
+          }
+        }
+      },
       "MySqlConnector/2.2.5": {
         "runtime": {
           "lib/net7.0/MySqlConnector.dll": {
             "assemblyVersion": "2.0.0.0",
             "fileVersion": "2.2.5.0"
+          }
+        }
+      },
+      "Pomelo.EntityFrameworkCore.MySql/7.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.5",
+          "MySqlConnector": "2.2.5"
+        },
+        "runtime": {
+          "lib/net7.0/Pomelo.EntityFrameworkCore.MySql.dll": {
+            "assemblyVersion": "7.0.0.0",
+            "fileVersion": "7.0.0.0"
           }
         }
       },
@@ -1430,12 +1456,26 @@
       "path": "mysql.data/8.0.33",
       "hashPath": "mysql.data.8.0.33.nupkg.sha512"
     },
+    "MySql.Data.EntityFrameworkCore/8.0.22": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o/+OMqQ0fw4f6COfRrbwqP0CKcqoFkCfb1Rl3mfgUcae3XqAkiA6t8rsjA1wnkxUvwfNYX+YM2w2Xa6u4QEUkA==",
+      "path": "mysql.data.entityframeworkcore/8.0.22",
+      "hashPath": "mysql.data.entityframeworkcore.8.0.22.nupkg.sha512"
+    },
     "MySqlConnector/2.2.5": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-6sinY78RvryhHwpup3awdjYO7d5hhWahb5p/1VDODJhSxJggV/sBbYuKK5IQF9TuzXABiddqUbmRfM884tqA3Q==",
       "path": "mysqlconnector/2.2.5",
       "hashPath": "mysqlconnector.2.2.5.nupkg.sha512"
+    },
+    "Pomelo.EntityFrameworkCore.MySql/7.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Qk5WB/skSZet5Yrz6AN2ywjZaB1pxfAmvQ+5I4khTkLwwIamI4QJoH2NphCWLFQL+2ar8HvsNCTmwYk0qhqL0w==",
+      "path": "pomelo.entityframeworkcore.mysql/7.0.0",
+      "hashPath": "pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512"
     },
     "Portable.BouncyCastle/1.9.0": {
       "type": "package",
