@@ -1,12 +1,8 @@
 # Backend
 
-The backend for this project has been done with MySQL and ASP.NET CORE 7.0.
+The backend for this project has been done with `MySQL` and `ASP.NET CORE 7.0`.
 
 ## Database
-
-s
-
-## Setup
 
 ### MySQL Server
 
@@ -20,29 +16,36 @@ s
 
 - `Version 8.0.33`
 
-## Database Model
+### Model/Schema
 
 The database model is as following:
 
-### Tables:
+### Tables
+**_accounts_**
 
-### Accounts
+| account_id | role | username | password |
+|:----------:|:----:|:--------:|:--------:|
+|     . . .    | . . .  |   . . .    |   . . .    |
 
-- account*id
-  \*\*\_Contains the id of the account.*\*\*
-- role
-  **_Represents the role of the account holder._**
-- username
+**_actuators_**
 
-  **_Contains the user name of the account holder._**
+| actuator_id | name | target_temperature | account_id |
+|:----------:|:-----:|:------------------:|:----------:|
+|     . . .    |  . . .  |        . . .         |    . . .     |
 
-- password
+**_sensors_**
 
-  **_Contains the password holder._**
 
-Actuators
-Sensors
+| sensor_id | name | temp | status | account_id |
+|:---------:|:----:|:----:|:------:|:----------:|
+|     . . .   | . . .  |  . . . |   . . .  |    . . .   |
+
 
 ## API
 
----
+### Endpoints
+Account
+Sensor
+Actuator
+System
+
