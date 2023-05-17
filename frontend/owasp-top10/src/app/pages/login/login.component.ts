@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit{
     CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true })
   ]));
   isHiding = true;
+  showDoesNotExist = false;
   currentUser: Account | undefined = undefined;
   allUsers?: Account[]
 
@@ -35,15 +36,24 @@ export class LoginComponent implements OnInit{
   }
   
   ngOnInit(): void {
-    if (this.allUsers != null) {
-      this.currentUser = this.allUsers[0]
-    }
   }
 
-  public onClick() {
-    // console.log("inside login: " + this.currentUser?.username)
-    // this.router.navigate(['/'], {state: this.currentUser});
-    this.router.navigate(['/'], {queryParams: {username: this.currentUser?.username}})
+  public onLogin() {
+    if (!this.usernameFormControl.valid || !this.passwordFormControl.valid || this.allUsers == undefined) {
+      return;
+    }
+
+    let username = this.usernameFormControl.value;
+    let password = this.passwordFormControl.value;
+
+    for (let user of this.allUsers) {
+      if (username == user.username && password == user.password) {
+        this.currentUser = user;
+        this.router.navigate(['/'], {queryParams: {username: user.username}})
+      }
+    }
+
+    this.usernameFormControl.setErrors({notExist: true})
   }
 }
 

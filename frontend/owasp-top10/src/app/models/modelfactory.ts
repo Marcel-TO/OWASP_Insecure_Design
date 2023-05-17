@@ -17,8 +17,8 @@ export class Modelfactory {
     }
 
     private getAccounts(): Account[] {
-        return [{id: '007', role: 'admin', username: 'admin', password: 'adminpassword'},
-        {id: '008', role: 'user', username: 'normaluser', password: 'normalpassword'}];
+        return [{id: '007', role: 'admin', username: 'admin', password: '1Admin'},
+        {id: '008', role: 'user', username: 'normaluser', password: '1Normal'}];
     }
 
     private getTempSensors(): TempSensor[] {
