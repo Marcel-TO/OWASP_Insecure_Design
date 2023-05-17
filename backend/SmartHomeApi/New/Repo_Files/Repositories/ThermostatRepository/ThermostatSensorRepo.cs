@@ -11,10 +11,8 @@ namespace SmartHomeApi.New.Repositories;
 public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
 {
     private SHDbContext context;
-    private ILogger logger;
-    public ThermostatSensorRepo(ILogger logger, SHDbContext context){
+    public ThermostatSensorRepo(SHDbContext context){
         this.context = context;
-        this.logger = logger;
     }
 
 

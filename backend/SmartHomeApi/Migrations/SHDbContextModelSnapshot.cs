@@ -166,8 +166,9 @@ namespace SmartHomeApi.Migrations
                     b.Property<Guid?>("SmartJalousineJalousine_Id")
                         .HasColumnType("char(36)");
 
-                    b.Property<int>("State")
-                        .HasColumnType("int");
+                    b.Property<string>("State")
+                        .IsRequired()
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Status")
                         .IsRequired()
@@ -250,12 +251,9 @@ namespace SmartHomeApi.Migrations
                     b.Property<Guid>("Therm_Id")
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid?>("Thermostat_Id")
-                        .HasColumnType("char(36)");
-
                     b.HasKey("Actuator_Id");
 
-                    b.HasIndex("Thermostat_Id");
+                    b.HasIndex("Therm_Id");
 
                     b.ToTable("thermostat_actuator");
                 });
@@ -284,12 +282,9 @@ namespace SmartHomeApi.Migrations
                     b.Property<Guid>("Therm_Id")
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid?>("Thermostat_Id")
-                        .HasColumnType("char(36)");
-
                     b.HasKey("Sensor_Id");
 
-                    b.HasIndex("Thermostat_Id");
+                    b.HasIndex("Therm_Id");
 
                     b.ToTable("thermostat_sensors");
                 });
@@ -367,7 +362,9 @@ namespace SmartHomeApi.Migrations
                 {
                     b.HasOne("SmartHomeApi.New.Models.Thermostat", "Thermostat")
                         .WithMany("Actuators")
-                        .HasForeignKey("Thermostat_Id");
+                        .HasForeignKey("Therm_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Thermostat");
                 });
@@ -376,7 +373,9 @@ namespace SmartHomeApi.Migrations
                 {
                     b.HasOne("SmartHomeApi.New.Models.Thermostat", "Thermostat")
                         .WithMany("Sensors")
-                        .HasForeignKey("Thermostat_Id");
+                        .HasForeignKey("Therm_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Thermostat");
                 });

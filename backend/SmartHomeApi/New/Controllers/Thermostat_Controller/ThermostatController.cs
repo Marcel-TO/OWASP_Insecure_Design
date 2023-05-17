@@ -8,7 +8,7 @@ using SmartHomeApi.New.Models;
 namespace SmartHomeApi.New.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("api/thermostat")]
 public class ThermostatController : ControllerBase
 {
     private readonly ThermostatRepo _repository;
