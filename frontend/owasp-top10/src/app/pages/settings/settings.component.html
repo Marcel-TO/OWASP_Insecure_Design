@@ -18,11 +18,11 @@
                 
                 <div class="expansion-content">
                     <mat-form-field appearance="fill">
-                        <mat-label>{{sensor.name}}</mat-label>
-                        <input matInput placeholder="new name:"/>
+                        <mat-label>new name:</mat-label>
+                        <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
                         </mat-form-field>
         
-                        <button class="set-btn">Set</button>
+                        <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
@@ -48,10 +48,10 @@
                 
                 <div class="expansion-content">
                     <mat-form-field appearance="fill">
-                        <mat-label>{{sensor.name}}</mat-label>
-                        <input matInput placeholder="new name:"/>
+                        <mat-label>new name:</mat-label>
+                        <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
                         </mat-form-field>
-                        <button class="set-btn">Set</button>
+                        <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
@@ -76,10 +76,10 @@
                 
                 <div class="expansion-content">
                     <mat-form-field appearance="fill">
-                        <mat-label>{{sensor.name}}</mat-label>
-                        <input matInput placeholder="new name:"/>
+                        <mat-label>new name:</mat-label>
+                        <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
                         </mat-form-field>
-                        <button class="set-btn">Set</button>
+                        <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
@@ -94,10 +94,15 @@
         <h1 class="header">Change Profile</h1>
         <form class="signin-form">
           <mat-form-field class="signin-full-width">
-            <mat-label>{{currentUser}}</mat-label>
-            <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher"
-                    placeholder={{currentUser}}>
+            <mat-label>new username:</mat-label>
+            <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher" placeholder="{{currentUser}}">
             <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="usernameFormControl.hasError('hasLetters')">
+                Username must not contain numbers
+            </mat-error>
+            <mat-error *ngIf="usernameFormControl.hasError('minlength')">
+                The Username must be at least 3 letters long
+              </mat-error>
             <mat-error *ngIf="!usernameFormControl.hasError('required')">
               Please enter a valid username
             </mat-error>
@@ -107,15 +112,27 @@
           </mat-form-field>
         </form>
         <form class="signin-form">
-          <mat-form-field class="signin-full-width">
-            <input matInput placeholder="New Password" [type]="isHiding ? 'password' : 'text'" [formControl]="passwordFormControl" required>
-            <mat-icon matSuffix (click)="isHiding = !isHiding">{{isHiding ? 'visibility_off' : 'visibility'}}</mat-icon>
-            <mat-error *ngIf="passwordFormControl.hasError('required')">
-              Password is <strong>required</strong>
-            </mat-error>
-          </mat-form-field>
-        </form>
-        <button class="change-btn" (click)="onClick()" [routerLink]="['/']">Change Profile</button>
+            <mat-form-field class="signin-full-width">
+              <input matInput placeholder="Password" [type]="isHiding ? 'password' : 'text'" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" required>
+              <mat-icon matSuffix (click)="isHiding = !isHiding">{{isHiding ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+                The Password must be at least 4 letters long
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('hasNumber')">
+                Password must have at least 1 number
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('hasCapitalCase')">
+                Password must have at least 1 upper case letter!
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('hasSmallCase')">
+                Password must have at least 1 lower case letter!
+              </mat-error>
+            </mat-form-field>
+          </form>
+        <button class="change-btn" [routerLink]="['/']">Change Profile</button>
     </div>
 </div>
 

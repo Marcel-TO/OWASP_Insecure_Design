@@ -7,6 +7,7 @@ import { ShutterSensor } from 'src/app/models/shutterSensor';
 import { TempSensor } from 'src/app/models/tempSensor';
 import { Modelfactory } from 'src/app/models/modelfactory';
 import { Account } from 'src/app/models/account';
+import { CustomValidators } from 'src/app/models/custom-validators';
 
 @Component({
   selector: 'app-settings',
@@ -19,9 +20,20 @@ export class SettingsComponent implements OnInit {
   public tempSensors?: TempSensor[];
   public lightSensors?: LightSensor[];
   public shutterSensors?: ShutterSensor[];
-  usernameFormControl = new FormControl('', [Validators.required, Validators.min(3)]);
+  
   matcher = new MyErrorStateMatcher();
-  passwordFormControl = new FormControl('', [Validators.required, Validators.min(3)]);
+  usernameFormControl = new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(3),
+    CustomValidators.patternValidator(/^([^0-9]*)$/, { hasLetters: true}) // Regex expression for everything except numbers
+  ]))
+  passwordFormControl = new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(4),
+    CustomValidators.patternValidator(/\d/, { hasNumber: true }),
+    CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
+    CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true })
+  ]));
   isHiding = true;
 
   constructor(private activatedRoute: ActivatedRoute) {
@@ -32,8 +44,9 @@ export class SettingsComponent implements OnInit {
     this.shutterSensors = modelFactory.ShutterSensors;
   }
 
-  public onClick() {
-
+  public onChangeSensorName(sensorname: string) {
+    let newname = (<HTMLInputElement>document.getElementById(sensorname + '-newName')).value;
+    console.log(newname)
   }
 
   ngOnInit(): void {

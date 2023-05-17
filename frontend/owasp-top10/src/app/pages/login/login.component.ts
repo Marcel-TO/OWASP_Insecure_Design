@@ -3,6 +3,7 @@ import {FormControl, ReactiveFormsModule, FormGroupDirective, NgForm, Validators
 import {ErrorStateMatcher} from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Account } from 'src/app/models/account';
+import { CustomValidators } from 'src/app/models/custom-validators';
 import { Modelfactory } from 'src/app/models/modelfactory';
 
 @Component({
@@ -11,9 +12,19 @@ import { Modelfactory } from 'src/app/models/modelfactory';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit{
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  usernameFormControl = new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(3),
+    CustomValidators.patternValidator(/^([^0-9]*)$/, { hasLetters: true}) // Regex expression for everything except numbers
+  ]));
   matcher = new MyErrorStateMatcher();
-  passwordFormControl = new FormControl('', [Validators.required, Validators.min(3)]);
+  passwordFormControl = new FormControl('', Validators.compose([
+    Validators.required,
+    Validators.minLength(4),
+    CustomValidators.patternValidator(/\d/, { hasNumber: true }),
+    CustomValidators.patternValidator(/[A-Z]/, { hasCapitalCase: true }),
+    CustomValidators.patternValidator(/[a-z]/, { hasSmallCase: true })
+  ]));
   isHiding = true;
   currentUser: Account | undefined = undefined;
   allUsers?: Account[]
