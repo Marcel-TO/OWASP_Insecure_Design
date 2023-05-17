@@ -6,21 +6,22 @@ namespace SmartHomeApi.New.Models;
 public class SmartJalousine
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public Guid Jalousine_Id{get;set;}
 
-    public Guid Account_Id{get;set;}
 
-    [NotMapped]
-    List<JalousineSensor> Sensors {get;set;}
+    public Guid Acc_Id{get;set;}
 
-    [NotMapped]
-    List<JalousineActuator> Acutators {get;set;}
-    public SmartJalousine(Guid jalousine_Id, Guid account_Id)
+    public virtual Account? Account{get;set;}
+
+    public virtual ICollection<JalousineSensor> Sensors {get;set;} 
+
+    public virtual ICollection<JalousineActuator> Actuators {get;set;}
+    public SmartJalousine(Guid jalousine_Id, Guid acc_Id)
     {
         this.Jalousine_Id = jalousine_Id;
-        this.Account_Id = account_Id;
+        this.Acc_Id = acc_Id;
         this.Sensors = new List<JalousineSensor>();
-        this.Acutators = new List<JalousineActuator>();
+        this.Actuators = new List<JalousineActuator>();
     }
 }

@@ -8,6 +8,7 @@ namespace SmartHomeApi.New.Repositories.Wrapper
         private AccountRepo _account;
         private ThermostatRepo _thermostat;
         private ThermostatSensorRepo _thermostatSensor;
+        private ThermostatActuatorRepo _thermostatActuator;
        
         public AccountRepo Account {
             get 
@@ -36,18 +37,33 @@ namespace SmartHomeApi.New.Repositories.Wrapper
             {
                 if(_thermostatSensor == null)
                 {
-                    _thermostatSensor = new ThermostatSensorRepo(this._repoContext);
+                    _thermostatSensor = new ThermostatSensorRepo(this.logger, this._repoContext);
                 }
                 return _thermostatSensor;
             }
         }
 
-        public RepositoryWrapper(SHDbContext repositoryContext)
+        public ThermostatActuatorRepo ThermostatActuator {
+            get 
+            {
+                if(_thermostatActuator == null)
+                {
+                    _thermostatActuator = new ThermostatActuatorRepo(this.logger, this._repoContext);
+                }
+                return _thermostatActuator;
+            }
+        }
+
+        private readonly ILogger logger;
+
+        public RepositoryWrapper(ILogger logger, SHDbContext repositoryContext)
         {
+            this.logger = logger;
             this._repoContext = repositoryContext;
             this._account = new AccountRepo(this._repoContext); 
             this._thermostat = new ThermostatRepo(this._repoContext);
-            this._thermostatSensor = new ThermostatSensorRepo(this._repoContext);
+            this._thermostatSensor = new ThermostatSensorRepo(this.logger,this._repoContext);
+            this._thermostatActuator = new ThermostatActuatorRepo(this.logger,this._repoContext);
         }
     }
 }

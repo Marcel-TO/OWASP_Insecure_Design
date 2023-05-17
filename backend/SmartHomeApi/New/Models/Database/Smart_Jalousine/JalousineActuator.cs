@@ -6,7 +6,7 @@ namespace SmartHomeApi.New.Models;
 public class JalousineActuator
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public Guid Actuator_Id{get;set;}
 
     [Required]
@@ -22,14 +22,17 @@ public class JalousineActuator
     public Guid Sensor_Id{get;set;}
 
     [Required]
-    public Guid Jalousine_Id{get;set;}
-    public JalousineActuator(Guid actuator_Id, string name, string status, int target_State, Guid sensor_Id, Guid jalousine_Id)
+    public Guid Jal_Id{get;set;}
+
+    public virtual SmartJalousine? SmartJalousine { get; set; }
+
+    public JalousineActuator(Guid actuator_Id, string name, string status, int target_State, Guid sensor_Id, Guid jal_Id)
     {
         this.Actuator_Id = actuator_Id;
         this.Name = name;
         this.Status = status;
         this.Target_State = target_State;
         this.Sensor_Id = sensor_Id;
-        this.Jalousine_Id = jalousine_Id;
+        this.Jal_Id = jal_Id;
     }
 }

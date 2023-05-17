@@ -26,7 +26,7 @@ public class AccountController : ControllerBase
     }
 
     [HttpPost("create")]
-    public IActionResult CreateAccount(Account account)
+    public IActionResult CreateAccount(DT_Account account)
     {   
         this._repository.Insert(account);   
         return Ok();
@@ -43,8 +43,8 @@ public class AccountController : ControllerBase
         return NotFound();
     }
 
-    [HttpPost("update")]
-    public IActionResult UpdateAccount(Account account)
+    [HttpPut("update")]
+    public IActionResult UpdateAccount(DT_Account account)
     {        
         bool isUpdated = this._repository.Update(account);   
         if(isUpdated)

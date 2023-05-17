@@ -1,7 +1,7 @@
 using SmartHomeApi.Api_Source_Code.Config;
 using SmartHomeApi.New.Contexts;
 using SmartHomeApi.New.Repositories.Wrapper;
-
+using Microsoft.AspNetCore.Http.Json;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +10,16 @@ public static class StartUp{
 
     public static void Run(string[] args){
         var builder = WebApplication.CreateBuilder(args);
+        builder.Services.AddControllers().AddJsonOptions(options =>
+        options.JsonSerializerOptions.ReferenceHandler =
+        System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
+        var serviceProvider = builder.Services.BuildServiceProvider();
+        var logger = serviceProvider.GetService<ILogger<Logger>>();
+        if(logger is not null)
+        {
+            builder.Services.AddSingleton(typeof(ILogger), logger);
+        }
+        
         string policy = "policy";
 
        var connectionString  = builder.Configuration.GetConnectionString("server=localhost;port=3306;database=smart_home_db;user=root;password=password");

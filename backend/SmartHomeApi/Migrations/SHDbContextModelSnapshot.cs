@@ -48,7 +48,9 @@ namespace SmartHomeApi.Migrations
             modelBuilder.Entity("SmartHomeApi.New.Models.BulbActuator", b =>
                 {
                     b.Property<Guid>("Actuator_Id")
-                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("Bulb_Id")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
@@ -59,7 +61,7 @@ namespace SmartHomeApi.Migrations
                     b.Property<Guid>("Sensor_Id")
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("Smartbulb_Id")
+                    b.Property<Guid?>("Smartbulb_Id")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Status")
@@ -72,13 +74,14 @@ namespace SmartHomeApi.Migrations
 
                     b.HasKey("Actuator_Id");
 
+                    b.HasIndex("Smartbulb_Id");
+
                     b.ToTable("bulb_actuators");
                 });
 
             modelBuilder.Entity("SmartHomeApi.New.Models.BulbSensor", b =>
                 {
                     b.Property<Guid>("Sensor_Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
                     b.Property<Guid>("Actuator_Id")
@@ -87,12 +90,15 @@ namespace SmartHomeApi.Migrations
                     b.Property<int>("Brightness")
                         .HasColumnType("int");
 
+                    b.Property<Guid>("Bulb_Id")
+                        .HasColumnType("char(36)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
-                    b.Property<Guid>("Smartbulb_Id")
+                    b.Property<Guid?>("Smartbulb_Id")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Status")
@@ -102,16 +108,17 @@ namespace SmartHomeApi.Migrations
 
                     b.HasKey("Sensor_Id");
 
+                    b.HasIndex("Smartbulb_Id");
+
                     b.ToTable("bulb_sensors");
                 });
 
             modelBuilder.Entity("SmartHomeApi.New.Models.JalousineActuator", b =>
                 {
                     b.Property<Guid>("Actuator_Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("Jalousine_Id")
+                    b.Property<Guid>("Jal_Id")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
@@ -120,6 +127,9 @@ namespace SmartHomeApi.Migrations
                         .HasColumnType("varchar(50)");
 
                     b.Property<Guid>("Sensor_Id")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("SmartJalousineJalousine_Id")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Status")
@@ -132,25 +142,29 @@ namespace SmartHomeApi.Migrations
 
                     b.HasKey("Actuator_Id");
 
+                    b.HasIndex("SmartJalousineJalousine_Id");
+
                     b.ToTable("jalousine_actuators");
                 });
 
             modelBuilder.Entity("SmartHomeApi.New.Models.JalousineSensor", b =>
                 {
                     b.Property<Guid>("Sensor_Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
                     b.Property<Guid>("Actuator_Id")
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("Jalousine_Id")
+                    b.Property<Guid>("Jal_Id")
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
+
+                    b.Property<Guid?>("SmartJalousineJalousine_Id")
+                        .HasColumnType("char(36)");
 
                     b.Property<int>("State")
                         .HasColumnType("int");
@@ -162,19 +176,22 @@ namespace SmartHomeApi.Migrations
 
                     b.HasKey("Sensor_Id");
 
+                    b.HasIndex("SmartJalousineJalousine_Id");
+
                     b.ToTable("jalousine_sensors");
                 });
 
             modelBuilder.Entity("SmartHomeApi.New.Models.SmartBulb", b =>
                 {
                     b.Property<Guid>("Smartbulb_Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("Account_Id")
+                    b.Property<Guid>("Acc_Id")
                         .HasColumnType("char(36)");
 
                     b.HasKey("Smartbulb_Id");
+
+                    b.HasIndex("Acc_Id");
 
                     b.ToTable("light_bulbs");
                 });
@@ -182,13 +199,14 @@ namespace SmartHomeApi.Migrations
             modelBuilder.Entity("SmartHomeApi.New.Models.SmartJalousine", b =>
                 {
                     b.Property<Guid>("Jalousine_Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("Account_Id")
+                    b.Property<Guid>("Acc_Id")
                         .HasColumnType("char(36)");
 
                     b.HasKey("Jalousine_Id");
+
+                    b.HasIndex("Acc_Id");
 
                     b.ToTable("jalousines");
                 });
@@ -196,13 +214,14 @@ namespace SmartHomeApi.Migrations
             modelBuilder.Entity("SmartHomeApi.New.Models.Thermostat", b =>
                 {
                     b.Property<Guid>("Thermostat_Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
-                    b.Property<Guid>("Account_Id")
+                    b.Property<Guid>("Acc_Id")
                         .HasColumnType("char(36)");
 
                     b.HasKey("Thermostat_Id");
+
+                    b.HasIndex("Acc_Id");
 
                     b.ToTable("thermostats");
                 });
@@ -210,7 +229,6 @@ namespace SmartHomeApi.Migrations
             modelBuilder.Entity("SmartHomeApi.New.Models.ThermostatActuator", b =>
                 {
                     b.Property<Guid>("Actuator_Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
                     b.Property<string>("Name")
@@ -229,10 +247,15 @@ namespace SmartHomeApi.Migrations
                     b.Property<int>("Target_Temperature")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("Thermostat_Id")
+                    b.Property<Guid>("Therm_Id")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("Thermostat_Id")
                         .HasColumnType("char(36)");
 
                     b.HasKey("Actuator_Id");
+
+                    b.HasIndex("Thermostat_Id");
 
                     b.ToTable("thermostat_actuator");
                 });
@@ -240,7 +263,6 @@ namespace SmartHomeApi.Migrations
             modelBuilder.Entity("SmartHomeApi.New.Models.ThermostatSensor", b =>
                 {
                     b.Property<Guid>("Sensor_Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("char(36)");
 
                     b.Property<Guid>("Actuator_Id")
@@ -259,12 +281,134 @@ namespace SmartHomeApi.Migrations
                     b.Property<int>("Temperature")
                         .HasColumnType("int");
 
-                    b.Property<Guid>("Thermostat_Id")
+                    b.Property<Guid>("Therm_Id")
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("Thermostat_Id")
                         .HasColumnType("char(36)");
 
                     b.HasKey("Sensor_Id");
 
+                    b.HasIndex("Thermostat_Id");
+
                     b.ToTable("thermostat_sensors");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.BulbActuator", b =>
+                {
+                    b.HasOne("SmartHomeApi.New.Models.SmartBulb", "SmartBulb")
+                        .WithMany("Actuators")
+                        .HasForeignKey("Smartbulb_Id");
+
+                    b.Navigation("SmartBulb");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.BulbSensor", b =>
+                {
+                    b.HasOne("SmartHomeApi.New.Models.SmartBulb", "SmartBulb")
+                        .WithMany("Sensors")
+                        .HasForeignKey("Smartbulb_Id");
+
+                    b.Navigation("SmartBulb");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.JalousineActuator", b =>
+                {
+                    b.HasOne("SmartHomeApi.New.Models.SmartJalousine", "SmartJalousine")
+                        .WithMany("Actuators")
+                        .HasForeignKey("SmartJalousineJalousine_Id");
+
+                    b.Navigation("SmartJalousine");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.JalousineSensor", b =>
+                {
+                    b.HasOne("SmartHomeApi.New.Models.SmartJalousine", "SmartJalousine")
+                        .WithMany("Sensors")
+                        .HasForeignKey("SmartJalousineJalousine_Id");
+
+                    b.Navigation("SmartJalousine");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.SmartBulb", b =>
+                {
+                    b.HasOne("SmartHomeApi.New.Models.Account", "Account")
+                        .WithMany("SmartBulbs")
+                        .HasForeignKey("Acc_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.SmartJalousine", b =>
+                {
+                    b.HasOne("SmartHomeApi.New.Models.Account", "Account")
+                        .WithMany("SmartJalousines")
+                        .HasForeignKey("Acc_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.Thermostat", b =>
+                {
+                    b.HasOne("SmartHomeApi.New.Models.Account", "Account")
+                        .WithMany("Thermostats")
+                        .HasForeignKey("Acc_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.ThermostatActuator", b =>
+                {
+                    b.HasOne("SmartHomeApi.New.Models.Thermostat", "Thermostat")
+                        .WithMany("Actuators")
+                        .HasForeignKey("Thermostat_Id");
+
+                    b.Navigation("Thermostat");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.ThermostatSensor", b =>
+                {
+                    b.HasOne("SmartHomeApi.New.Models.Thermostat", "Thermostat")
+                        .WithMany("Sensors")
+                        .HasForeignKey("Thermostat_Id");
+
+                    b.Navigation("Thermostat");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.Account", b =>
+                {
+                    b.Navigation("SmartBulbs");
+
+                    b.Navigation("SmartJalousines");
+
+                    b.Navigation("Thermostats");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.SmartBulb", b =>
+                {
+                    b.Navigation("Actuators");
+
+                    b.Navigation("Sensors");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.SmartJalousine", b =>
+                {
+                    b.Navigation("Actuators");
+
+                    b.Navigation("Sensors");
+                });
+
+            modelBuilder.Entity("SmartHomeApi.New.Models.Thermostat", b =>
+                {
+                    b.Navigation("Actuators");
+
+                    b.Navigation("Sensors");
                 });
 #pragma warning restore 612, 618
         }

@@ -6,21 +6,21 @@ namespace SmartHomeApi.New.Models;
 public class SmartBulb
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public Guid Smartbulb_Id{get;set;}
 
-    public Guid Account_Id{get;set;}
+    public Guid Acc_Id{get;set;}
 
-    [NotMapped]
-    List<BulbSensor> Sensors {get;set;}
+    public virtual Account? Account{get;set;}
 
-    [NotMapped]
-    List<BulbActuator> Acutators {get;set;}
-    public SmartBulb(Guid smartbulb_Id, Guid account_Id)
+    public virtual ICollection<BulbSensor> Sensors {get;set;} 
+
+    public virtual ICollection<BulbActuator> Actuators {get;set;}
+    public SmartBulb(Guid smartbulb_Id, Guid acc_Id)
     {
         this.Smartbulb_Id = smartbulb_Id;
-        this.Account_Id = account_Id;
+        this.Acc_Id = acc_Id;
         this.Sensors = new List<BulbSensor>();
-        this.Acutators = new List<BulbActuator>();
+        this.Actuators = new List<BulbActuator>();
     }
 }

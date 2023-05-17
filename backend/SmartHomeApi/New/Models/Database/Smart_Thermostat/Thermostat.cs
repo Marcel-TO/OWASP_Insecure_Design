@@ -1,26 +1,29 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+
+using System.Collections.Generic;
 namespace SmartHomeApi.New.Models;
 
 [Table("thermostats")]
 public class Thermostat
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public Guid Thermostat_Id{get;set;}
 
-    public Guid Account_Id{get;set;}
+    public Guid Acc_Id{get;set;}
 
-    [NotMapped]
-    List<ThermostatSensor> Sensors {get;set;}
+    public virtual Account? Account{get;set;}
 
-    [NotMapped]
-    List<ThermostatActuator> Acutators {get;set;}
-    public Thermostat(Guid thermostat_Id, Guid account_Id)
+    public virtual ICollection<ThermostatSensor> Sensors {get;set;} 
+
+    public virtual ICollection<ThermostatActuator> Actuators {get;set;}
+
+    public Thermostat(Guid thermostat_Id, Guid acc_Id)
     {
         this.Thermostat_Id = thermostat_Id;
-        this.Account_Id = account_Id;
+        this.Acc_Id = acc_Id;
         this.Sensors = new List<ThermostatSensor>();
-        this.Acutators = new List<ThermostatActuator>();
+        this.Actuators = new List<ThermostatActuator>();
     }
 }

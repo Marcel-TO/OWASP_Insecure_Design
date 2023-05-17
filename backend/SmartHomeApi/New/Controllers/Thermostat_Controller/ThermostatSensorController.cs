@@ -36,8 +36,19 @@ public class ThermostatSensorController : ControllerBase
         return Ok(sensors);
     }
 
+   [HttpGet("getById")]
+    public IActionResult GetSensorById(Guid id)
+    {   
+        var thermostat = this._repository.GetById(id);
+        if(thermostat == null)
+        {
+            return NotFound("Thermostat couldn't be located");
+        }
+        return Ok(thermostat);
+    }
+
     
-    [HttpPost("delete")]
+    [HttpDelete("delete")]
     public IActionResult DeleteSensor(Guid id)
     {        
         bool isDeleted = this._repository.Delete(id);   
@@ -48,7 +59,7 @@ public class ThermostatSensorController : ControllerBase
         return NotFound();
     }
 
-    [HttpPost("update")]
+    [HttpPut("update")]
     public IActionResult UpdateSensor(ThermostatSensor sensor)
     {        
         bool isUpdated = this._repository.Update(sensor);   

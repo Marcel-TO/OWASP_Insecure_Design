@@ -6,7 +6,7 @@ namespace SmartHomeApi.New.Models;
 public class BulbSensor
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public Guid Sensor_Id{get;set;}
     
     [Required]
@@ -23,14 +23,17 @@ public class BulbSensor
     public Guid Actuator_Id{get;set;}
     
     [Required]
-    public Guid Smartbulb_Id{get;set;}
-    public BulbSensor(Guid sensor_Id, string name, string status, int brightness, Guid actuator_Id, Guid smartbulb_Id)
+    public Guid Bulb_Id{get;set;}
+
+    public virtual SmartBulb? SmartBulb { get; set; }
+     
+    public BulbSensor(Guid sensor_Id, string name, string status, int brightness, Guid actuator_Id, Guid bulb_Id)
     {
         this.Sensor_Id = sensor_Id;
         this.Name = name;
         this.Status = status;
         this.Brightness = brightness;
         this.Actuator_Id = actuator_Id;
-        this.Smartbulb_Id = smartbulb_Id;
+        this.Bulb_Id = bulb_Id;
     }
 }

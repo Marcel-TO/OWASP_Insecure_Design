@@ -11,8 +11,10 @@ namespace SmartHomeApi.New.Repositories;
 public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
 {
     private SHDbContext context;
-    public ThermostatSensorRepo(SHDbContext context){
+    private ILogger logger;
+    public ThermostatSensorRepo(ILogger logger, SHDbContext context){
         this.context = context;
+        this.logger = logger;
     }
 
 
@@ -22,28 +24,54 @@ public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
         return sensors;
     }
 
+    public ThermostatSensor GetById(Guid id)
+    {     
+        var sensor = this.context.ThermostatSensors.ToList().Where(t=> t.Sensor_Id == id).First();     
+        return sensor;
+    }
+
     public bool Insert(ThermostatSensor entry)
     {
-      if(this.context.Thermostats.Any(t => t.Thermostat_Id == entry.Thermostat_Id)){
-        this.context.ThermostatSensors.Add(entry);
+        var parent = new Thermostat(Guid.Empty, Guid.Empty);
+        var p = context.Thermostats
+                       .Where(b => entry.Therm_Id == b.Thermostat_Id)
+                       .Include(b => b.Sensors)
+                       .FirstOrDefault();
+  
+        if(p == null){
+            return false;
+        }
+        parent = p;
+        this.context.Entry(parent).State = EntityState.Modified;
+        this.context.Entry(parent).Collection("Sensors").Load();
+        
+        parent.Sensors.Add(new ThermostatSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Temperature,
+        entry.Actuator_Id,parent.Thermostat_Id));
         this.Save();
+    
         return true;
-      }
-      else{
-        return false;
-      }  
     }
     
     public bool Update(ThermostatSensor entry)
     {
         try
         {
-            this.context.ThermostatSensors.Attach(entry);
-            this.context.Entry(entry).Property(e => e.Name).IsModified = true;
-            this.context.Entry(entry).Property(e => e.Status).IsModified = true;
-            this.context.Entry(entry).Property(e => e.Temperature).IsModified = true;
-            this.Save();  
-            return true;        
+            var sensor = this.context.ThermostatSensors.Where(b => entry.Sensor_Id == b.Sensor_Id)
+                       .FirstOrDefault();
+            if(sensor is not null)
+            {
+                this.context.ThermostatSensors.Attach(sensor);
+                this.context.Entry(sensor).Property(e => e.Name).IsModified = true;
+                sensor.Name = entry.Name;
+                this.context.Entry(sensor).Property(e => e.Status).IsModified = true;
+                sensor.Status = entry.Status;
+                this.context.Entry(sensor).Property(e => e.Temperature).IsModified = true;
+                sensor.Temperature = entry.Temperature;
+                this.Save(); 
+                return true;   
+            }
+            return false;
+                 
         }
         catch(DbUpdateConcurrencyException ex){
             ex.Entries.Single().Reload();
@@ -56,9 +84,19 @@ public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
     {  
         try
         {
-            this.context.ThermostatSensors.Remove(new ThermostatSensor(id,"","",0,Guid.Empty,Guid.Empty));
-            this.Save();   
-            return true;        
+            var sensor = this.context.ThermostatSensors
+                       .Where(b => id == b.Sensor_Id)
+                       .FirstOrDefault();
+
+            
+            if (sensor is not null)
+            {
+                this.context.ThermostatSensors.Remove(sensor);
+                this.Save();  
+            
+                return true;     
+            } 
+             return false;   
         }
         catch(DbUpdateConcurrencyException ex){
             ex.Entries.Single().Reload();

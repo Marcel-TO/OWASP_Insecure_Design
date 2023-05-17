@@ -6,6 +6,6 @@ namespace SmartHomeApi.New.Repositories.Wrapper
         AccountRepo Account { get; }
         ThermostatRepo Thermostat { get; }
         ThermostatSensorRepo ThermostatSensor { get; }
-
+        ThermostatActuatorRepo ThermostatActuator { get; }
     }
 }

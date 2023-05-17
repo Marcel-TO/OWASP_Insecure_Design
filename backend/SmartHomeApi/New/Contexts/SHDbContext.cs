@@ -13,18 +13,46 @@ namespace SmartHomeApi.New.Contexts;
 
     public DbSet<Thermostat> Thermostats{get;set;}
     public DbSet<ThermostatSensor> ThermostatSensors{get;set;}
-    public DbSet<ThermostatActuator> ThermostatsAcutatos{get;set;}
+    public DbSet<ThermostatActuator> ThermostatActuators{get;set;}
 
     public DbSet<SmartJalousine> Jalousines{get;set;}
     public DbSet<JalousineSensor> JalousineSensors{get;set;}
     public DbSet<JalousineActuator> JalousineActuators{get;set;}
 
-     public DbSet<SmartBulb> SmartBulbs{get;set;}
+    public DbSet<SmartBulb> SmartBulbs{get;set;}
     public DbSet<BulbSensor> BulbSensors{get;set;}
     public DbSet<BulbActuator> BulbActuators{get;set;}
-     protected override void OnModelCreating(ModelBuilder modelBuilder)
-    {
-        modelBuilder.Entity<Account>()
-            .Property(b => b.Account_Id);
+        
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    { 
+      modelBuilder.Entity<Account>()
+            .HasMany(e => e.SmartBulbs)
+            .WithOne(e => e.Account)
+            .HasForeignKey(e => e.Acc_Id)
+            .HasPrincipalKey(e => e.Account_Id);
+
+            modelBuilder.Entity<Account>()
+            .HasMany(e => e.Thermostats)
+            .WithOne(e => e.Account)
+            .HasForeignKey(e => e.Acc_Id)
+            .HasPrincipalKey(e => e.Account_Id);
+
+            modelBuilder.Entity<Account>()
+            .HasMany(e => e.SmartJalousines)
+            .WithOne(e => e.Account)
+            .HasForeignKey(e => e.Acc_Id)
+            .HasPrincipalKey(e => e.Account_Id);
+
+             modelBuilder.Entity<Thermostat>()
+            .HasMany(e => e.Sensors)
+            .WithOne(e => e.Thermostat)
+            .HasForeignKey(e => e.Therm_Id)
+            .HasPrincipalKey(e => e.Thermostat_Id);
+
+            modelBuilder.Entity<Thermostat>()
+            .HasMany(e => e.Actuators)
+            .WithOne(e => e.Thermostat)
+            .HasForeignKey(e => e.Therm_Id)
+            .HasPrincipalKey(e => e.Thermostat_Id);
     }
  }

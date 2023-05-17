@@ -27,7 +27,7 @@ public class ThermostatController : ControllerBase
     }
 
     [HttpGet("getById")]
-    public IActionResult CreateThermostat(Guid id)
+    public IActionResult GetThermostatById(Guid id)
     {   
         var thermostat = this._repository.GetById(id);
         if(thermostat == null)
@@ -40,8 +40,12 @@ public class ThermostatController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateThermostat(Thermostat thermostat)
     {   
-        this._repository.Insert(thermostat);   
-        this._repository.Save();
+        bool isInserted = this._repository.Insert(thermostat);   
+        if(isInserted == false)
+        {
+             return NotFound("Make sure to put in the right (existing) id of the account before inserting a new thermostat");
+        }
+       
         return Ok();
     }
     

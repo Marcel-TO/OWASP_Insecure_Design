@@ -6,7 +6,7 @@ namespace SmartHomeApi.New.Models;
 public class ThermostatActuator
 {
     [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [DatabaseGenerated(DatabaseGeneratedOption.None)]
     public Guid Actuator_Id{get;set;}
 
     [Required]
@@ -22,14 +22,17 @@ public class ThermostatActuator
     public Guid Sensor_Id{get;set;}
 
     [Required]
-    public Guid Thermostat_Id{get;set;}
-    public ThermostatActuator(Guid actuator_Id, string name, string status, int target_Temperature, Guid sensor_Id, Guid thermostat_Id)
+    public Guid Therm_Id{get;set;}
+
+    public virtual Thermostat? Thermostat { get; set; }
+
+    public ThermostatActuator(Guid actuator_Id, string name, string status, int target_Temperature, Guid sensor_Id, Guid therm_Id)
     {
         this.Actuator_Id = actuator_Id;
         this.Name = name;
         this.Status = status;
         this.Target_Temperature = target_Temperature;
         this.Sensor_Id = sensor_Id;
-        this.Thermostat_Id = thermostat_Id;
+        this.Therm_Id = therm_Id;
     }
 }
