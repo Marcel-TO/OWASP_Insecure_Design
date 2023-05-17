@@ -8,31 +8,31 @@ using SmartHomeApi.New.Models;
 using SmartHomeApi.New.Contexts;
 
 namespace SmartHomeApi.New.Repositories;
-public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
+public class JalousineActuatorRepo : IRepository<JalousineActuator, Guid>
 {
     private SHDbContext context;
-    public ThermostatActuatorRepo(SHDbContext context){
+    public JalousineActuatorRepo(SHDbContext context){
         this.context = context;
     }
 
 
-    public IEnumerable<ThermostatActuator> GetAll()
+    public IEnumerable<JalousineActuator> GetAll()
     {     
-        var Actuators = this.context.ThermostatActuators.ToList();      
-        return Actuators;
+        var actuators = this.context.JalousineActuators.ToList();      
+        return actuators;
     }
 
-    public ThermostatActuator GetById(Guid id)
+    public JalousineActuator GetById(Guid id)
     {     
-        var actuator = this.context.ThermostatActuators.ToList().Where(t=> t.Actuator_Id == id).First();     
+        var actuator = this.context.JalousineActuators.ToList().Where(t=> t.Actuator_Id == id).First();     
         return actuator;
     }
 
-    public bool Insert(ThermostatActuator entry)
+    public bool Insert(JalousineActuator entry)
     {
        
-        var parent = context.Thermostats
-                       .Where(b => entry.Therm_Id == b.Thermostat_Id)
+        var parent = context.SmartJalousines
+                       .Where(b => entry.Jal_Id == b.Jalousine_Id)
                        .Include(b => b.Actuators)
                        .FirstOrDefault();
   
@@ -41,8 +41,8 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Actuators").Load();
             
-            parent.Actuators.Add(new ThermostatActuator(Guid.NewGuid(),entry.Name,entry.Status,entry.Target_Temperature,
-            entry.Actuator_Id,parent.Thermostat_Id));
+            parent.Actuators.Add(new JalousineActuator(Guid.NewGuid(),entry.Name,entry.Status,entry.Target_State,
+            entry.Actuator_Id,parent.Jalousine_Id));
             this.Save();
     
         return true;
@@ -52,21 +52,21 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
         return false;
     }
     
-    public bool Update(ThermostatActuator entry)
+    public bool Update(JalousineActuator entry)
     {
         try
         {
-            var actuator = this.context.ThermostatActuators.Where(b => entry.Actuator_Id == b.Actuator_Id)
+            var actuator = this.context.JalousineActuators.Where(b => entry.Actuator_Id == b.Actuator_Id)
                        .FirstOrDefault();
             if(actuator is not null)
             {
-                this.context.ThermostatActuators.Attach(actuator);
+                this.context.JalousineActuators.Attach(actuator);
                 this.context.Entry(actuator).Property(e => e.Name).IsModified = true;
                 actuator.Name = entry.Name;
                 this.context.Entry(actuator).Property(e => e.Status).IsModified = true;
                 actuator.Status = entry.Status;
-                this.context.Entry(actuator).Property(e => e.Target_Temperature).IsModified = true;
-                actuator.Target_Temperature = entry.Target_Temperature;
+                this.context.Entry(actuator).Property(e => e.Target_State).IsModified = true;
+                actuator.Target_State = entry.Target_State;
                 this.Save(); 
                 return true;   
             }
@@ -84,14 +84,14 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
     {  
         try
         {
-            var actuator = this.context.ThermostatActuators
+            var actuator = this.context.JalousineActuators
                        .Where(b => id == b.Actuator_Id)
                        .FirstOrDefault();
 
             
             if (actuator is not null)
             {
-                this.context.ThermostatActuators.Remove(actuator);
+                this.context.JalousineActuators.Remove(actuator);
                 this.Save();  
             
                 return true;     

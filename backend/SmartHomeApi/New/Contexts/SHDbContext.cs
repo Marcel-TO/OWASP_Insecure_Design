@@ -15,7 +15,7 @@ namespace SmartHomeApi.New.Contexts;
     public DbSet<ThermostatSensor> ThermostatSensors{get;set;}
     public DbSet<ThermostatActuator> ThermostatActuators{get;set;}
 
-    public DbSet<SmartJalousine> Jalousines{get;set;}
+    public DbSet<SmartJalousine> SmartJalousines{get;set;}
     public DbSet<JalousineSensor> JalousineSensors{get;set;}
     public DbSet<JalousineActuator> JalousineActuators{get;set;}
 

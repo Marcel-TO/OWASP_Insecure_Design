@@ -8,31 +8,31 @@ using SmartHomeApi.New.Models;
 using SmartHomeApi.New.Contexts;
 
 namespace SmartHomeApi.New.Repositories;
-public class SmartBulbSensorRepo : IRepository<BulbSensor, Guid>
+public class JalousineSensorRepo : IRepository<JalousineSensor, Guid>
 {
     private SHDbContext context;
-    public SmartBulbSensorRepo(SHDbContext context){
+    public JalousineSensorRepo(SHDbContext context){
         this.context = context;
     }
 
 
-    public IEnumerable<BulbSensor> GetAll()
+    public IEnumerable<JalousineSensor> GetAll()
     {     
-        var sensors = this.context.BulbSensors.ToList();      
+        var sensors = this.context.JalousineSensors.ToList();      
         return sensors;
     }
 
-    public BulbSensor GetById(Guid id)
+    public JalousineSensor GetById(Guid id)
     {     
-        var sensor = this.context.BulbSensors.ToList().Where(t=> t.Sensor_Id == id).First();     
+        var sensor = this.context.JalousineSensors.ToList().Where(t=> t.Sensor_Id == id).First();     
         return sensor;
     }
 
-    public bool Insert(BulbSensor entry)
+    public bool Insert(JalousineSensor entry)
     {
-        var parent = new SmartBulb(Guid.Empty, Guid.Empty);
-        var p = context.SmartBulbs
-                       .Where(b => entry.Bulb_Id == b.Smartbulb_Id)
+        var parent = new SmartJalousine(Guid.Empty, Guid.Empty);
+        var p = context.SmartJalousines
+                       .Where(b => entry.Jal_Id == b.Jalousine_Id)
                        .Include(b => b.Sensors)
                        .FirstOrDefault();
   
@@ -43,28 +43,28 @@ public class SmartBulbSensorRepo : IRepository<BulbSensor, Guid>
         this.context.Entry(parent).State = EntityState.Modified;
         this.context.Entry(parent).Collection("Sensors").Load();
         
-        parent.Sensors.Add(new BulbSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Brightness,
-        entry.Actuator_Id,parent.Smartbulb_Id));
+        parent.Sensors.Add(new JalousineSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.State,
+        entry.Actuator_Id,parent.Jalousine_Id));
         this.Save();
     
         return true;
     }
     
-    public bool Update(BulbSensor entry)
+    public bool Update(JalousineSensor entry)
     {
         try
         {
-            var sensor = this.context.BulbSensors.Where(b => entry.Sensor_Id == b.Sensor_Id)
+            var sensor = this.context.JalousineSensors.Where(b => entry.Sensor_Id == b.Sensor_Id)
                        .FirstOrDefault();
             if(sensor is not null)
             {
-                this.context.BulbSensors.Attach(sensor);
+                this.context.JalousineSensors.Attach(sensor);
                 this.context.Entry(sensor).Property(e => e.Name).IsModified = true;
                 sensor.Name = entry.Name;
                 this.context.Entry(sensor).Property(e => e.Status).IsModified = true;
                 sensor.Status = entry.Status;
-                this.context.Entry(sensor).Property(e => e.Brightness).IsModified = true;
-                sensor.Brightness = entry.Brightness;
+                this.context.Entry(sensor).Property(e => e.State).IsModified = true;
+                sensor.State = entry.State;
                 this.Save(); 
                 return true;   
             }
@@ -82,14 +82,14 @@ public class SmartBulbSensorRepo : IRepository<BulbSensor, Guid>
     {  
         try
         {
-            var sensor = this.context.BulbSensors
+            var sensor = this.context.JalousineSensors
                        .Where(b => id == b.Sensor_Id)
                        .FirstOrDefault();
 
             
             if (sensor is not null)
             {
-                this.context.BulbSensors.Remove(sensor);
+                this.context.JalousineSensors.Remove(sensor);
                 this.Save();  
             
                 return true;     

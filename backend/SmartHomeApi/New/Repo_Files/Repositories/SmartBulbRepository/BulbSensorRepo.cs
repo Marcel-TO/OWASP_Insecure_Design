@@ -8,31 +8,31 @@ using SmartHomeApi.New.Models;
 using SmartHomeApi.New.Contexts;
 
 namespace SmartHomeApi.New.Repositories;
-public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
+public class BulbSensorRepo : IRepository<BulbSensor, Guid>
 {
     private SHDbContext context;
-    public ThermostatSensorRepo(SHDbContext context){
+    public BulbSensorRepo(SHDbContext context){
         this.context = context;
     }
 
 
-    public IEnumerable<ThermostatSensor> GetAll()
+    public IEnumerable<BulbSensor> GetAll()
     {     
-        var sensors = this.context.ThermostatSensors.ToList();      
+        var sensors = this.context.BulbSensors.ToList();      
         return sensors;
     }
 
-    public ThermostatSensor GetById(Guid id)
+    public BulbSensor GetById(Guid id)
     {     
-        var sensor = this.context.ThermostatSensors.ToList().Where(t=> t.Sensor_Id == id).First();     
+        var sensor = this.context.BulbSensors.ToList().Where(t=> t.Sensor_Id == id).First();     
         return sensor;
     }
 
-    public bool Insert(ThermostatSensor entry)
+    public bool Insert(BulbSensor entry)
     {
-        var parent = new Thermostat(Guid.Empty, Guid.Empty);
-        var p = context.Thermostats
-                       .Where(b => entry.Therm_Id == b.Thermostat_Id)
+        var parent = new SmartBulb(Guid.Empty, Guid.Empty);
+        var p = context.SmartBulbs
+                       .Where(b => entry.Bulb_Id == b.Smartbulb_Id)
                        .Include(b => b.Sensors)
                        .FirstOrDefault();
   
@@ -43,28 +43,28 @@ public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
         this.context.Entry(parent).State = EntityState.Modified;
         this.context.Entry(parent).Collection("Sensors").Load();
         
-        parent.Sensors.Add(new ThermostatSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Temperature,
-        entry.Actuator_Id,parent.Thermostat_Id));
+        parent.Sensors.Add(new BulbSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Brightness,
+        entry.Actuator_Id,parent.Smartbulb_Id));
         this.Save();
     
         return true;
     }
     
-    public bool Update(ThermostatSensor entry)
+    public bool Update(BulbSensor entry)
     {
         try
         {
-            var sensor = this.context.ThermostatSensors.Where(b => entry.Sensor_Id == b.Sensor_Id)
+            var sensor = this.context.BulbSensors.Where(b => entry.Sensor_Id == b.Sensor_Id)
                        .FirstOrDefault();
             if(sensor is not null)
             {
-                this.context.ThermostatSensors.Attach(sensor);
+                this.context.BulbSensors.Attach(sensor);
                 this.context.Entry(sensor).Property(e => e.Name).IsModified = true;
                 sensor.Name = entry.Name;
                 this.context.Entry(sensor).Property(e => e.Status).IsModified = true;
                 sensor.Status = entry.Status;
-                this.context.Entry(sensor).Property(e => e.Temperature).IsModified = true;
-                sensor.Temperature = entry.Temperature;
+                this.context.Entry(sensor).Property(e => e.Brightness).IsModified = true;
+                sensor.Brightness = entry.Brightness;
                 this.Save(); 
                 return true;   
             }
@@ -82,14 +82,14 @@ public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
     {  
         try
         {
-            var sensor = this.context.ThermostatSensors
+            var sensor = this.context.BulbSensors
                        .Where(b => id == b.Sensor_Id)
                        .FirstOrDefault();
 
             
             if (sensor is not null)
             {
-                this.context.ThermostatSensors.Remove(sensor);
+                this.context.BulbSensors.Remove(sensor);
                 this.Save();  
             
                 return true;     

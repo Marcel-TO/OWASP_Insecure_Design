@@ -4,66 +4,55 @@ namespace SmartHomeApi.New.Repositories.Wrapper
 {
     public class RepositoryWrapper : IRepositoryWrapper
     {
-        private SHDbContext _repoContext;
-        private AccountRepo _account;
-        private ThermostatRepo _thermostat;
-        private ThermostatSensorRepo _thermostatSensor;
-        private ThermostatActuatorRepo _thermostatActuator;
+        private SHDbContext repoContext;
+        private AccountRepo account;
+
+        private ThermostatRepo thermostat;
+        private ThermostatSensorRepo thermostatSensor;
+        private ThermostatActuatorRepo thermostatActuator;
+
+        private SmartBulbRepo smartBulb;
+        private BulbSensorRepo bulbSensor;
+        private BulbActuatorRepo bulbActuator;
+
+        private SmartJalousineRepo smartJalousine;
+        private JalousineSensorRepo jalousineSensor;
+        private JalousineActuatorRepo jalousineActuator;
        
-        public AccountRepo Account {
-            get 
-            {
-                if(_account == null)
-                {
-                    _account = new AccountRepo(this._repoContext);
-                }
-                return _account;
-            }
-        }
+        public AccountRepo Account { get { return account; } }
 
-        public ThermostatRepo Thermostat {
-            get 
-            {
-                if(_thermostat == null)
-                {
-                    _thermostat = new ThermostatRepo(this._repoContext);
-                }
-                return _thermostat;
-            }
-        }
 
-        public ThermostatSensorRepo ThermostatSensor {
-            get 
-            {
-                if(_thermostatSensor == null)
-                {
-                    _thermostatSensor = new ThermostatSensorRepo(this.logger, this._repoContext);
-                }
-                return _thermostatSensor;
-            }
-        }
+        public ThermostatRepo Thermostat { get { return thermostat; } }
+        public ThermostatSensorRepo ThermostatSensor { get { return thermostatSensor; } }
+        public ThermostatActuatorRepo ThermostatActuator { get { return thermostatActuator; } }
 
-        public ThermostatActuatorRepo ThermostatActuator {
-            get 
-            {
-                if(_thermostatActuator == null)
-                {
-                    _thermostatActuator = new ThermostatActuatorRepo(this.logger, this._repoContext);
-                }
-                return _thermostatActuator;
-            }
-        }
+         
+        public SmartBulbRepo SmartBulb  { get { return this.smartBulb; } }
+        public BulbSensorRepo BulbSensor  { get { return this.bulbSensor; } }
+        public BulbActuatorRepo BulbActuator  { get { return this.bulbActuator; } }
 
-        private readonly ILogger logger;
 
-        public RepositoryWrapper(ILogger logger, SHDbContext repositoryContext)
+        public SmartJalousineRepo SmartJalousine  { get { return this.smartJalousine; } }
+        public JalousineSensorRepo JalousineSensor  { get { return this.jalousineSensor; } }
+        public JalousineActuatorRepo JalousineActuator  { get { return this.jalousineActuator; } }
+
+
+        public RepositoryWrapper(SHDbContext repositoryContext)
         {
-            this.logger = logger;
-            this._repoContext = repositoryContext;
-            this._account = new AccountRepo(this._repoContext); 
-            this._thermostat = new ThermostatRepo(this._repoContext);
-            this._thermostatSensor = new ThermostatSensorRepo(this.logger,this._repoContext);
-            this._thermostatActuator = new ThermostatActuatorRepo(this.logger,this._repoContext);
+            this.repoContext = repositoryContext;
+            this.account = new AccountRepo(this.repoContext); 
+
+            this.thermostat = new ThermostatRepo(this.repoContext);
+            this.thermostatSensor = new ThermostatSensorRepo(this.repoContext);
+            this.thermostatActuator = new ThermostatActuatorRepo(this.repoContext);
+
+            this.smartBulb = new SmartBulbRepo(this.repoContext);;
+            this.bulbSensor = new BulbSensorRepo(this.repoContext);;
+            this.bulbActuator = new BulbActuatorRepo(this.repoContext);;
+
+            this.smartJalousine = new SmartJalousineRepo(this.repoContext);;
+            this.jalousineSensor = new JalousineSensorRepo(this.repoContext);;
+            this.jalousineActuator = new JalousineActuatorRepo(this.repoContext);;
         }
     }
 }

@@ -18,7 +18,7 @@ public class JalousineSensor
     public string Status{get;set;}
 
     [Required]
-    public int State{get;set;}
+    public string State{get;set;}
 
     public Guid Actuator_Id{get;set;}
     
@@ -27,7 +27,7 @@ public class JalousineSensor
 
     public virtual SmartJalousine? SmartJalousine { get; set; }
 
-    public JalousineSensor(Guid sensor_Id, string name, string status, int state, Guid actuator_Id, Guid jal_Id)
+    public JalousineSensor(Guid sensor_Id, string name, string status, string state, Guid actuator_Id, Guid jal_Id)
     {
         this.Sensor_Id = sensor_Id;
         this.Name = name;

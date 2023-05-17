@@ -8,13 +8,11 @@ using SmartHomeApi.New.Models;
 using SmartHomeApi.New.Contexts;
 
 namespace SmartHomeApi.New.Repositories;
-public class SmartBulbActuatorRepo : IRepository<BulbActuator, Guid>
+public class BulbActuatorRepo : IRepository<BulbActuator, Guid>
 {
     private SHDbContext context;
-    private ILogger logger;
-    public SmartBulbActuatorRepo(ILogger logger, SHDbContext context){
+    public BulbActuatorRepo(SHDbContext context){
         this.context = context;
-        this.logger = logger;
     }
 
 
