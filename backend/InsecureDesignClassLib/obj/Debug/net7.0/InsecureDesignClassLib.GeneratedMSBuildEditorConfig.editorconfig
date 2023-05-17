@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = InsecureDesignClassLib
+<<<<<<< HEAD
 build_property.ProjectDir = m:\Marcel\Desktop\Studium\4.Semester\IT_Security\GIT\backend\InsecureDesignClassLib\
+=======
+build_property.ProjectDir = C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\
+>>>>>>> origin/backend
