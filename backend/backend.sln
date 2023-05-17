@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsecureDesignBackend", "InsecureDesignBackend\InsecureDesignBackend.csproj", "{68A207D7-29F6-48AF-98D8-2802C9274A7F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InsecureDesignClassLib", "InsecureDesignClassLib\InsecureDesignClassLib.csproj", "{553E5700-10F3-4564-8BAB-204B3C755AA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartHomeApi", "SmartHomeApi\SmartHomeApi.csproj", "{FBDAA8C9-E1EF-4906-8D54-19BA124876B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,13 +16,13 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{68A207D7-29F6-48AF-98D8-2802C9274A7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{68A207D7-29F6-48AF-98D8-2802C9274A7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{68A207D7-29F6-48AF-98D8-2802C9274A7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{68A207D7-29F6-48AF-98D8-2802C9274A7F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{553E5700-10F3-4564-8BAB-204B3C755AA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{553E5700-10F3-4564-8BAB-204B3C755AA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{553E5700-10F3-4564-8BAB-204B3C755AA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{553E5700-10F3-4564-8BAB-204B3C755AA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FBDAA8C9-E1EF-4906-8D54-19BA124876B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBDAA8C9-E1EF-4906-8D54-19BA124876B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBDAA8C9-E1EF-4906-8D54-19BA124876B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBDAA8C9-E1EF-4906-8D54-19BA124876B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
