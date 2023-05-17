@@ -10,6 +10,7 @@ import { DeviceShowcaseComponent } from './pages/device-showcase/device-showcase
 import { TempSettingsComponent } from './pages/temp-settings/temp-settings.component';
 import { LightSettingsComponent } from './pages/light-settings/light-settings.component';
 import { ShutterSettingsComponent } from './pages/shutter-settings/shutter-settings.component';
+import { AddDeviceComponent } from './pages/add-device/add-device.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'devices', component: DevicesComponent},
   {path: 'history', component: HistoryComponent},
   {path: 'settings', component: SettingsComponent},
+  {path: 'settings/add-device', component: AddDeviceComponent},
   {path: 'devices/temp-settings', component: TempSettingsComponent},
   {path: 'devices/light-settings', component: LightSettingsComponent},
   {path: 'devices/shutter-settings', component: ShutterSettingsComponent},

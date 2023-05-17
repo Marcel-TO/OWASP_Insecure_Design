@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Account } from 'src/app/models/account';
+import { Modelfactory } from 'src/app/models/modelfactory';
 
 @Component({
   selector: 'app-navbar',
@@ -7,13 +9,27 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  public currentUser = undefined;
-  public undefinedUser = undefined;
+  public currentUser?: string;
   public isSigned = false
+  public accounts: Account[] = [];
+
   constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+    this.accounts = new Modelfactory().Accounts
   }
+
+  private checkUser(id:string) {
+    for (let user of this.accounts) {
+      if (id == user.id) {
+        return id;
+      }
+    }
+    return undefined
+  }
+
   ngOnInit(): void {
-    this.currentUser  = this.activatedRoute.snapshot.queryParams['username'];
+    let id_query  = this.activatedRoute.snapshot.queryParams['user'];
+    this.currentUser = this.checkUser(id_query);
+    console.log(this.currentUser)
     if (this.currentUser != undefined) {
       this.isSigned = true;
     }

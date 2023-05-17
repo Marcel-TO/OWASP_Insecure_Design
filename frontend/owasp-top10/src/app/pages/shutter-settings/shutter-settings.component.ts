@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Account } from 'src/app/models/account';
+import { Modelfactory } from 'src/app/models/modelfactory';
 import { ShutterSensor } from 'src/app/models/shutterSensor';
 
 @Component({
@@ -10,11 +12,15 @@ import { ShutterSensor } from 'src/app/models/shutterSensor';
 export class ShutterSettingsComponent {
   public currentUser?: string;
   public currentSensor?: ShutterSensor;
-  public sensors?: ShutterSensor[];
+
+  public accounts: Account[] = [];
+  public sensors: ShutterSensor[] = [];
   public shutterOpen: boolean = false;
   public isOpen = false;
+  private modelFactory = new Modelfactory();
   
   constructor(private activatedRoute: ActivatedRoute) {
+    this.accounts = this.modelFactory.Accounts;
   }
 
   public onClickDrawer() {
@@ -37,8 +43,19 @@ export class ShutterSettingsComponent {
     this.shutterOpen = this.currentSensor.isOpen;
   }
 
+  private checkUser(id:string) {
+    for (let user of this.accounts) {
+      if (id == user.id) {
+        return id;
+      }
+    }
+    return undefined
+  }
+
   ngOnInit(): void {
-    this.currentUser = this.activatedRoute.snapshot.queryParams['username'];
+    let id_query = this.activatedRoute.snapshot.queryParams['user'];
+    this.currentUser = this.checkUser(id_query);
+
     let unsigned = document.getElementById('unsignedShutterSettings');
     let devices = document.getElementById('device');
     if (this.currentUser == undefined) {
@@ -53,11 +70,7 @@ export class ShutterSettingsComponent {
       if (unsigned != null) {
         unsigned.style.display = 'none'
       }
+      this.sensors = this.modelFactory.getShutterSensors(this.currentUser)
     }
-    
-    this.sensors = [{id: '001', name: 'Shutter Livingroom', isOpen: true, account_id: 'testuser'},
-    {id: '002', name: 'Shutter Kitchen', isOpen: false, account_id: 'testuser'},
-    {id: '003', name: 'Shutter Bedroom', isOpen: true, account_id: 'testuser'},
-    {id: '004', name: 'Shutter Terrace', isOpen: false, account_id: 'testuser'}];
   }
 }

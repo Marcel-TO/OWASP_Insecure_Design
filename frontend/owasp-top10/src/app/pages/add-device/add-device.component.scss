@@ -8,6 +8,7 @@ app-background {
     flex-direction: row;
     justify-content: center;
     text-align: center;
+    margin-top: 10em;
 }
 
 .device-item {
@@ -82,13 +83,5 @@ app-background {
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    line-height: 1.5em;
-}
-
-.heading {
-    text-align: center;
-    font-family: Raleway, sans-serif;
-    font-size: 3rem;
-    margin: 1em 2em 0em 2em;
     line-height: 1.5em;
 }

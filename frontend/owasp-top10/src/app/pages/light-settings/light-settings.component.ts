@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Account } from 'src/app/models/account';
 import { Actuator } from 'src/app/models/actuator';
 import { LightSensor } from 'src/app/models/lightSensor';
+import { Modelfactory } from 'src/app/models/modelfactory';
 
 @Component({
   selector: 'app-light-settings',
@@ -11,13 +13,17 @@ import { LightSensor } from 'src/app/models/lightSensor';
 export class LightSettingsComponent implements OnInit{
   public currentUser?: string;
   public currentSensor?: LightSensor;
-  public sensors?: LightSensor[];
-  public actuators?: Actuator[];
+
+  public accounts: Account[] = [];
+  public sensors: LightSensor[] = [];
+  public actuators: Actuator[] = [];
   public brightness?: number;
   public warmness?: number;
   public isOpen = false;
+  private modelFactory = new Modelfactory()
   
   constructor(private activatedRoute: ActivatedRoute) {
+    this.accounts = this.modelFactory.Accounts;
   }
   
   public onClickDrawer() {
@@ -40,8 +46,19 @@ export class LightSettingsComponent implements OnInit{
     this.warmness = this.currentSensor.warmness;
   }
 
+  private checkUser(id:string) {
+    for (let user of this.accounts) {
+      if (id == user.id) {
+        return id;
+      }
+    }
+    return undefined
+  }
+
   ngOnInit(): void {
-    this.currentUser = this.activatedRoute.snapshot.queryParams['username'];
+    let id_query = this.activatedRoute.snapshot.queryParams['user'];
+    this.currentUser = this.checkUser(id_query);
+
     let unsigned = document.getElementById('unsignedTempSettings');
     let devices = document.getElementById('device');
     if (this.currentUser == undefined) {
@@ -56,11 +73,7 @@ export class LightSettingsComponent implements OnInit{
       if (unsigned != null) {
         unsigned.style.display = 'none'
       }
+      this.sensors = this.modelFactory.getLightSensors(this.currentUser);
     }
-
-    this.sensors = [{id: '001', name: 'Light_Livingroom', brightness: 4, warmness: 6, account_id: 'testuser'},
-    {id: '002', name: 'Light_Kitchen', brightness: 8, warmness: 3, account_id: 'testuser'},
-    {id: '003', name: 'Light_Bedroom', brightness: 4, warmness: 6, account_id: 'testuser'},
-    {id: '004', name: 'Light_Upstairs', brightness: 0, warmness: 0, account_id: 'testuser'}];
   }
 }

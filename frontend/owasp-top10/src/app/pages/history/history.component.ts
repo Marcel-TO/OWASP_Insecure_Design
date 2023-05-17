@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Account } from 'src/app/models/account';
+import { Modelfactory } from 'src/app/models/modelfactory';
 
 @Component({
   selector: 'app-history',
@@ -7,15 +9,26 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./history.component.scss']
 })
 export class HistoryComponent implements OnInit {
-  public currentUser = undefined;
+  public currentUser?: string;
+  public accounts: Account[] = [];
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(private activatedRoute: ActivatedRoute) {
+    this.accounts = new Modelfactory().Accounts;
+  }
+
+  private checkUser(id:string) {
+    for (let user of this.accounts) {
+      if (id == user.id) {
+        return id;
+      }
+    }
+    return undefined
+  }
 
   ngOnInit(): void {
-    this.currentUser = this.activatedRoute.snapshot.queryParams['username'];
+    this.currentUser = this.activatedRoute.snapshot.queryParams['user'];
     // let history = document.getElementById('history');
     let unsigned = document.getElementById('unsignedHistory');
-    console.log(this.currentUser)
     if (this.currentUser == undefined) {
       // if (history != null) {
       //   history.style.display = 'none'

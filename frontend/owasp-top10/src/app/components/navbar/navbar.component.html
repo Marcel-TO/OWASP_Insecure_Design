@@ -1,14 +1,14 @@
 <!--Navigation Bar Signed Out User-->
 <header [hidden]="isSigned">
     <div class="navigation-container">
-        <a [routerLink]="['/']" [queryParams]="{username: currentUser}"><img class="logo" src="/assets/pictures/Logo.png"></a>
+        <a [routerLink]="['/']" [queryParams]="{user: currentUser}"><img class="logo" src="/assets/pictures/Logo.png"></a>
 
         <ul class="navigation-menu">
             <li class="navigation-item">
-                <a class="navigation-link" [routerLink]="['/devices']" [queryParams]="{username: currentUser}">My Devices</a>
+                <a class="navigation-link" [routerLink]="['/devices']" [queryParams]="{user: currentUser}">My Devices</a>
             </li>
             <li class="navigation-item">
-                <a class="navigation-link" [routerLink]="['/history']" [queryParams]="{username: currentUser}">History</a>
+                <a class="navigation-link" [routerLink]="['/history']" [queryParams]="{user: currentUser}">History</a>
             </li>
             <li class="navigation-item">
                 <a [matMenuTriggerFor]="menuOut" id="profile-icon"><img class="profile" src="/assets/pictures/Icons/Profile_empty.png"/></a>
@@ -17,7 +17,7 @@
                       <mat-icon>settings</mat-icon>
                       <span class="navigation-link">Settings</span>
                     </button>
-                    <button mat-menu-item [routerLink]="['/device-showcase']" [queryParams]="{username: currentUser}" disabled>
+                    <button mat-menu-item [routerLink]="['/device-showcase']" [queryParams]="{user: currentUser}">
                         <mat-icon>devices_other</mat-icon>
                         <span class="navigation-link">Device Settings Showcase</span>
                     </button>
@@ -34,23 +34,23 @@
 <!--Navigation Bar Signed In User-->
 <header [hidden]="!isSigned">
     <div class="navigation-container">
-        <a [routerLink]="['/']" [queryParams]="{username: currentUser}"><img class="logo" src="/assets/pictures/Logo.png"></a>
+        <a [routerLink]="['/']" [queryParams]="{user: currentUser}"><img class="logo" src="/assets/pictures/Logo.png"></a>
 
         <ul class="navigation-menu">
             <li class="navigation-item">
-                <a class="navigation-link" [routerLink]="['/devices']" [queryParams]="{username: currentUser}">My Devices</a>
+                <a class="navigation-link" [routerLink]="['/devices']" [queryParams]="{user: currentUser}">My Devices</a>
             </li>
             <li class="navigation-item">
-                <a class="navigation-link" [routerLink]="['/history']" [queryParams]="{username: currentUser}">History</a>
+                <a class="navigation-link" [routerLink]="['/history']" [queryParams]="{user: currentUser}">History</a>
             </li>
             <li class="navigation-item">
                 <a [matMenuTriggerFor]="menuIn" id="profile-icon"><img class="profile" src="/assets/pictures/Icons/Profile.png"/></a>
                 <mat-menu #menuIn="matMenu">
-                    <button mat-menu-item [routerLink]="['/settings']" [queryParams]="{username: currentUser}">
+                    <button mat-menu-item [routerLink]="['/settings']" [queryParams]="{user: currentUser}">
                       <mat-icon>settings</mat-icon>
                       <span class="navigation-link">Settings</span>
                     </button>
-                    <button mat-menu-item [routerLink]="['/device-showcase']" [queryParams]="{username: currentUser}">
+                    <button mat-menu-item [routerLink]="['/device-showcase']" [queryParams]="{user: currentUser}">
                         <mat-icon>devices_other</mat-icon>
                         <span class="navigation-link">Device Settings Showcase</span>
                     </button>

@@ -1,7 +1,6 @@
 <app-navbar></app-navbar>
 <app-background-middle></app-background-middle>
-<h1 class="heading">This Page displays the possible interactions with the different devices</h1>
-<div class="devices-container" id="devicesShowcase">
+<div class="devices-container" id="addDevices">
     <div class="device-item">
         <img class="device-image" src="/assets/pictures/Icons/Temperature.png"/>
         <h1 class="device-name">Temperature</h1>
@@ -11,7 +10,7 @@
                 <h1 class="text">{{degree}} °C</h1>
                 <button class="change-btn" (click)="onIncreaseTemp()">+</button>
             </div>
-            <!-- <button class="set-btn">Set</button> -->
+            <button class="set-btn">Set</button>
             <!-- <button class="presets-btn">Presets</button> -->
         </div>
     </div>
@@ -31,7 +30,7 @@
                 <p class="text">warm</p>
             </div>
 
-            <!-- <button class="set-btn">Set</button> -->
+            <button class="set-btn">Set</button>
             <!-- <button class="presets-btn">Presets</button> -->
         </div>
     </div>
@@ -56,4 +55,8 @@
             <!-- <button class="presets-btn">Presets</button> -->
         </div>
     </div>
+</div>
+
+<div class="unsigned" id="unsignedAddDeviceShowcase">
+    <h1 class="title">Please log in to get access to your devices</h1>
 </div>

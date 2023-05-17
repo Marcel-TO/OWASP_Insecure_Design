@@ -26,7 +26,7 @@
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
-                <mat-card-content><button class="add-device-btn">Add Temperature Device</button></mat-card-content>
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser}">Add Device</button></mat-card-content>
             </mat-card>   
         </mat-accordion>
     </div>
@@ -55,7 +55,7 @@
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
-                <mat-card-content><button class="add-device-btn">Add Light Device</button></mat-card-content>
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser}">Add Device</button></mat-card-content>
             </mat-card>            
         </mat-accordion>
     </div>
@@ -83,7 +83,7 @@
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
-                <mat-card-content><button class="add-device-btn">Add Shutter Device</button></mat-card-content>
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser}">Add Device</button></mat-card-content>
             </mat-card>      
         </mat-accordion>
     </div>
@@ -94,8 +94,8 @@
         <h1 class="header">Change Profile</h1>
         <form class="signin-form">
           <mat-form-field class="signin-full-width">
-            <mat-label>new username:</mat-label>
-            <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher" placeholder="{{currentUser}}">
+            <mat-label>New Username:</mat-label>
+            <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher" placeholder="{{currentUser?.username}}" required>
             <mat-hint>Errors appear instantly!</mat-hint>
             <mat-error *ngIf="usernameFormControl.hasError('hasLetters')">
                 Username must not contain numbers
@@ -113,6 +113,7 @@
         </form>
         <form class="signin-form">
             <mat-form-field class="signin-full-width">
+            <mat-label>New Password:</mat-label>
               <input matInput placeholder="Password" [type]="isHiding ? 'password' : 'text'" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" required>
               <mat-icon matSuffix (click)="isHiding = !isHiding">{{isHiding ? 'visibility_off' : 'visibility'}}</mat-icon>
               <mat-error *ngIf="passwordFormControl.hasError('required')">

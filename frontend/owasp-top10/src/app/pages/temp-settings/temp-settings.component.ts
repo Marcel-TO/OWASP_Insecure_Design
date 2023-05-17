@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Account } from 'src/app/models/account';
 import { Actuator } from 'src/app/models/actuator';
+import { Modelfactory } from 'src/app/models/modelfactory';
 import { TempSensor } from 'src/app/models/tempSensor';
 
 @Component({
@@ -11,12 +13,17 @@ import { TempSensor } from 'src/app/models/tempSensor';
 export class TempSettingsComponent {
   public currentUser?: string;
   public currentSensor?: TempSensor;
-  public sensors?: TempSensor[];
-  public actuators?: Actuator[];
+
+  public accounts: Account[] = [];
+  public sensors: TempSensor[] = [];
+  public actuators: Actuator[] = [];
   public degree = 20;
   public isOpen = false;
+  private modelFactory = new Modelfactory()
   
   constructor(private activatedRoute: ActivatedRoute) {
+    this.accounts = this.modelFactory.Accounts;
+    this.sensors = this.modelFactory.TempSensors;
   }
 
   public onClickDrawer() {
@@ -44,11 +51,21 @@ export class TempSettingsComponent {
 
   public selectDevice(sensor: TempSensor) {
     this.currentSensor = sensor;
-    
   }
 
+  private checkUser(id:string) {
+    for (let user of this.accounts) {
+      if (id == user.id) {
+        return id;
+      }
+    }
+    return undefined
+  }
+
+
   ngOnInit(): void {
-    this.currentUser = this.activatedRoute.snapshot.queryParams['username'];
+    let id_query = this.activatedRoute.snapshot.queryParams['user'];
+    this.currentUser = this.checkUser(id_query);
     let unsigned = document.getElementById('unsignedTempSettings');
     let devices = document.getElementById('device');
     if (this.currentUser == undefined) {
@@ -63,11 +80,7 @@ export class TempSettingsComponent {
       if (unsigned != null) {
         unsigned.style.display = 'none'
       }
+      this.sensors = this.modelFactory.getTempSensors(this.currentUser);
     }
-    
-    this.sensors = [{id: '001', name: 'Temp-Livingroom', temp: 24, status: 'on', account_id: 'testuser'},
-    {id: '002', name: 'Temp-Bedroom', temp: 18, status: 'on', account_id: 'testuser'},
-    {id: '003', name: 'Temp-Kitchen', temp: 26, status: 'on', account_id: 'testuser'},
-    {id: '004', name: 'Temp-Bathroom', temp: 25, status: 'on', account_id: 'testuser'}];
   }
 }

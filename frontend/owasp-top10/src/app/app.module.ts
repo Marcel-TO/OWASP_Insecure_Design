@@ -28,6 +28,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { AddDeviceComponent } from './pages/add-device/add-device.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     DeviceShowcaseComponent,
     TempSettingsComponent,
     LightSettingsComponent,
-    ShutterSettingsComponent
+    ShutterSettingsComponent,
+    AddDeviceComponent
   ],
   imports: [
     BrowserModule,

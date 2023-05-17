@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit{
   isHiding = true;
   showDoesNotExist = false;
   currentUser: Account | undefined = undefined;
-  allUsers?: Account[]
+  allUsers: Account[] = [];
 
   constructor(private router: Router) {
     let modelfactory = new Modelfactory()
@@ -49,11 +49,13 @@ export class LoginComponent implements OnInit{
     for (let user of this.allUsers) {
       if (username == user.username && password == user.password) {
         this.currentUser = user;
-        this.router.navigate(['/'], {queryParams: {username: user.username}})
+        this.router.navigate(['/'], {queryParams: {user: user.id}})
       }
     }
 
     this.usernameFormControl.setErrors({notExist: true})
+
+    // this.router.navigate(['/'], {queryParams: {user: this.allUsers[0].id}})
   }
 }
 

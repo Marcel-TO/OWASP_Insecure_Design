@@ -15,11 +15,12 @@ import { CustomValidators } from 'src/app/models/custom-validators';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  public currentUser?: string;
-  public accounts?: Account[];
-  public tempSensors?: TempSensor[];
-  public lightSensors?: LightSensor[];
-  public shutterSensors?: ShutterSensor[];
+  public currentUser?: Account;
+  public accounts: Account[] = [];
+  public tempSensors: TempSensor[] = [];
+  public lightSensors: LightSensor[] = [];
+  public shutterSensors: ShutterSensor[] = [];
+  private modelFactory = new Modelfactory();
   
   matcher = new MyErrorStateMatcher();
   usernameFormControl = new FormControl('', Validators.compose([
@@ -37,11 +38,7 @@ export class SettingsComponent implements OnInit {
   isHiding = true;
 
   constructor(private activatedRoute: ActivatedRoute) {
-    let modelFactory = new Modelfactory();
-    this.accounts = modelFactory.Accounts;
-    this.tempSensors = modelFactory.TempSensors;
-    this.lightSensors = modelFactory.LightSensors;
-    this.shutterSensors = modelFactory.ShutterSensors;
+    this.accounts = this.modelFactory.Accounts;
   }
 
   public onChangeSensorName(sensorname: string) {
@@ -49,8 +46,19 @@ export class SettingsComponent implements OnInit {
     console.log(newname)
   }
 
+  private checkUser(id:string) {
+    for (let user of this.accounts) {
+      if (id == user.id) {
+        return user;
+      }
+    }
+    return undefined
+  }
+
   ngOnInit(): void {
-    this.currentUser = this.activatedRoute.snapshot.queryParams['username'];
+    let id_query = this.activatedRoute.snapshot.queryParams['user'];
+    this.currentUser = this.checkUser(id_query);
+
     let unsigned = document.getElementById('unsignedSettings');
     let devices = document.getElementById('device');
     let adminSettings = document.getElementById('admin-settings');
@@ -63,17 +71,19 @@ export class SettingsComponent implements OnInit {
       }
     }
     else {
-      if (this.accounts != null) {
-        if (unsigned != null) {
-          unsigned.style.display = 'none'
-        }
+      if (unsigned != null) {
+        unsigned.style.display = 'none'
+      }
 
-        for (let acc of this.accounts) {
-          if (acc.username == this.currentUser) {
-            if (acc.role != 'admin') {
-              if (adminSettings != null) {
-                adminSettings.style.display = 'none';
-              }
+      this.tempSensors = this.modelFactory.getTempSensors(this.currentUser.id);
+      this.lightSensors = this.modelFactory.getLightSensors(this.currentUser.id);
+      this.shutterSensors = this.modelFactory.getShutterSensors(this.currentUser.id);
+      
+      for (let acc of this.accounts) {
+        if (acc.id == this.currentUser.id) {
+          if (acc.role != 'admin') {
+            if (adminSettings != null) {
+              adminSettings.style.display = 'none';
             }
           }
         }
