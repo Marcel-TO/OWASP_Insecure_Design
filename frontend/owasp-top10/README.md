@@ -11,10 +11,10 @@ Allows the user to get back to the home page.
 
 ## My Devices
 Allows the user to interact with all devices:
-<img src="./src/assets/pictures/pages/Devices.png"/>
+<img src="./src/assets/pictures/pages/Devices.PNG"/>
 
 Selecting one of the device types brings the selected symbol  in the middle and after interaction with it opens a sidebar with all devices of this type:
-<img src="./src/assets/pictures/pages/light_device.png"/>
+<img src="./src/assets/pictures/pages/light_device.PNG"/>
 
 With the displayed options the user can change the settings of the current device
 
@@ -23,10 +23,23 @@ This page lists all changes done by the user
 
 ## Settings
 This page differs wether the user is an admin or just a normal user. The admin has the opportunity to change the name of each device. The normal user only has the option to change username and password.
-<img src="./src/assets/pictures/pages/settings.png"/>
+<img src="./src/assets/pictures/pages/settings.PNG"/>
 
 ## Device Settings Showcase
 This page is just for show. It displays each supported device and its device settings.
 
 ## Log In / Log Out
 Allows the user to log in or log out of the website.
+
+---
+
+<p>
+  <a href="./backend">
+    <img src="https://img.shields.io/badge/Go%20to-Backend-000"/>
+  </a>
+</p>
+<p>
+  <a href="../../">
+    <img src="https://img.shields.io/badge/Go%20to-Main-fff"/>
+  </a>
+</p>
