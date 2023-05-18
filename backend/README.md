@@ -53,15 +53,15 @@ The database model is as following:
 
 **_bulb_sensors_**
 
-| sensor_id | name | status | brightness |  actuator_id |  bulb_id | therm_id |
-|:----------:|:-----:|:------------------:|:----------:|:----------:|:----------:|:----------:|
-|     . . .    |  . . .  |        . . .         |    . . .     |  . . .     |  . . .     |  . . .     |
+| sensor_id | name | status | brightness |  actuator_id |  bulb_id |
+|:----------:|:-----:|:------------------:|:----------:|:----------:|:----------:|
+|     . . .    |  . . .  |        . . .         |    . . .     |  . . .     |  . . .     |
 
 **_bulb_actuators_**
 
-| actuator_id | name | status | target_brightness | sensor_id | bulb_id | therm_id |
-|:----------:|:-----:|:------------------:|:----------:|:----------:|:----------:|:----------:|
-|     . . .    |  . . .  |        . . .         |    . . .     ||        . . .         |    . . .     |   . . .     |
+| actuator_id | name | status | target_brightness | sensor_id | bulb_id |
+|:----------:|:-----:|:------------------:|:----------:|:----------:|:----------:|
+|     . . .    |  . . .  |        . . .         |    . . .     ||        . . .         |    . . .     | 
 
 
 
