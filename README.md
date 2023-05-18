@@ -169,3 +169,15 @@ To run the  frontend application, go to the the frontend project and use the com
 ```
 ng serve
 ```
+
+# Execution
+<p>
+  <a href="./backend">
+    <img src="https://img.shields.io/badge/Go%20to-Backend-000"/>
+  </a>
+</p>
+<p>
+  <a href="./frontend/owasp-top10/">
+    <img src="https://img.shields.io/badge/Go%20to-Frontend-fff"/>
+  </a>
+</p>
