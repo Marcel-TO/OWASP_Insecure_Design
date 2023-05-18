@@ -7,6 +7,7 @@ namespace SmartHomeApi.New.Repositories.Wrapper
         private SHDbContext repoContext;
         private AccountRepo account;
 
+        private SmartDevicesRepo smartDevices;
         private ThermostatRepo thermostat;
         private ThermostatSensorRepo thermostatSensor;
         private ThermostatActuatorRepo thermostatActuator;
@@ -19,12 +20,13 @@ namespace SmartHomeApi.New.Repositories.Wrapper
         private JalousineSensorRepo jalousineSensor;
         private JalousineActuatorRepo jalousineActuator;
        
-        public AccountRepo Account { get { return account; } }
+        public AccountRepo Account { get { return this.account; } }
 
+        public SmartDevicesRepo SmartDevices { get { return this.smartDevices; } }
 
-        public ThermostatRepo Thermostat { get { return thermostat; } }
-        public ThermostatSensorRepo ThermostatSensor { get { return thermostatSensor; } }
-        public ThermostatActuatorRepo ThermostatActuator { get { return thermostatActuator; } }
+        public ThermostatRepo Thermostat { get { return this.thermostat; } }
+        public ThermostatSensorRepo ThermostatSensor { get { return this.thermostatSensor; } }
+        public ThermostatActuatorRepo ThermostatActuator { get { return this.thermostatActuator; } }
 
          
         public SmartBulbRepo SmartBulb  { get { return this.smartBulb; } }
@@ -40,7 +42,9 @@ namespace SmartHomeApi.New.Repositories.Wrapper
         public RepositoryWrapper(SHDbContext repositoryContext)
         {
             this.repoContext = repositoryContext;
-            this.account = new AccountRepo(this.repoContext); 
+            this.account = new AccountRepo(this.repoContext);
+
+            this.smartDevices = new SmartDevicesRepo(this.repoContext); 
 
             this.thermostat = new ThermostatRepo(this.repoContext);
             this.thermostatSensor = new ThermostatSensorRepo(this.repoContext);

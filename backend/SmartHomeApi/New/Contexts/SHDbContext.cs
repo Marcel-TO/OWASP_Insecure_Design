@@ -54,5 +54,33 @@ namespace SmartHomeApi.New.Contexts;
             .WithOne(e => e.Thermostat)
             .HasForeignKey(e => e.Therm_Id)
             .HasPrincipalKey(e => e.Thermostat_Id);
+
+
+           modelBuilder.Entity<SmartBulb>()
+            .HasMany(e => e.Sensors)
+            .WithOne(e => e.SmartBulb)
+            .HasForeignKey(e => e.Bulb_Id)
+            .HasPrincipalKey(e => e.Smartbulb_Id);
+
+            modelBuilder.Entity<SmartBulb>()
+            .HasMany(e => e.Actuators)
+            .WithOne(e => e.SmartBulb)
+            .HasForeignKey(e => e.Bulb_Id)
+            .HasPrincipalKey(e => e.Smartbulb_Id);
+
+
+            modelBuilder.Entity<SmartJalousine>()
+            .HasMany(e => e.Sensors)
+            .WithOne(e => e.SmartJalousine)
+            .HasForeignKey(e => e.Jal_Id)
+            .HasPrincipalKey(e => e.Jalousine_Id);
+
+            modelBuilder.Entity<SmartJalousine>()
+            .HasMany(e => e.Actuators)
+            .WithOne(e => e.SmartJalousine)
+            .HasForeignKey(e => e.Jal_Id)
+            .HasPrincipalKey(e => e.Jalousine_Id);
+
+            
     }
  }

@@ -5,6 +5,8 @@ namespace SmartHomeApi.New.Repositories.Wrapper
     {
         AccountRepo Account { get; }
 
+        SmartDevicesRepo SmartDevices { get; }
+
         ThermostatRepo Thermostat { get; }
         ThermostatSensorRepo ThermostatSensor { get; }
         ThermostatActuatorRepo ThermostatActuator { get; }

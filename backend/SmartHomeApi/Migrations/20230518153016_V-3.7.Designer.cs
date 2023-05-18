@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartHomeApi.New.Contexts;
 
@@ -10,9 +11,11 @@ using SmartHomeApi.New.Contexts;
 namespace SmartHomeApi.Migrations
 {
     [DbContext(typeof(SHDbContext))]
-    partial class SHDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230518153016_V-3.7")]
+    partial class V37
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,6 +64,9 @@ namespace SmartHomeApi.Migrations
                     b.Property<Guid>("Sensor_Id")
                         .HasColumnType("char(36)");
 
+                    b.Property<Guid?>("Smartbulb_Id")
+                        .HasColumnType("char(36)");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -71,7 +77,7 @@ namespace SmartHomeApi.Migrations
 
                     b.HasKey("Actuator_Id");
 
-                    b.HasIndex("Bulb_Id");
+                    b.HasIndex("Smartbulb_Id");
 
                     b.ToTable("bulb_actuators");
                 });
@@ -95,6 +101,9 @@ namespace SmartHomeApi.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid?>("Smartbulb_Id")
+                        .HasColumnType("char(36)");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -102,7 +111,7 @@ namespace SmartHomeApi.Migrations
 
                     b.HasKey("Sensor_Id");
 
-                    b.HasIndex("Bulb_Id");
+                    b.HasIndex("Smartbulb_Id");
 
                     b.ToTable("bulb_sensors");
                 });
@@ -123,6 +132,9 @@ namespace SmartHomeApi.Migrations
                     b.Property<Guid>("Sensor_Id")
                         .HasColumnType("char(36)");
 
+                    b.Property<Guid?>("SmartJalousineJalousine_Id")
+                        .HasColumnType("char(36)");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -133,7 +145,7 @@ namespace SmartHomeApi.Migrations
 
                     b.HasKey("Actuator_Id");
 
-                    b.HasIndex("Jal_Id");
+                    b.HasIndex("SmartJalousineJalousine_Id");
 
                     b.ToTable("jalousine_actuators");
                 });
@@ -154,6 +166,9 @@ namespace SmartHomeApi.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("varchar(50)");
 
+                    b.Property<Guid?>("SmartJalousineJalousine_Id")
+                        .HasColumnType("char(36)");
+
                     b.Property<string>("State")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -165,7 +180,7 @@ namespace SmartHomeApi.Migrations
 
                     b.HasKey("Sensor_Id");
 
-                    b.HasIndex("Jal_Id");
+                    b.HasIndex("SmartJalousineJalousine_Id");
 
                     b.ToTable("jalousine_sensors");
                 });
@@ -281,9 +296,7 @@ namespace SmartHomeApi.Migrations
                 {
                     b.HasOne("SmartHomeApi.New.Models.SmartBulb", "SmartBulb")
                         .WithMany("Actuators")
-                        .HasForeignKey("Bulb_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Smartbulb_Id");
 
                     b.Navigation("SmartBulb");
                 });
@@ -292,9 +305,7 @@ namespace SmartHomeApi.Migrations
                 {
                     b.HasOne("SmartHomeApi.New.Models.SmartBulb", "SmartBulb")
                         .WithMany("Sensors")
-                        .HasForeignKey("Bulb_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Smartbulb_Id");
 
                     b.Navigation("SmartBulb");
                 });
@@ -303,9 +314,7 @@ namespace SmartHomeApi.Migrations
                 {
                     b.HasOne("SmartHomeApi.New.Models.SmartJalousine", "SmartJalousine")
                         .WithMany("Actuators")
-                        .HasForeignKey("Jal_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SmartJalousineJalousine_Id");
 
                     b.Navigation("SmartJalousine");
                 });
@@ -314,9 +323,7 @@ namespace SmartHomeApi.Migrations
                 {
                     b.HasOne("SmartHomeApi.New.Models.SmartJalousine", "SmartJalousine")
                         .WithMany("Sensors")
-                        .HasForeignKey("Jal_Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SmartJalousineJalousine_Id");
 
                     b.Navigation("SmartJalousine");
                 });

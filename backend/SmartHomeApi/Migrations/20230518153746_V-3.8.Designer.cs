@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SmartHomeApi.New.Contexts;
 
@@ -10,9 +11,11 @@ using SmartHomeApi.New.Contexts;
 namespace SmartHomeApi.Migrations
 {
     [DbContext(typeof(SHDbContext))]
-    partial class SHDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230518153746_V-3.8")]
+    partial class V38
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
