@@ -22,11 +22,11 @@ public class ThermostatActuatorController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateActuator(ThermostatActuator Actuator)
     {   
-        bool inserted = this._repository.Insert(Actuator);  
-        if(!inserted){
+        var inserted = this._repository.Insert(Actuator);  
+        if(!inserted.Item1){
             return NotFound("Make sure to put in the right (existing) id of the thermostat before inserting a Api_Source_Code thermostat");
         }
-        return Ok();
+        return Ok(inserted.Item2);
     }
 
     [HttpGet]

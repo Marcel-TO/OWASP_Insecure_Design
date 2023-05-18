@@ -28,7 +28,7 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
         return actuator;
     }
 
-    public bool Insert(ThermostatActuator entry)
+    public Tuple<bool,Guid> Insert(ThermostatActuator entry)
     {
        
         var parent = context.Thermostats
@@ -45,11 +45,11 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
             entry.Actuator_Id,parent.Thermostat_Id));
             this.Save();
     
-        return true;
+        return Tuple.Create(true, entry.Actuator_Id);
         }
 
         
-        return false;
+        return Tuple.Create(false, Guid.Empty);
     }
     
     public bool Update(ThermostatActuator entry)

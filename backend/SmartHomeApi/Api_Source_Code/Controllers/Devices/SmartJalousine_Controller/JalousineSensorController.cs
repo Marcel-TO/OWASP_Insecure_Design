@@ -22,11 +22,11 @@ public class JalousineSensorController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateSensor(JalousineSensor sensor)
     {   
-        bool inserted = this._repository.Insert(sensor);  
-        if(!inserted){
+        var inserted = this._repository.Insert(sensor);  
+        if(!inserted.Item1){
             return NotFound("Make sure to put in the right (existing) id of the jalousine before inserting a Api_Source_Code sensor");
         }
-        return Ok();
+        return Ok(inserted.Item2);
     }
 
     [HttpGet]

@@ -40,13 +40,13 @@ public class SmartBulbController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateSmartBulb(SmartBulb smartBulb)
     {   
-        bool isInserted = this._repository.Insert(smartBulb);   
-        if(isInserted == false)
+        var inserted = this._repository.Insert(smartBulb);   
+        if(!inserted.Item1)
         {
              return NotFound("Make sure to put in the right (existing) id of the account before inserting a Api_Source_Code bulb");
         }
        
-        return Ok();
+        return Ok(inserted.Item2);
     }
     
    

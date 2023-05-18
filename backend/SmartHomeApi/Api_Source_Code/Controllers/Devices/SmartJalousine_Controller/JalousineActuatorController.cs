@@ -22,11 +22,11 @@ public class JalousineActuatorController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateActuator(JalousineActuator Actuator)
     {   
-        bool inserted = this._repository.Insert(Actuator);  
-        if(!inserted){
+        var inserted = this._repository.Insert(Actuator);  
+        if(!inserted.Item1){
             return NotFound("Make sure to put in the right (existing) id of the jalousine before inserting a Api_Source_Code actuator");
         }
-        return Ok();
+        return Ok(inserted.Item2);
     }
 
     [HttpGet]

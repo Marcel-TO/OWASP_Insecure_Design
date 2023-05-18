@@ -57,7 +57,7 @@ public class ThermostatRepo : IRepository<Thermostat,Guid>
         return thermostat;
     }
 
-    public bool Insert(Thermostat entry)
+    public Tuple<bool,Guid> Insert(Thermostat entry)
     {
         
         var parent = context.Accounts
@@ -75,10 +75,10 @@ public class ThermostatRepo : IRepository<Thermostat,Guid>
             parent.Thermostats.Add(thermostat);
             this.Save();
         
-            return true;
+            return Tuple.Create(true, entry.Thermostat_Id);
         }
 
-      return false;
+      return Tuple.Create(false, Guid.Empty);
     }
     
     public bool Update(Thermostat entry)

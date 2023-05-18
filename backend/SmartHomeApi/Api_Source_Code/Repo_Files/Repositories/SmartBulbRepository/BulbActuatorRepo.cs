@@ -28,7 +28,7 @@ public class BulbActuatorRepo : IRepository<BulbActuator, Guid>
         return actuator;
     }
 
-    public bool Insert(BulbActuator entry)
+    public Tuple<bool,Guid> Insert(BulbActuator entry)
     {
        
         var parent = context.SmartBulbs
@@ -45,11 +45,11 @@ public class BulbActuatorRepo : IRepository<BulbActuator, Guid>
             entry.Sensor_Id,entry.Bulb_Id));
             this.Save();
     
-        return true;
+            return Tuple.Create(false, entry.Actuator_Id);
         }
 
         
-        return false;
+         return Tuple.Create(false, Guid.Empty);
     }
     
     public bool Update(BulbActuator entry)

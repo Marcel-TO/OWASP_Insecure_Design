@@ -40,13 +40,13 @@ public class SmartJalousineController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateSmartJalousine(SmartJalousine SmartJalousine)
     {   
-        bool isInserted = this._repository.Insert(SmartJalousine);   
-        if(isInserted == false)
+        var inserted = this._repository.Insert(SmartJalousine);   
+        if(!inserted.Item1)
         {
              return NotFound("Make sure to put in the right (existing) id of the account before inserting a Api_Source_Code jalousine");
         }
        
-        return Ok();
+        return Ok(inserted.Item2);
     }
     
    

@@ -61,7 +61,7 @@ public class SmartJalousineRepo : IRepository<SmartJalousine,Guid>
         
     }
 
-    public bool Insert(SmartJalousine entry)
+    public Tuple<bool,Guid> Insert(SmartJalousine entry)
     {
         
         var parent = context.Accounts
@@ -79,10 +79,10 @@ public class SmartJalousineRepo : IRepository<SmartJalousine,Guid>
             parent.SmartJalousines.Add(smartJalousine);
             this.Save();
         
-            return true;
+           return Tuple.Create(true, entry.Jalousine_Id);
         }
 
-      return false;
+        return Tuple.Create(false, Guid.Empty);
     }
     
     public bool Update(SmartJalousine entry)

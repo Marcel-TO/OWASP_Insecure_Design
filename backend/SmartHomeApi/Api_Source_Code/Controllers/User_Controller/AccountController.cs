@@ -28,8 +28,12 @@ public class AccountController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateAccount(DT_Account account)
     {   
-        this._repository.Insert(account);   
-        return Ok();
+        var inserted = this._repository.Insert(account);   
+        if(!inserted.Item1)
+        {
+            return NotFound("Couldn't create account");
+        }
+        return Ok(inserted.Item2);
     }
    
     [HttpDelete("delete")]

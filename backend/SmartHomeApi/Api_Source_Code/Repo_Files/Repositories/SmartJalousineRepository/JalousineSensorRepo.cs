@@ -28,26 +28,25 @@ public class JalousineSensorRepo : IRepository<JalousineSensor, Guid>
         return sensor;
     }
 
-    public bool Insert(JalousineSensor entry)
+    public Tuple<bool,Guid> Insert(JalousineSensor entry)
     {
-        var parent = new SmartJalousine(Guid.Empty, Guid.Empty);
-        var p = context.SmartJalousines
+        var parent = context.SmartJalousines
                        .Where(b => entry.Jal_Id == b.Jalousine_Id)
                        .Include(b => b.Sensors)
                        .FirstOrDefault();
   
-        if(p == null){
-            return false;
-        }
-        parent = p;
-        this.context.Entry(parent).State = EntityState.Modified;
-        this.context.Entry(parent).Collection("Sensors").Load();
+        if(parent is not null)
+        {
+            this.context.Entry(parent).State = EntityState.Modified;
+            this.context.Entry(parent).Collection("Sensors").Load();
+            
+            parent.Sensors.Add(new JalousineSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.State,
+            entry.Actuator_Id,parent.Jalousine_Id));
+            this.Save();
         
-        parent.Sensors.Add(new JalousineSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.State,
-        entry.Actuator_Id,parent.Jalousine_Id));
-        this.Save();
-    
-        return true;
+            return Tuple.Create(true, entry.Sensor_Id);
+        }
+        return Tuple.Create(false, Guid.Empty);
     }
     
     public bool Update(JalousineSensor entry)

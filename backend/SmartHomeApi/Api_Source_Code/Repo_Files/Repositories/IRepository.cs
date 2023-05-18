@@ -4,7 +4,7 @@ using System.Collections;
 namespace SmartHomeApi.Api_Source_Code.Repositories;
 public interface IRepository<T,V>
 {
-    bool Insert(T entry);
+    Tuple<bool,Guid> Insert(T entry);
     bool Update(T entry);
     bool Delete(V entry);
     IEnumerable<T> GetAll();

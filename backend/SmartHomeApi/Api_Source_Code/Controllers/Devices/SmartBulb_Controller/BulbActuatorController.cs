@@ -22,11 +22,11 @@ public class BulbActuatorController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateActuator(BulbActuator actuator)
     {   
-        bool inserted = this._repository.Insert(actuator);  
-        if(!inserted){
+        var inserted = this._repository.Insert(actuator);  
+        if(!inserted.Item1){
             return NotFound("Make sure to put in the right (existing) id of the bulb before inserting a Api_Source_Code actuator");
         }
-        return Ok();
+        return Ok(inserted.Item2);
     }
 
     [HttpGet]

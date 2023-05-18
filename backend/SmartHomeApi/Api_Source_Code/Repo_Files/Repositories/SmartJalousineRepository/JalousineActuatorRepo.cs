@@ -28,7 +28,7 @@ public class JalousineActuatorRepo : IRepository<JalousineActuator, Guid>
         return actuator;
     }
 
-    public bool Insert(JalousineActuator entry)
+    public Tuple<bool,Guid> Insert(JalousineActuator entry)
     {
        
         var parent = context.SmartJalousines
@@ -45,11 +45,11 @@ public class JalousineActuatorRepo : IRepository<JalousineActuator, Guid>
             entry.Actuator_Id,parent.Jalousine_Id));
             this.Save();
     
-        return true;
+            return Tuple.Create(true, entry.Actuator_Id);
         }
 
         
-        return false;
+        return Tuple.Create(false, Guid.Empty);
     }
     
     public bool Update(JalousineActuator entry)

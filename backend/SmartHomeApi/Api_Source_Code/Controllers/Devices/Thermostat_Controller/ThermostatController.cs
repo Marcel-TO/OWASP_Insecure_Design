@@ -40,13 +40,13 @@ public class ThermostatController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateThermostat(Thermostat thermostat)
     {   
-        bool isInserted = this._repository.Insert(thermostat);   
-        if(isInserted == false)
+        var inserted = this._repository.Insert(thermostat);   
+        if(!inserted.Item1)
         {
              return NotFound("Make sure to put in the right (existing) id of the account before inserting a Api_Source_Code thermostat");
         }
        
-        return Ok();
+        return Ok(inserted.Item2);
     }
     
    

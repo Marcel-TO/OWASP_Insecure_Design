@@ -22,11 +22,11 @@ public class ThermostatSensorController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateSensor(ThermostatSensor sensor)
     {   
-        bool inserted = this._repository.Insert(sensor);  
-        if(!inserted){
+        Tuple<bool,Guid> inserted = this._repository.Insert(sensor);  
+        if(!inserted.Item1){
             return NotFound("Make sure to put in the right (existing) id of the thermostat before inserting a Api_Source_Code thermostat");
         }
-        return Ok();
+        return Ok(inserted.Item2);
     }
 
     [HttpGet]

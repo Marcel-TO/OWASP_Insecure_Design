@@ -60,7 +60,7 @@ public class SmartBulbRepo : IRepository<SmartBulb,Guid>
        
     }
 
-    public bool Insert(SmartBulb entry)
+    public Tuple<bool,Guid> Insert(SmartBulb entry)
     {
         
         var parent = context.Accounts
@@ -78,10 +78,10 @@ public class SmartBulbRepo : IRepository<SmartBulb,Guid>
             parent.SmartBulbs.Add(smartBulb);
             this.Save();
         
-            return true;
+             return Tuple.Create(true, entry.Smartbulb_Id);
         }
 
-      return false;
+       return Tuple.Create(false, Guid.Empty);
     }
     
     public bool Update(SmartBulb entry)

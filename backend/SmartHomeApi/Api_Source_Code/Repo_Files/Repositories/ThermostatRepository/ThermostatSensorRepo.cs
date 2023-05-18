@@ -28,26 +28,25 @@ public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
         return sensor;
     }
 
-    public bool Insert(ThermostatSensor entry)
+    public Tuple<bool,Guid> Insert(ThermostatSensor entry)
     {
-        var parent = new Thermostat(Guid.Empty, Guid.Empty);
-        var p = context.Thermostats
+        var parent = context.Thermostats
                        .Where(b => entry.Therm_Id == b.Thermostat_Id)
                        .Include(b => b.Sensors)
                        .FirstOrDefault();
   
-        if(p == null){
-            return false;
-        }
-        parent = p;
-        this.context.Entry(parent).State = EntityState.Modified;
-        this.context.Entry(parent).Collection("Sensors").Load();
+        if(parent is not null)
+        {       
+            this.context.Entry(parent).State = EntityState.Modified;
+            this.context.Entry(parent).Collection("Sensors").Load();
+            
+            parent.Sensors.Add(new ThermostatSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Temperature,
+            entry.Actuator_Id,parent.Thermostat_Id));
+            this.Save();
         
-        parent.Sensors.Add(new ThermostatSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Temperature,
-        entry.Actuator_Id,parent.Thermostat_Id));
-        this.Save();
-    
-        return true;
+            return Tuple.Create(true, entry.Sensor_Id);
+        }
+        return Tuple.Create(false, Guid.Empty);
     }
     
     public bool Update(ThermostatSensor entry)
