@@ -7,6 +7,8 @@ This Repository contains a demo application regarding the OWASP Top 10 security 
 - [Objective](#objective)
 - [Project Structure](#project-structure)
 
+---
+
 <p>
   <a href="./backend">
     <img src="https://img.shields.io/badge/Go%20to-Backend-000"/>
@@ -17,6 +19,8 @@ This Repository contains a demo application regarding the OWASP Top 10 security 
     <img src="https://img.shields.io/badge/Go%20to-Frontend-fff"/>
   </a>
 </p>
+
+---
 
 # What is OWASP Top 10?
 OWASP Top 10 refers to a list of the ten most critical web application security risks identified by the Open Web Application Security Project (OWASP). The list is updated every few years to reflect the current state of web application security threats.
