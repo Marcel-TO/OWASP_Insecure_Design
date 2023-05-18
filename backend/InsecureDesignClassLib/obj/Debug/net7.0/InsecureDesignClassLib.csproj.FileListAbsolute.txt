@@ -1,0 +1,12 @@
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\bin\Debug\net7.0\InsecureDesignClassLib.deps.json
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\bin\Debug\net7.0\InsecureDesignClassLib.dll
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\bin\Debug\net7.0\InsecureDesignClassLib.pdb
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\obj\Debug\net7.0\InsecureDesignClassLib.csproj.AssemblyReference.cache
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\obj\Debug\net7.0\InsecureDesignClassLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\obj\Debug\net7.0\InsecureDesignClassLib.AssemblyInfoInputs.cache
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\obj\Debug\net7.0\InsecureDesignClassLib.AssemblyInfo.cs
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\obj\Debug\net7.0\InsecureDesignClassLib.csproj.CoreCompileInputs.cache
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\obj\Debug\net7.0\InsecureDesignClassLib.dll
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\obj\Debug\net7.0\refint\InsecureDesignClassLib.dll
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\obj\Debug\net7.0\InsecureDesignClassLib.pdb
+C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\InsecureDesignClassLib\obj\Debug\net7.0\ref\InsecureDesignClassLib.dll
