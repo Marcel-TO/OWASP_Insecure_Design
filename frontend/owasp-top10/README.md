@@ -37,8 +37,8 @@ The following Accounts are prepared for the demo showcase:
   Username: adminuser
   Password: 1Admin
   ```
-  
-  - The Normal User:
+
+- The Normal User:
   ```
   Username: normaluser
   Password: 1Normal
