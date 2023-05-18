@@ -20,13 +20,13 @@
                     <mat-form-field appearance="fill">
                         <mat-label>new name:</mat-label>
                         <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
-                        </mat-form-field>
+                    </mat-form-field>
         
-                        <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
+                    <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
-                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser}">Add Device</button></mat-card-content>
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.id}">Add Device</button></mat-card-content>
             </mat-card>   
         </mat-accordion>
     </div>
@@ -55,7 +55,7 @@
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
-                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser}">Add Device</button></mat-card-content>
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.id}">Add Device</button></mat-card-content>
             </mat-card>            
         </mat-accordion>
     </div>
@@ -83,7 +83,7 @@
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
-                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser}">Add Device</button></mat-card-content>
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.id}">Add Device</button></mat-card-content>
             </mat-card>      
         </mat-accordion>
     </div>
