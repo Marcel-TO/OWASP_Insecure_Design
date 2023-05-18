@@ -31,6 +31,20 @@ This page is just for show. It displays each supported device and its device set
 ## Log In / Log Out
 Allows the user to log in or log out of the website.
 
+The following Accounts are prepared for the demo showcase:
+- The Admin User:
+  ```
+  Username: adminuser
+  Password: 1Admin
+  ```
+  
+  - The Normal User:
+  ```
+  Username: normaluser
+  Password: 1Normal
+  ```
+  
+
 ---
 
 <p>
