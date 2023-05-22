@@ -7,7 +7,7 @@ public class ThermostatActuator
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
-    public Guid Actuator_Id{get;set;}
+    public string Actuator_Id{get;set;}
 
     [Required]
     [MaxLength(50)]
@@ -19,14 +19,14 @@ public class ThermostatActuator
 
     public int Target_Temperature{get;set;}
 
-    public Guid Sensor_Id{get;set;}
+    public string Sensor_Id{get;set;}
 
     [Required]
-    public Guid Therm_Id{get;set;}
+    public string Therm_Id{get;set;}
 
     public virtual Thermostat? Thermostat { get; set; }
 
-    public ThermostatActuator(Guid actuator_Id, string name, string status, int target_Temperature, Guid sensor_Id, Guid therm_Id)
+    public ThermostatActuator(string actuator_Id, string name, string status, int target_Temperature, string sensor_Id, string therm_Id)
     {
         this.Actuator_Id = actuator_Id;
         this.Name = name;

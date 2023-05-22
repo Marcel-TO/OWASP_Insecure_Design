@@ -8,7 +8,7 @@ using SmartHomeApi.Api_Source_Code.Models;
 using SmartHomeApi.Api_Source_Code.Contexts;
 
 namespace SmartHomeApi.Api_Source_Code.Repositories;
-public class SmartBulbRepo : IRepository<SmartBulb,Guid>
+public class SmartBulbRepo : IRepository<SmartBulb,string>
 {
     private SHDbContext context;
     public SmartBulbRepo(SHDbContext context){
@@ -36,7 +36,7 @@ public class SmartBulbRepo : IRepository<SmartBulb,Guid>
     }
 
 
-    public SmartBulb GetById(Guid id)
+    public SmartBulb GetById(string id)
     {     
         var smartBulb = this.context.SmartBulbs.Where(t=> t.Smartbulb_Id == id).First(); 
          
@@ -54,17 +54,17 @@ public class SmartBulbRepo : IRepository<SmartBulb,Guid>
             }
              return smartBulb;
         }
-        return new SmartBulb(Guid.Empty,Guid.Empty);
+        return new SmartBulb(string.Empty,string.Empty);
         
         
        
     }
 
-    public Tuple<bool,Guid> Insert(SmartBulb entry)
+    public Tuple<bool,string> Insert(SmartBulb entry)
     {
         
         var parent = context.Accounts
-                       .Where(acc => entry.Acc_Id == acc.Account_Id)
+                       .Where(acc => entry.Acc_Id == acc.Account_Id.ToString())
                        .Include(acc => acc.SmartBulbs)
                        .FirstOrDefault();
   
@@ -72,7 +72,7 @@ public class SmartBulbRepo : IRepository<SmartBulb,Guid>
         { 
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("SmartBulbs").Load();
-            var smartBulb =  new SmartBulb(Guid.NewGuid(),parent.Account_Id);
+            var smartBulb =  new SmartBulb(Guid.NewGuid().ToString(),parent.Account_Id.ToString());
             smartBulb.Sensors = entry.Sensors;
             smartBulb.Actuators = entry.Actuators;
             parent.SmartBulbs.Add(smartBulb);
@@ -81,7 +81,7 @@ public class SmartBulbRepo : IRepository<SmartBulb,Guid>
              return Tuple.Create(true, smartBulb.Smartbulb_Id);
         }
 
-       return Tuple.Create(false, Guid.Empty);
+       return Tuple.Create(false, string.Empty);
     }
     
     public bool Update(SmartBulb entry)
@@ -89,7 +89,7 @@ public class SmartBulbRepo : IRepository<SmartBulb,Guid>
        return false;
     }
 
-    public bool Delete(Guid id)
+    public bool Delete(string id)
     {  
         try
         {

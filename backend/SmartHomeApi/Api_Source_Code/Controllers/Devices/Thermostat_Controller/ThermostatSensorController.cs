@@ -22,7 +22,7 @@ public class ThermostatSensorController : ControllerBase
     [HttpPost("create")]
     public IActionResult CreateSensor(ThermostatSensor sensor)
     {   
-        Tuple<bool,Guid> inserted = this._repository.Insert(sensor);  
+        var inserted = this._repository.Insert(sensor);  
         if(!inserted.Item1){
             return NotFound("Make sure to put in the right (existing) id of the thermostat before inserting a Api_Source_Code thermostat");
         }
@@ -37,7 +37,7 @@ public class ThermostatSensorController : ControllerBase
     }
 
    [HttpGet("getById")]
-    public IActionResult GetSensorById(Guid id)
+    public IActionResult GetSensorById(string id)
     {   
         var thermostat = this._repository.GetById(id);
         if(thermostat == null)
@@ -49,7 +49,7 @@ public class ThermostatSensorController : ControllerBase
 
     
     [HttpDelete("delete")]
-    public IActionResult DeleteSensor(Guid id)
+    public IActionResult DeleteSensor(string id)
     {        
         bool isDeleted = this._repository.Delete(id);   
         if(isDeleted)

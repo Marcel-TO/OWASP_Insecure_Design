@@ -27,7 +27,7 @@ public class SmartBulbController : ControllerBase
     }
 
     [HttpGet("getById")]
-    public IActionResult GetSmartBulbById(Guid id)
+    public IActionResult GetSmartBulbById(string id)
     {   
         var bulb = this._repository.GetById(id);
         if(bulb == null)
@@ -51,7 +51,7 @@ public class SmartBulbController : ControllerBase
     
    
     [HttpDelete("delete")]
-    public IActionResult DeleteSmartBulb(Guid id)
+    public IActionResult DeleteSmartBulb(string id)
     {        
         bool isDeleted = this._repository.Delete(id);   
         if(isDeleted)

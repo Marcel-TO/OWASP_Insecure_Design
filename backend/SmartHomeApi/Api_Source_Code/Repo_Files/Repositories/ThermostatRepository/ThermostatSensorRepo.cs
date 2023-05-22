@@ -8,7 +8,7 @@ using SmartHomeApi.Api_Source_Code.Models;
 using SmartHomeApi.Api_Source_Code.Contexts;
 
 namespace SmartHomeApi.Api_Source_Code.Repositories;
-public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
+public class ThermostatSensorRepo : IRepository<ThermostatSensor, string>
 {
     private SHDbContext context;
     public ThermostatSensorRepo(SHDbContext context){
@@ -22,13 +22,13 @@ public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
         return sensors;
     }
 
-    public ThermostatSensor GetById(Guid id)
+    public ThermostatSensor GetById(string id)
     {     
         var sensor = this.context.ThermostatSensors.ToList().Where(t=> t.Sensor_Id == id).First();     
         return sensor;
     }
 
-    public Tuple<bool,Guid> Insert(ThermostatSensor entry)
+    public Tuple<bool,string> Insert(ThermostatSensor entry)
     {
         var parent = context.Thermostats
                        .Where(b => entry.Therm_Id == b.Thermostat_Id)
@@ -39,14 +39,14 @@ public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
         {       
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Sensors").Load();
-            var sensor = new ThermostatSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Temperature,
+            var sensor = new ThermostatSensor(Guid.NewGuid().ToString(),entry.Name,entry.Status,entry.Temperature,
             entry.Actuator_Id,parent.Thermostat_Id);
             parent.Sensors.Add(sensor);
             this.Save();
         
             return Tuple.Create(true, sensor.Sensor_Id);
         }
-        return Tuple.Create(false, Guid.Empty);
+        return Tuple.Create(false, string.Empty);
     }
     
     public bool Update(ThermostatSensor entry)
@@ -77,7 +77,7 @@ public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
         }   
     }
 
-    public bool Delete(Guid id)
+    public bool Delete(string id)
     {  
         try
         {

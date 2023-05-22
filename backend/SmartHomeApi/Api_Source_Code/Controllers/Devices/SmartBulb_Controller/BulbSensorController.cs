@@ -37,7 +37,7 @@ public class BulbSensorController : ControllerBase
     }
 
    [HttpGet("getById")]
-    public IActionResult GetSensorById(Guid id)
+    public IActionResult GetSensorById(string id)
     {   
         var sensor = this._repository.GetById(id);
         if(sensor == null)
@@ -49,7 +49,7 @@ public class BulbSensorController : ControllerBase
 
     
     [HttpDelete("delete")]
-    public IActionResult DeleteSensor(Guid id)
+    public IActionResult DeleteSensor(string id)
     {        
         bool isDeleted = this._repository.Delete(id);   
         if(isDeleted)

@@ -8,7 +8,7 @@ using SmartHomeApi.Api_Source_Code.Models;
 using SmartHomeApi.Api_Source_Code.Contexts;
 
 namespace SmartHomeApi.Api_Source_Code.Repositories;
-public class SmartJalousineRepo : IRepository<SmartJalousine,Guid>
+public class SmartJalousineRepo : IRepository<SmartJalousine,string>
 {
     private SHDbContext context;
     public SmartJalousineRepo(SHDbContext context){
@@ -36,7 +36,7 @@ public class SmartJalousineRepo : IRepository<SmartJalousine,Guid>
     }
 
 
-    public SmartJalousine GetById(Guid id)
+    public SmartJalousine GetById(string id)
     {     
         var smartJalousine = this.context.SmartJalousines.Where(t=> t.Jalousine_Id == id).First(); 
          
@@ -56,16 +56,16 @@ public class SmartJalousineRepo : IRepository<SmartJalousine,Guid>
             return smartJalousine;
         }
             
-        return new SmartJalousine(Guid.Empty,Guid.Empty);
+        return new SmartJalousine(string.Empty,string.Empty);
         
         
     }
 
-    public Tuple<bool,Guid> Insert(SmartJalousine entry)
+    public Tuple<bool,string> Insert(SmartJalousine entry)
     {
         
         var parent = context.Accounts
-                       .Where(acc => entry.Acc_Id == acc.Account_Id)
+                       .Where(acc => entry.Acc_Id == acc.Account_Id.ToString())
                        .Include(acc => acc.SmartJalousines)
                        .FirstOrDefault();
   
@@ -73,7 +73,7 @@ public class SmartJalousineRepo : IRepository<SmartJalousine,Guid>
         { 
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("SmartJalousines").Load();
-            var smartJalousine =  new SmartJalousine(Guid.NewGuid(),parent.Account_Id);
+            var smartJalousine =  new SmartJalousine(Guid.NewGuid().ToString(),parent.Account_Id.ToString());
             smartJalousine.Sensors = entry.Sensors;
             smartJalousine.Actuators = entry.Actuators;
             parent.SmartJalousines.Add(smartJalousine);
@@ -82,7 +82,7 @@ public class SmartJalousineRepo : IRepository<SmartJalousine,Guid>
            return Tuple.Create(true, smartJalousine.Jalousine_Id);
         }
 
-        return Tuple.Create(false, Guid.Empty);
+        return Tuple.Create(false, string.Empty);
     }
     
     public bool Update(SmartJalousine entry)
@@ -90,7 +90,7 @@ public class SmartJalousineRepo : IRepository<SmartJalousine,Guid>
        return false;
     }
 
-    public bool Delete(Guid id)
+    public bool Delete(string id)
     {  
         try
         { 

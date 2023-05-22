@@ -27,7 +27,7 @@ public class SmartJalousineController : ControllerBase
     }
 
     [HttpGet("getById")]
-    public IActionResult GetSmartJalousineById(Guid id)
+    public IActionResult GetSmartJalousineById(string id)
     {   
         var smartJalousine = this._repository.GetById(id);
         if(smartJalousine == null)
@@ -51,7 +51,7 @@ public class SmartJalousineController : ControllerBase
     
    
     [HttpDelete("delete")]
-    public IActionResult DeleteSmartJalousine(Guid id)
+    public IActionResult DeleteSmartJalousine(string id)
     {        
         bool isDeleted = this._repository.Delete(id);   
         if(isDeleted)

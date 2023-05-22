@@ -37,7 +37,7 @@ public class ThermostatActuatorController : ControllerBase
     }
 
    [HttpGet("getById")]
-    public IActionResult GetActuatorById(Guid id)
+    public IActionResult GetActuatorById(string id)
     {   
         var thermostat = this._repository.GetById(id);
         if(thermostat == null)
@@ -49,7 +49,7 @@ public class ThermostatActuatorController : ControllerBase
 
     
     [HttpDelete("delete")]
-    public IActionResult DeleteActuator(Guid id)
+    public IActionResult DeleteActuator(string id)
     {        
         bool isDeleted = this._repository.Delete(id);   
         if(isDeleted)

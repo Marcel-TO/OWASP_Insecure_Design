@@ -15,7 +15,7 @@ public class SmartDevicesRepo
         this.context = context;
     }
 
-    public SmartDevices GetDevicesById(Guid id)
+    public SmartDevices GetDevicesById(string id)
     {     
         var thermostats = this.context.Thermostats.Where(t=> t.Acc_Id == id)
         .Include(i => i.Sensors)
