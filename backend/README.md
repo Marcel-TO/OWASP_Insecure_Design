@@ -100,7 +100,9 @@ Running on `localhost` with Swagger UI. Example: `http://localhost:5274/swagger/
 Reponse: HTTP-Response with data. Example: `OK(<data>)`
 
 ### Endpoints
-- **_SmartDevices_**
+
+### SmartDevices
+- **_GET: /api/devices/byUserId/getById -> Gets all smart devices by accountid_**
 
 ### Accounts
 - **_GET: /api/account  -> Gets all accounts_**
