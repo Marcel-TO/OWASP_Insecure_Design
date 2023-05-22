@@ -54,11 +54,11 @@ public class AccountRepo : IRepository<DT_Account, Guid>
     public Tuple<bool,Guid> Insert(DT_Account entry)
     {
        entry.Password = this.passwordHasher.HashPassword(entry.Password);
-       entry.Account_Id = Guid.NewGuid();
-       Account account = new Account(entry.Account_Id,entry.Role,entry.UserName,entry.Password);
+       var id = Guid.NewGuid();
+       Account account = new Account(id,entry.Role,entry.UserName,entry.Password);
        this.context.Accounts.Add(account);
        this.Save();
-    return Tuple.Create(true, entry.Account_Id);
+       return Tuple.Create(true, id);
     }
     
     public bool Update(DT_Account entry)
