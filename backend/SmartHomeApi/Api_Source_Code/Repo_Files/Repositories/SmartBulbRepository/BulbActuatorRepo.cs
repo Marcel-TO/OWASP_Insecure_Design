@@ -8,7 +8,7 @@ using SmartHomeApi.Api_Source_Code.Models;
 using SmartHomeApi.Api_Source_Code.Contexts;
 
 namespace SmartHomeApi.Api_Source_Code.Repositories;
-public class BulbActuatorRepo : IRepository<BulbActuator, Guid>
+public class BulbActuatorRepo : IRepository<BulbActuator, string>
 {
     private SHDbContext context;
     public BulbActuatorRepo(SHDbContext context){
@@ -22,13 +22,13 @@ public class BulbActuatorRepo : IRepository<BulbActuator, Guid>
         return Actuators;
     }
 
-    public BulbActuator GetById(Guid id)
+    public BulbActuator GetById(string id)
     {     
         var actuator = this.context.BulbActuators.ToList().Where(t=> t.Actuator_Id == id).First();     
         return actuator;
     }
 
-    public Tuple<bool,Guid> Insert(BulbActuator entry)
+    public Tuple<bool,string> Insert(BulbActuator entry)
     {
        
         var parent = context.SmartBulbs
@@ -40,7 +40,7 @@ public class BulbActuatorRepo : IRepository<BulbActuator, Guid>
         {
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Actuators").Load();
-            var actuator = new BulbActuator(Guid.NewGuid(),entry.Name,entry.Status,entry.Target_Brightness,
+            var actuator = new BulbActuator(Guid.NewGuid().ToString(),entry.Name,entry.Status,entry.Target_Brightness,
             entry.Sensor_Id,entry.Bulb_Id);
             parent.Actuators.Add(actuator);
             this.Save();
@@ -49,7 +49,7 @@ public class BulbActuatorRepo : IRepository<BulbActuator, Guid>
         }
 
         
-         return Tuple.Create(false, Guid.Empty);
+         return Tuple.Create(false, string.Empty);
     }
     
     public bool Update(BulbActuator entry)
@@ -80,7 +80,7 @@ public class BulbActuatorRepo : IRepository<BulbActuator, Guid>
         }   
     }
 
-    public bool Delete(Guid id)
+    public bool Delete(string id)
     {  
         try
         {

@@ -20,7 +20,7 @@ public class SmartDevicesController : ControllerBase
 
 
    [HttpGet("getById")]
-    public IActionResult GetDevicesById(Guid id)
+    public IActionResult GetDevicesById(string id)
     {   
         var devices = this._repository.GetDevicesById(id);
         if(devices == null)

@@ -25,6 +25,13 @@ public class AccountController : ControllerBase
         return Ok(accounts);
     }
 
+    [HttpGet]
+    public IActionResult GetById(string id)
+    {   
+        var account = this._repository.GetById(id);   
+        return Ok(account);
+    }
+
     [HttpPost("create")]
     public IActionResult CreateAccount(DT_Account account)
     {   

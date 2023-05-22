@@ -8,7 +8,7 @@ using SmartHomeApi.Api_Source_Code.Models;
 using SmartHomeApi.Api_Source_Code.Contexts;
 
 namespace SmartHomeApi.Api_Source_Code.Repositories;
-public class ThermostatRepo : IRepository<Thermostat,Guid>
+public class ThermostatRepo : IRepository<Thermostat,string>
 {
     private SHDbContext context;
     private PasswordHasher passwordHasher;
@@ -38,7 +38,7 @@ public class ThermostatRepo : IRepository<Thermostat,Guid>
     }
 
 
-    public Thermostat GetById(Guid id)
+    public Thermostat GetById(string id)
     {     
         var thermostat = this.context.Thermostats.Where(t=> t.Thermostat_Id == id).First(); 
          
@@ -57,11 +57,11 @@ public class ThermostatRepo : IRepository<Thermostat,Guid>
         return thermostat;
     }
 
-    public Tuple<bool,Guid> Insert(Thermostat entry)
+    public Tuple<bool,string> Insert(Thermostat entry)
     {
         
         var parent = context.Accounts
-                       .Where(acc => entry.Acc_Id == acc.Account_Id)
+                       .Where(acc => entry.Acc_Id == acc.Account_Id.ToString())
                        .Include(acc => acc.Thermostats)
                        .FirstOrDefault();
   
@@ -69,7 +69,7 @@ public class ThermostatRepo : IRepository<Thermostat,Guid>
         { 
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Thermostats").Load();
-            var thermostat =  new Thermostat(Guid.NewGuid(),parent.Account_Id);
+            var thermostat =  new Thermostat(Guid.NewGuid().ToString(),parent.Account_Id.ToString());
             thermostat.Sensors = entry.Sensors;
             thermostat.Actuators = entry.Actuators;
             parent.Thermostats.Add(thermostat);
@@ -78,7 +78,7 @@ public class ThermostatRepo : IRepository<Thermostat,Guid>
             return Tuple.Create(true, thermostat.Thermostat_Id);
         }
 
-      return Tuple.Create(false, Guid.Empty);
+      return Tuple.Create(false, string.Empty);
     }
     
     public bool Update(Thermostat entry)
@@ -86,7 +86,7 @@ public class ThermostatRepo : IRepository<Thermostat,Guid>
        return false;
     }
 
-    public bool Delete(Guid id)
+    public bool Delete(string id)
     {  
         try
         {

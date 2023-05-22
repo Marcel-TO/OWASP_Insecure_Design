@@ -37,7 +37,7 @@ public class BulbActuatorController : ControllerBase
     }
 
    [HttpGet("getById")]
-    public IActionResult GetActuatorById(Guid id)
+    public IActionResult GetActuatorById(string id)
     {   
         var actuator = this._repository.GetById(id);
         if(actuator == null)
@@ -49,7 +49,7 @@ public class BulbActuatorController : ControllerBase
 
     
     [HttpDelete("delete")]
-    public IActionResult DeleteActuator(Guid id)
+    public IActionResult DeleteActuator(string id)
     {        
         bool isDeleted = this._repository.Delete(id);   
         if(isDeleted)

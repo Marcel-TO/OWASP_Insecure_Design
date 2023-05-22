@@ -8,7 +8,7 @@ using SmartHomeApi.Api_Source_Code.Models;
 using SmartHomeApi.Api_Source_Code.Contexts;
 
 namespace SmartHomeApi.Api_Source_Code.Repositories;
-public class JalousineSensorRepo : IRepository<JalousineSensor, Guid>
+public class JalousineSensorRepo : IRepository<JalousineSensor, string>
 {
     private SHDbContext context;
     public JalousineSensorRepo(SHDbContext context){
@@ -22,13 +22,13 @@ public class JalousineSensorRepo : IRepository<JalousineSensor, Guid>
         return sensors;
     }
 
-    public JalousineSensor GetById(Guid id)
+    public JalousineSensor GetById(string id)
     {     
         var sensor = this.context.JalousineSensors.ToList().Where(t=> t.Sensor_Id == id).First();     
         return sensor;
     }
 
-    public Tuple<bool,Guid> Insert(JalousineSensor entry)
+    public Tuple<bool,string> Insert(JalousineSensor entry)
     {
         var parent = context.SmartJalousines
                        .Where(b => entry.Jal_Id == b.Jalousine_Id)
@@ -39,14 +39,14 @@ public class JalousineSensorRepo : IRepository<JalousineSensor, Guid>
         {
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Sensors").Load();
-            var sensor = new JalousineSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.State,
+            var sensor = new JalousineSensor(Guid.NewGuid().ToString(),entry.Name,entry.Status,entry.State,
             entry.Actuator_Id,parent.Jalousine_Id);
             parent.Sensors.Add(sensor);
             this.Save();
         
             return Tuple.Create(true, sensor.Sensor_Id);
         }
-        return Tuple.Create(false, Guid.Empty);
+        return Tuple.Create(false, string.Empty);
     }
     
     public bool Update(JalousineSensor entry)
@@ -77,7 +77,7 @@ public class JalousineSensorRepo : IRepository<JalousineSensor, Guid>
         }   
     }
 
-    public bool Delete(Guid id)
+    public bool Delete(string id)
     {  
         try
         {

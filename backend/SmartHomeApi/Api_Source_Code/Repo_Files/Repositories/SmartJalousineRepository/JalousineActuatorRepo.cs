@@ -8,7 +8,7 @@ using SmartHomeApi.Api_Source_Code.Models;
 using SmartHomeApi.Api_Source_Code.Contexts;
 
 namespace SmartHomeApi.Api_Source_Code.Repositories;
-public class JalousineActuatorRepo : IRepository<JalousineActuator, Guid>
+public class JalousineActuatorRepo : IRepository<JalousineActuator, string>
 {
     private SHDbContext context;
     public JalousineActuatorRepo(SHDbContext context){
@@ -22,13 +22,13 @@ public class JalousineActuatorRepo : IRepository<JalousineActuator, Guid>
         return actuators;
     }
 
-    public JalousineActuator GetById(Guid id)
+    public JalousineActuator GetById(string id)
     {     
         var actuator = this.context.JalousineActuators.ToList().Where(t=> t.Actuator_Id == id).First();     
         return actuator;
     }
 
-    public Tuple<bool,Guid> Insert(JalousineActuator entry)
+    public Tuple<bool,string> Insert(JalousineActuator entry)
     {
        
         var parent = context.SmartJalousines
@@ -40,7 +40,7 @@ public class JalousineActuatorRepo : IRepository<JalousineActuator, Guid>
         {
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Actuators").Load();
-            var actuator = new JalousineActuator(Guid.NewGuid(),entry.Name,entry.Status,entry.Target_State,
+            var actuator = new JalousineActuator(Guid.NewGuid().ToString(),entry.Name,entry.Status,entry.Target_State,
             entry.Actuator_Id,parent.Jalousine_Id);
             parent.Actuators.Add(actuator);
             this.Save();
@@ -49,7 +49,7 @@ public class JalousineActuatorRepo : IRepository<JalousineActuator, Guid>
         }
 
         
-        return Tuple.Create(false, Guid.Empty);
+        return Tuple.Create(false, string.Empty);
     }
     
     public bool Update(JalousineActuator entry)
@@ -80,7 +80,7 @@ public class JalousineActuatorRepo : IRepository<JalousineActuator, Guid>
         }   
     }
 
-    public bool Delete(Guid id)
+    public bool Delete(string id)
     {  
         try
         {

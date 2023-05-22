@@ -8,7 +8,7 @@ using SmartHomeApi.Api_Source_Code.Models;
 using SmartHomeApi.Api_Source_Code.Contexts;
 
 namespace SmartHomeApi.Api_Source_Code.Repositories;
-public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
+public class ThermostatActuatorRepo : IRepository<ThermostatActuator, string>
 {
     private SHDbContext context;
     public ThermostatActuatorRepo(SHDbContext context){
@@ -22,13 +22,13 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
         return Actuators;
     }
 
-    public ThermostatActuator GetById(Guid id)
+    public ThermostatActuator GetById(string id)
     {     
         var actuator = this.context.ThermostatActuators.ToList().Where(t=> t.Actuator_Id == id).First();     
         return actuator;
     }
 
-    public Tuple<bool,Guid> Insert(ThermostatActuator entry)
+    public Tuple<bool,string> Insert(ThermostatActuator entry)
     {
        
         var parent = context.Thermostats
@@ -40,7 +40,7 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
         {
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Actuators").Load();
-            var actuator = new ThermostatActuator(Guid.NewGuid(),entry.Name,entry.Status,entry.Target_Temperature,
+            var actuator = new ThermostatActuator(Guid.NewGuid().ToString(),entry.Name,entry.Status,entry.Target_Temperature,
             entry.Actuator_Id,parent.Thermostat_Id);
             parent.Actuators.Add(actuator);
             this.Save();
@@ -49,7 +49,7 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
         }
 
         
-        return Tuple.Create(false, Guid.Empty);
+        return Tuple.Create(false, string.Empty);
     }
     
     public bool Update(ThermostatActuator entry)
@@ -80,7 +80,7 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
         }   
     }
 
-    public bool Delete(Guid id)
+    public bool Delete(string id)
     {  
         try
         {

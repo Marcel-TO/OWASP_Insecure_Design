@@ -7,7 +7,7 @@ public class JalousineActuator
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
-    public Guid Actuator_Id{get;set;}
+    public string Actuator_Id{get;set;}
 
     [Required]
     [MaxLength(50)]
@@ -19,14 +19,14 @@ public class JalousineActuator
 
     public int Target_State{get;set;}
 
-    public Guid Sensor_Id{get;set;}
+    public string Sensor_Id{get;set;}
 
     [Required]
-    public Guid Jal_Id{get;set;}
+    public string Jal_Id{get;set;}
 
     public virtual SmartJalousine? SmartJalousine { get; set; }
 
-    public JalousineActuator(Guid actuator_Id, string name, string status, int target_State, Guid sensor_Id, Guid jal_Id)
+    public JalousineActuator(string actuator_Id, string name, string status, int target_State, string sensor_Id, string jal_Id)
     {
         this.Actuator_Id = actuator_Id;
         this.Name = name;

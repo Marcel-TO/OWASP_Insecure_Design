@@ -7,7 +7,7 @@ public class BulbActuator
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
-    public Guid Actuator_Id{get;set;}
+    public string Actuator_Id{get;set;}
 
     [Required]
     [MaxLength(50)]
@@ -19,13 +19,13 @@ public class BulbActuator
 
     public int Target_Brightness{get;set;}
 
-    public Guid Sensor_Id{get;set;}
+    public string Sensor_Id{get;set;}
 
     [Required]
-    public Guid Bulb_Id{get;set;}
+    public string Bulb_Id{get;set;}
 
     public virtual SmartBulb? SmartBulb { get; set; }
-    public BulbActuator(Guid actuator_Id, string name, string status, int target_Brightness, Guid sensor_Id, Guid bulb_Id)
+    public BulbActuator(string actuator_Id, string name, string status, int target_Brightness, string sensor_Id, string bulb_Id)
     {
         this.Actuator_Id = actuator_Id;
         this.Name = name;

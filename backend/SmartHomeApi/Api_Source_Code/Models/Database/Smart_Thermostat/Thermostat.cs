@@ -9,9 +9,9 @@ public class Thermostat
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.None)]
-    public Guid Thermostat_Id{get;set;}
+    public string Thermostat_Id{get;set;}
 
-    public Guid Acc_Id{get;set;}
+    public string Acc_Id{get;set;}
 
     public virtual Account? Account{get;set;}
 
@@ -19,7 +19,7 @@ public class Thermostat
 
     public virtual ICollection<ThermostatActuator> Actuators {get;set;}
 
-    public Thermostat(Guid thermostat_Id, Guid acc_Id)
+    public Thermostat(string thermostat_Id, string acc_Id)
     {
         this.Thermostat_Id = thermostat_Id;
         this.Acc_Id = acc_Id;

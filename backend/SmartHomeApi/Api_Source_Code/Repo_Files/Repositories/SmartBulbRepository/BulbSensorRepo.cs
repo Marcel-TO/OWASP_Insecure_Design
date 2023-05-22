@@ -8,7 +8,7 @@ using SmartHomeApi.Api_Source_Code.Models;
 using SmartHomeApi.Api_Source_Code.Contexts;
 
 namespace SmartHomeApi.Api_Source_Code.Repositories;
-public class BulbSensorRepo : IRepository<BulbSensor, Guid>
+public class BulbSensorRepo : IRepository<BulbSensor, string>
 {
     private SHDbContext context;
     public BulbSensorRepo(SHDbContext context){
@@ -22,13 +22,13 @@ public class BulbSensorRepo : IRepository<BulbSensor, Guid>
         return sensors;
     }
 
-    public BulbSensor GetById(Guid id)
+    public BulbSensor GetById(string id)
     {     
         var sensor = this.context.BulbSensors.ToList().Where(t=> t.Sensor_Id == id).First();     
         return sensor;
     }
 
-    public Tuple<bool,Guid> Insert(BulbSensor entry)
+    public Tuple<bool,string> Insert(BulbSensor entry)
     {
         
         var parent = context.SmartBulbs
@@ -40,14 +40,14 @@ public class BulbSensorRepo : IRepository<BulbSensor, Guid>
         {
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Sensors").Load();
-            var sensor = new BulbSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Brightness,
+            var sensor = new BulbSensor(Guid.NewGuid().ToString(),entry.Name,entry.Status,entry.Brightness,
             entry.Actuator_Id,parent.Smartbulb_Id);
             parent.Sensors.Add(sensor);
             this.Save();
         
             return Tuple.Create(true, sensor.Sensor_Id);
         }
-        return Tuple.Create(false, Guid.Empty);
+        return Tuple.Create(false, string.Empty);
     }
     
     public bool Update(BulbSensor entry)
@@ -78,7 +78,7 @@ public class BulbSensorRepo : IRepository<BulbSensor, Guid>
         }   
     }
 
-    public bool Delete(Guid id)
+    public bool Delete(string id)
     {  
         try
         {
