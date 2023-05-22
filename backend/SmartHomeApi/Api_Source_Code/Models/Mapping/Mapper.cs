@@ -8,7 +8,7 @@ public static class Mapper
         List<DT_Account> mappedAccounts = new List<DT_Account>();
         foreach(var acc in accounts)
         {
-            mappedAccounts.Add(new DT_Account(acc.Account_Id,acc.Role,acc.UserName,string.Empty));
+            mappedAccounts.Add(new DT_Account(acc.Account_Id.ToString(),acc.Role,acc.UserName,string.Empty));
         }
         return mappedAccounts;
     }
