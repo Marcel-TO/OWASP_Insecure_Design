@@ -78,7 +78,7 @@ public class SmartBulbRepo : IRepository<SmartBulb,Guid>
             parent.SmartBulbs.Add(smartBulb);
             this.Save();
         
-             return Tuple.Create(true, entry.Smartbulb_Id);
+             return Tuple.Create(true, smartBulb.Smartbulb_Id);
         }
 
        return Tuple.Create(false, Guid.Empty);

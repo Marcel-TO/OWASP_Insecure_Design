@@ -75,7 +75,7 @@ public class ThermostatRepo : IRepository<Thermostat,Guid>
             parent.Thermostats.Add(thermostat);
             this.Save();
         
-            return Tuple.Create(true, entry.Thermostat_Id);
+            return Tuple.Create(true, thermostat.Thermostat_Id);
         }
 
       return Tuple.Create(false, Guid.Empty);

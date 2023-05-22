@@ -79,7 +79,7 @@ public class SmartJalousineRepo : IRepository<SmartJalousine,Guid>
             parent.SmartJalousines.Add(smartJalousine);
             this.Save();
         
-           return Tuple.Create(true, entry.Jalousine_Id);
+           return Tuple.Create(true, smartJalousine.Jalousine_Id);
         }
 
         return Tuple.Create(false, Guid.Empty);

@@ -39,12 +39,12 @@ public class JalousineSensorRepo : IRepository<JalousineSensor, Guid>
         {
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Sensors").Load();
-            
-            parent.Sensors.Add(new JalousineSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.State,
-            entry.Actuator_Id,parent.Jalousine_Id));
+            var sensor = new JalousineSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.State,
+            entry.Actuator_Id,parent.Jalousine_Id);
+            parent.Sensors.Add(sensor);
             this.Save();
         
-            return Tuple.Create(true, entry.Sensor_Id);
+            return Tuple.Create(true, sensor.Sensor_Id);
         }
         return Tuple.Create(false, Guid.Empty);
     }

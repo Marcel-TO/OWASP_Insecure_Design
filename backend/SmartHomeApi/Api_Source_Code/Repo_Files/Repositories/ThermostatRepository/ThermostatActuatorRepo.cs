@@ -40,12 +40,12 @@ public class ThermostatActuatorRepo : IRepository<ThermostatActuator, Guid>
         {
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Actuators").Load();
-            
-            parent.Actuators.Add(new ThermostatActuator(Guid.NewGuid(),entry.Name,entry.Status,entry.Target_Temperature,
-            entry.Actuator_Id,parent.Thermostat_Id));
+            var actuator = new ThermostatActuator(Guid.NewGuid(),entry.Name,entry.Status,entry.Target_Temperature,
+            entry.Actuator_Id,parent.Thermostat_Id);
+            parent.Actuators.Add(actuator);
             this.Save();
     
-        return Tuple.Create(true, entry.Actuator_Id);
+        return Tuple.Create(true, actuator.Actuator_Id);
         }
 
         

@@ -39,12 +39,12 @@ public class ThermostatSensorRepo : IRepository<ThermostatSensor, Guid>
         {       
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Sensors").Load();
-            
-            parent.Sensors.Add(new ThermostatSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Temperature,
-            entry.Actuator_Id,parent.Thermostat_Id));
+            var sensor = new ThermostatSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Temperature,
+            entry.Actuator_Id,parent.Thermostat_Id);
+            parent.Sensors.Add(sensor);
             this.Save();
         
-            return Tuple.Create(true, entry.Sensor_Id);
+            return Tuple.Create(true, sensor.Sensor_Id);
         }
         return Tuple.Create(false, Guid.Empty);
     }

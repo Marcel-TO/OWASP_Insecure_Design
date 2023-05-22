@@ -40,12 +40,12 @@ public class BulbSensorRepo : IRepository<BulbSensor, Guid>
         {
             this.context.Entry(parent).State = EntityState.Modified;
             this.context.Entry(parent).Collection("Sensors").Load();
-            
-            parent.Sensors.Add(new BulbSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Brightness,
-            entry.Actuator_Id,parent.Smartbulb_Id));
+            var sensor = new BulbSensor(Guid.NewGuid(),entry.Name,entry.Status,entry.Brightness,
+            entry.Actuator_Id,parent.Smartbulb_Id);
+            parent.Sensors.Add(sensor);
             this.Save();
         
-            return Tuple.Create(true, entry.Sensor_Id);
+            return Tuple.Create(true, sensor.Sensor_Id);
         }
         return Tuple.Create(false, Guid.Empty);
     }
