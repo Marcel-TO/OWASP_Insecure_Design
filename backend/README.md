@@ -88,6 +88,7 @@ The database model is as following:
 Classes/entities have been declared in the .NET-project. Running the migration command via EF Core creates the correspondnig rows/entities.
 Steps for migrating the database via Visual Studio Code (For Visual Studio or more info: https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=vs):
 
+(Within the project folder "SmartHomeApi")
 **1. Adding migration**
 `dotnet ef migrations add InitialCreate`
 
@@ -168,3 +169,5 @@ Reponse: HTTP-Response with data. Example: `OK(<data>)`
 - **_DELETE: /api/jalousine/sensor/delete  -> Deletes a jalousine sensor_**
 - **_PUT: /api/jalousine/sensor/update  -> Updates a jalousine sensor_**
 
+## Running the project
+Go to the solution folder `backend` and open the `SmartHomeApi` project. Run the project after successfully migrating the database with `dotnet run`.
