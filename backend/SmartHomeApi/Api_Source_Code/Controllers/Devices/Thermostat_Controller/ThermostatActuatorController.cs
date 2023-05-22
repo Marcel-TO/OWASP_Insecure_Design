@@ -36,7 +36,7 @@ public class ThermostatActuatorController : ControllerBase
         return Ok(Actuators);
     }
 
-   [HttpGet("getById")]
+    [HttpGet("getById")]
     public IActionResult GetActuatorById(string id)
     {   
         var thermostat = this._repository.GetById(id);
