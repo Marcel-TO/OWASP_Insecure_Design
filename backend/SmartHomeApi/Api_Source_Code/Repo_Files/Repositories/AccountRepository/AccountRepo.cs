@@ -51,6 +51,17 @@ public class AccountRepo : IRepository<DT_Account, Guid>
         return new List<DT_Account>();
     }
 
+    public DT_Account GetById(Guid id)
+    {     
+        var accounts = this.context.Accounts.Where(acc => acc.Account_Id == id).ToList();  
+        var mappedAccounts = Mapper.MapAccounts(accounts);
+        if(mappedAccounts is not null)
+        {
+            return mappedAccounts.ToList()[0];
+        }
+        return new DT_Account(Guid.Empty,string.Empty,string.Empty,string.Empty);
+    }
+
     public Tuple<bool,Guid> Insert(DT_Account entry)
     {
        entry.Password = this.passwordHasher.HashPassword(entry.Password);
