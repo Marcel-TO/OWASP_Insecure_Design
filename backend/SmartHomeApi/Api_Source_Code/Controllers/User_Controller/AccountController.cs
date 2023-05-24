@@ -25,7 +25,7 @@ public class AccountController : ControllerBase
         return Ok(accounts);
     }
 
-    [HttpGet]
+    [HttpGet("getById")]
     public IActionResult GetById(string id)
     {   
         var account = this._repository.GetById(id);   
