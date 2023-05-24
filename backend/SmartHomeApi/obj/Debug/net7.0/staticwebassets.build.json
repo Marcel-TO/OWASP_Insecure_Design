@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "SKYgR4qY3AZXUCoa8nidZaxwYa53ZuTX7la2Fj6tHMg=",
+  "Source": "SmartHomeApi",
+  "BasePath": "_content/SmartHomeApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
