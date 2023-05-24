@@ -1,94 +1,188 @@
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.csproj.AssemblyReference.cache
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.AssemblyInfoInputs.cache
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.AssemblyInfo.cs
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.csproj.CoreCompileInputs.cache
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\appsettings.Development.json
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\appsettings.json
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\SmartHomeApi.exe
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\SmartHomeApi.deps.json
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\SmartHomeApi.runtimeconfig.json
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\SmartHomeApi.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\SmartHomeApi.pdb
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Google.Protobuf.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\K4os.Compression.LZ4.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\K4os.Compression.LZ4.Streams.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\K4os.Hash.xxHash.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.AspNetCore.OpenApi.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.OpenApi.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\MySql.Data.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\BouncyCastle.Crypto.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\System.Drawing.Common.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\System.Security.Permissions.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\System.Windows.Extensions.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win-x64\native\comerr64.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win-x64\native\gssapi64.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win-x64\native\k5sprt64.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win-x64\native\krb5_64.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win-x64\native\krbcc64.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\staticwebassets\msbuild.SmartHomeApi.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\staticwebassets\msbuild.build.SmartHomeApi.props
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.SmartHomeApi.props
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.SmartHomeApi.props
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\staticwebassets.pack.json
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\staticwebassets.build.json
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\staticwebassets.development.json
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\scopedcss\bundle\SmartHomeApi.styles.css
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.csproj.CopyComplete
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\refint\SmartHomeApi.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.pdb
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\SmartHomeApi.genruntimeconfig.cache
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\obj\Debug\net7.0\ref\SmartHomeApi.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\MySqlConnector.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\InsecureDesignClassLib.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\InsecureDesignClassLib.pdb
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Azure.Core.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Azure.Identity.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Humanizer.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.Identity.Client.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Mono.TextTemplating.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\System.CodeDom.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\System.Memory.Data.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\System.Runtime.Caching.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.Internal.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\Pomelo.EntityFrameworkCore.MySql.dll
-C:\Users\chris\Desktop\Fh\4.Semester\It-Sicherheit\Uebung_2\OWASP_Insecure_Design\backend\SmartHomeApi\bin\Debug\net7.0\MySql.Data.EntityFrameworkCore.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.csproj.AssemblyReference.cache
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.AssemblyInfoInputs.cache
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.AssemblyInfo.cs
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.csproj.CoreCompileInputs.cache
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/appsettings.Development.json
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/appsettings.json
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi.exe
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi.deps.json
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi.runtimeconfig.json
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi.pdb
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Google.Protobuf.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/K4os.Compression.LZ4.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/K4os.Compression.LZ4.Streams.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/K4os.Hash.xxHash.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.OpenApi.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/MySql.Data.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/BouncyCastle.Crypto.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/System.Drawing.Common.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/System.Security.Permissions.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/System.Windows.Extensions.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/comerr64.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/gssapi64.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/k5sprt64.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/krb5_64.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/krbcc64.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets/msbuild.SmartHomeApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets/msbuild.build.SmartHomeApi.props
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.SmartHomeApi.props
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.SmartHomeApi.props
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets.pack.json
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets.build.json
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets.development.json
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/scopedcss/bundle/SmartHomeApi.styles.css
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.csproj.CopyComplete
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/refint/SmartHomeApi.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.pdb
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.genruntimeconfig.cache
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/obj/Debug/net7.0/ref/SmartHomeApi.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/MySqlConnector.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/InsecureDesignClassLib.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/InsecureDesignClassLib.pdb
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Azure.Core.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Azure.Identity.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Humanizer.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Mono.TextTemplating.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/System.CodeDom.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/System.Memory.Data.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/System.Runtime.Caching.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/Pomelo.EntityFrameworkCore.MySql.dll
+C:/Users/chris/Desktop/Fh/4.Semester/It-Sicherheit/Uebung_2/OWASP_Insecure_Design/backend/SmartHomeApi/bin/Debug/net7.0/MySql.Data.EntityFrameworkCore.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/appsettings.Development.json
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/appsettings.json
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi.deps.json
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi.runtimeconfig.json
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/SmartHomeApi.pdb
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Azure.Core.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Azure.Identity.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Google.Protobuf.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Humanizer.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/K4os.Compression.LZ4.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/K4os.Compression.LZ4.Streams.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/K4os.Hash.xxHash.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.AspNetCore.OpenApi.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Data.SqlClient.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.SqlServer.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Extensions.DependencyModel.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Identity.Client.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Identity.Client.Extensions.Msal.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Logging.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.IdentityModel.Tokens.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.OpenApi.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.SqlServer.Server.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Microsoft.Win32.SystemEvents.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Mono.TextTemplating.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/MySql.Data.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/MySql.Data.EntityFrameworkCore.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/MySqlConnector.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/BouncyCastle.Crypto.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/System.CodeDom.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/System.Configuration.ConfigurationManager.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/System.Drawing.Common.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/System.IdentityModel.Tokens.Jwt.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/System.Memory.Data.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/System.Runtime.Caching.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/System.Security.Cryptography.ProtectedData.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/System.Security.Permissions.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/System.Windows.Extensions.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.1/Microsoft.Data.SqlClient.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-arm/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-arm64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/Microsoft.Win32.SystemEvents.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/comerr64.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/gssapi64.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/k5sprt64.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/krb5_64.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win-x64/native/krbcc64.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/unix/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Drawing.Common.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Runtime.Caching.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netstandard2.0/System.Security.Cryptography.ProtectedData.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/runtimes/win/lib/netcoreapp3.0/System.Windows.Extensions.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/InsecureDesignClassLib.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/bin/Debug/net7.0/InsecureDesignClassLib.pdb
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.csproj.AssemblyReference.cache
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.GeneratedMSBuildEditorConfig.editorconfig
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.AssemblyInfoInputs.cache
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.AssemblyInfo.cs
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.csproj.CoreCompileInputs.cache
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.MvcApplicationPartsAssemblyInfo.cs
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.MvcApplicationPartsAssemblyInfo.cache
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets/msbuild.SmartHomeApi.Microsoft.AspNetCore.StaticWebAssets.props
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets/msbuild.build.SmartHomeApi.props
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.SmartHomeApi.props
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.SmartHomeApi.props
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets.pack.json
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets.build.json
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/staticwebassets.development.json
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/scopedcss/bundle/SmartHomeApi.styles.css
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.csproj.CopyComplete
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/refint/SmartHomeApi.dll
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.pdb
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/SmartHomeApi.genruntimeconfig.cache
+/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/Debug/net7.0/ref/SmartHomeApi.dll
