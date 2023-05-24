@@ -5241,41 +5241,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\chris\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/marcel/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chris\\Desktop\\Fh\\4.Semester\\It-Sicherheit\\Uebung_2\\OWASP_Insecure_Design\\backend\\SmartHomeApi\\SmartHomeApi.csproj",
+      "projectUniqueName": "/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/SmartHomeApi.csproj",
       "projectName": "SmartHomeApi",
-      "projectPath": "C:\\Users\\chris\\Desktop\\Fh\\4.Semester\\It-Sicherheit\\Uebung_2\\OWASP_Insecure_Design\\backend\\SmartHomeApi\\SmartHomeApi.csproj",
-      "packagesPath": "C:\\Users\\chris\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chris\\Desktop\\Fh\\4.Semester\\It-Sicherheit\\Uebung_2\\OWASP_Insecure_Design\\backend\\SmartHomeApi\\obj\\",
+      "projectPath": "/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/SmartHomeApi.csproj",
+      "packagesPath": "/Users/marcel/.nuget/packages/",
+      "outputPath": "/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/SmartHomeApi/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\chris\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "/Users/marcel/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\chris\\Desktop\\Fh\\4.Semester\\It-Sicherheit\\Uebung_2\\OWASP_Insecure_Design\\backend\\InsecureDesignClassLib\\InsecureDesignClassLib.csproj": {
-              "projectPath": "C:\\Users\\chris\\Desktop\\Fh\\4.Semester\\It-Sicherheit\\Uebung_2\\OWASP_Insecure_Design\\backend\\InsecureDesignClassLib\\InsecureDesignClassLib.csproj"
+            "/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/InsecureDesignClassLib/InsecureDesignClassLib.csproj": {
+              "projectPath": "/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/InsecureDesignClassLib/InsecureDesignClassLib.csproj"
             }
           }
         }
@@ -5356,7 +5347,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.202/RuntimeIdentifierGraph.json"
       }
     }
   }
