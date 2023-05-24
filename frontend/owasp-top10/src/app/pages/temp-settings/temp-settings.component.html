@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<app-background-left></app-background-left>
+<div class="devices-container" id="device">
+    <mat-drawer-container class="drawer-container" autosize>
+        <mat-drawer #drawer class="drawer-sidenav" mode="side">
+            <p class="single-sensor" id="sensor-btn" (click)="selectDevice(sensor)" *ngFor="let sensor of sensors">{{sensor.name}}</p>
+        </mat-drawer>
+
+        <div class="device-item">
+            <img class="device-image" src="/assets/pictures/Icons/Temperature.png" (click)="drawer.toggle()"/>
+            <h1 class="device-name">{{currentSensor?.name}}</h1>
+            <div class="tempMenu" id="tempMenu">
+                <div class="change-container">
+                    <button class="change-btn" (click)="onDegreaseTemp()">-</button>
+                    <h1 class="text">{{currentSensor?.temp}} °C</h1>
+                    <button class="change-btn" (click)="onIncreaseTemp()">+</button>
+                </div>
+                <button class="set-btn">Set</button>
+            </div>
+        </div>
+      
+      </mat-drawer-container>
+</div>
+
+<div class="unsigned" id="unsignedTempSettings">
+    <h1 class="title">Please log in to get access to your devices</h1>
+</div>

@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<app-background-middle></app-background-middle>
+<h1 class="heading">This Page displays the possible interactions with the different devices</h1>
+<div class="devices-container" id="devicesShowcase">
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Temperature.png"/>
+        <h1 class="device-name">Temperature</h1>
+        <div class="tempMenu">
+            <div class="change-container">
+                <button class="change-btn" (click)="onDegreaseTemp()">-</button>
+                <h1 class="text">{{degree}} °C</h1>
+                <button class="change-btn" (click)="onIncreaseTemp()">+</button>
+            </div>
+            <!-- <button class="set-btn">Set</button> -->
+            <!-- <button class="presets-btn">Presets</button> -->
+        </div>
+    </div>
+
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Light.png"/>
+        <h1 class="device-name">Light</h1>
+        <div class="tempMenu">
+            <div class="change-container">
+                <p class="text">darker</p>
+                <mat-slider min="1" max="10" step="0.5" value="5"><input matSliderThumb></mat-slider>
+                <p class="text">brighter</p>
+            </div>
+            <div class="change-container">
+                <p class="text">cold</p>
+                <mat-slider><input matSliderThumb></mat-slider>
+                <p class="text">warm</p>
+            </div>
+
+            <!-- <button class="set-btn">Set</button> -->
+            <!-- <button class="presets-btn">Presets</button> -->
+        </div>
+    </div>
+
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Shutter.png"/>
+        <h1 class="device-name">Shutter</h1>
+        <div class="menu">
+            <p class="text ">shutter | livingroom</p>
+            <mat-chip-listbox class="menu">
+                <mat-chip-option selected>opened</mat-chip-option>
+                <mat-chip-option>closed</mat-chip-option>
+            </mat-chip-listbox>
+
+            <p class="text ">shutter | bedroom</p>
+            <mat-chip-listbox class="menu">
+                <mat-chip-option>opened</mat-chip-option>
+                <mat-chip-option selected>closed</mat-chip-option>
+            </mat-chip-listbox>
+
+            <!-- <button class="set-btn">Set</button> -->
+            <!-- <button class="presets-btn">Presets</button> -->
+        </div>
+    </div>
+</div>

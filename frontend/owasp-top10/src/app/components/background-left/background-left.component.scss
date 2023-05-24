@@ -1,0 +1,17 @@
+.background-top {
+    z-index: -99;
+    position: fixed;
+    overflow:hidden;
+    height: 100vh;
+    top: 72%;
+    right: 40%;
+}
+
+.background-bottom {
+    z-index: -99;
+    position: fixed;
+    overflow:hidden;
+    height: 100vh;
+    top: 87%;
+    right: 40%
+}

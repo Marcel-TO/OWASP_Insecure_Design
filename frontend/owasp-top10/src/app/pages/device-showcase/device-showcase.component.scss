@@ -1,0 +1,94 @@
+app-background {
+    position: absolute;
+    top: 100%;
+}
+
+.devices-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.device-item {
+    justify-content: center;
+    width: 33%;
+}
+
+.device-name {
+    position: relative;
+    font-family: Raleway, sans-serif;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.device-image {
+    width: 40%;
+}
+
+.change-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.text {
+    font-family: Raleway, sans-serif;
+    font-size: 20px;
+}
+
+.change-btn {
+    background-color: black;
+    border: solid black;
+    color: white;
+    font-family: Raleway, sans-serif;
+    font-weight: bold;
+    height: 1.5rem;
+    width: 1.5rem;
+    justify-content: center;
+    margin: 4px 10px;
+    cursor: pointer;
+}
+
+.set-btn {
+    position: relative;
+    border: solid black;
+    color: white;
+    background-color: black;
+    width: 30%;
+    height: 2rem;
+    // margin: 2rem;
+    font-size: large;
+    cursor: pointer;
+    font-family: Raleway, sans-serif;
+}
+
+#unsigned {
+    display: none;
+}
+
+.title {
+    position: absolute;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    font-size: 3rem;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.5em;
+}
+
+.heading {
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    font-size: 3rem;
+    margin: 1em 2em 0em 2em;
+    line-height: 1.5em;
+}

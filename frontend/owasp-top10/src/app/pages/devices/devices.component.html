@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<app-background-middle></app-background-middle>
+<div class="devices-container" id="devices">
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Temperature.png" [routerLink]="['/devices/temp-settings']" [queryParams]="{user: currentUser}"/>
+        <h1 class="device-name">Temperature</h1>
+    </div>
+
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Light.png" [routerLink]="['/devices/light-settings']" [queryParams]="{user: currentUser}"/>
+        <h1 class="device-name">Light</h1>
+    </div>
+
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Shutter.png" [routerLink]="['/devices/shutter-settings']" [queryParams]="{user: currentUser}"/>
+        <h1 class="device-name">Shutter</h1>
+    </div>
+</div>
+
+<div class="unsigned" id="unsignedDevs">
+    <h1 class="title">Please log in to get access to your devices</h1>
+</div>

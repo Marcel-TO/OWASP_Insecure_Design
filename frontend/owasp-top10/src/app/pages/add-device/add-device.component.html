@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<app-background></app-background>
+<div class="devices-container" id="addDevices">
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Temperature.png"/>
+        <h1 class="device-name">Temperature</h1>
+        <div class="menu">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput id="new-temp-name" name="new-temp-name" placeholder="Name"/>
+            </mat-form-field>
+
+            <div class="change-container">
+                <button class="change-btn" (click)="onDegreaseTemp()">-</button>
+                <h1 class="text">{{degree}} °C</h1>
+                <button class="change-btn" (click)="onIncreaseTemp()">+</button>
+            </div>
+
+            <button class="set-btn">Set</button>
+            <!-- <button class="presets-btn">Presets</button> -->
+        </div>
+    </div>
+
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Light.png"/>
+        <h1 class="device-name">Light</h1>
+        <div class="menu">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput id="new-light-name" name="new-light-name" placeholder="Name"/>
+            </mat-form-field>
+
+            <div class="change-container">
+                <p class="text">darker</p>
+                <mat-slider min="1" max="10" step="0.5" value="5"><input matSliderThumb></mat-slider>
+                <p class="text">brighter</p>
+            </div>
+            <div class="change-container">
+                <p class="text">cold</p>
+                <mat-slider><input matSliderThumb></mat-slider>
+                <p class="text">warm</p>
+            </div>
+
+            <button class="set-btn">Set</button>
+            <!-- <button class="presets-btn">Presets</button> -->
+        </div>
+    </div>
+
+    <div class="device-item">
+        <img class="device-image" src="/assets/pictures/Icons/Shutter.png"/>
+        <h1 class="device-name">Shutter</h1>
+        <div class="menu">
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input matInput id="new-shutter-name" name="new-shutter-name" placeholder="Name"/>
+            </mat-form-field>
+
+            <mat-chip-listbox class="menu">
+                <mat-chip-option selected>opened</mat-chip-option>
+                <mat-chip-option>closed</mat-chip-option>
+            </mat-chip-listbox>
+
+            <button class="set-btn">Set</button>
+        </div>
+    </div>
+</div>
+
+<div class="unsigned" id="unsignedAddDeviceShowcase">
+    <h1 class="title">Please log in to get access to your devices</h1>
+</div>

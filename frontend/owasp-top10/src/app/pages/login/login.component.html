@@ -1,0 +1,49 @@
+<app-navbar id="navbar"></app-navbar>
+<app-background></app-background>
+<div class="login-container">
+    <h1 class="header">Login</h1>
+    <form class="signin-form">
+      <mat-form-field class="signin-full-width">
+        <mat-label>Username</mat-label>
+        <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher" placeholder="Username">
+        <mat-hint>Errors appear instantly!</mat-hint>
+        <mat-error *ngIf="usernameFormControl.hasError('hasLetters')">
+            Username must not contain numbers
+        </mat-error>
+        <mat-error *ngIf="usernameFormControl.hasError('minlength')">
+            The Username must be at least 3 letters long
+        </mat-error>
+        <mat-error *ngIf="!usernameFormControl.hasError('required')">
+          Please enter a valid username
+        </mat-error>
+        <mat-error *ngIf="usernameFormControl.hasError('required')">
+          Username is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <form class="signin-form">
+      <mat-form-field class="signin-full-width">
+        <input matInput placeholder="Password" [type]="isHiding ? 'password' : 'text'" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" required>
+        <mat-icon matSuffix (click)="isHiding = !isHiding">{{isHiding ? 'visibility_off' : 'visibility'}}</mat-icon>
+        <mat-error class="error" *ngIf="passwordFormControl.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+          The Password must be at least 4 letters long
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('hasNumber')">
+          Password must have at least 1 number
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('hasCapitalCase')">
+          Password must have at least 1 upper case letter
+        </mat-error>
+        <mat-error *ngIf="passwordFormControl.hasError('hasSmallCase')">
+          Password must have at least 1 lower case letter
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <button class="login-btn" (click)="onLogin()" [disabled]="(!usernameFormControl.valid || !passwordFormControl.valid)">Log In</button>
+    <mat-error *ngIf="usernameFormControl.hasError('notExist')">
+      No User found with this combination
+    </mat-error>
+</div>

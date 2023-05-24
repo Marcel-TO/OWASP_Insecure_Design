@@ -1,0 +1,43 @@
+app-background {
+    position: absolute;
+    top: 100%;
+}
+
+.devices-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    margin-top: 13em;
+}
+
+.device-item {
+    justify-content: center;
+    width: 50%;
+}
+
+.device-name {
+    position: relative;
+    font-family: Raleway, sans-serif;
+    font-weight: bold;
+}
+
+.device-image {
+    width: 45%;
+    cursor: pointer;
+}
+
+#unsigned {
+    display: none;
+}
+
+.title {
+    position: absolute;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    font-size: 3rem;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.5em;
+}

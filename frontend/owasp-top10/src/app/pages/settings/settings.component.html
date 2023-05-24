@@ -1,0 +1,142 @@
+<app-navbar></app-navbar>
+<app-background-middle></app-background-middle>
+
+<div class="admin-settings" id="admin-settings">
+    <div class="admin-settings-device-container">
+        <h1 class="text">Temperature Devices</h1>
+        <mat-accordion class="expansion-headers-align" multi>
+            <mat-expansion-panel *ngFor="let sensor of tempSensors">
+                <mat-expansion-panel-header>
+                <mat-panel-title class="text">
+                    {{sensor.name}}
+                </mat-panel-title>
+                <mat-panel-description class="text">
+                    {{sensor.temp}}°C
+                    <img class="icon" src="/assets/pictures/Icons/Temperature.png"/>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                
+                <div class="expansion-content">
+                    <mat-form-field appearance="fill">
+                        <mat-label>new name:</mat-label>
+                        <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
+                    </mat-form-field>
+        
+                    <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
+                </div>
+            </mat-expansion-panel>
+            <mat-card class="add-device">
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.id}">Add Device</button></mat-card-content>
+            </mat-card>   
+        </mat-accordion>
+    </div>
+
+    <div class="admin-settings-device-container">
+        <h1 class="text">Light Devices</h1>
+        <mat-accordion class="expansion-headers-align" multi>
+            <mat-expansion-panel *ngFor="let sensor of lightSensors">
+                <mat-expansion-panel-header>
+                <mat-panel-title class="text">
+                    {{sensor.name}}
+                </mat-panel-title>
+                <mat-panel-description class="text">
+                    <mat-slider min="0" max="10" disabled><input matSliderThumb [(ngModel)]="sensor.brightness">brightness</mat-slider>
+                    <mat-slider min="0" max="10" disabled><input matSliderThumb [(ngModel)]="sensor.warmness">warmness</mat-slider>
+                    <img class="icon" src="/assets/pictures/Icons/Light.png"/>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                
+                <div class="expansion-content">
+                    <mat-form-field appearance="fill">
+                        <mat-label>new name:</mat-label>
+                        <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
+                        </mat-form-field>
+                        <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
+                </div>
+            </mat-expansion-panel>
+            <mat-card class="add-device">
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.id}">Add Device</button></mat-card-content>
+            </mat-card>            
+        </mat-accordion>
+    </div>
+
+    <div class="admin-settings-device-container">
+        <h1 class="text">Shutter Devices</h1>
+        <mat-accordion class="expansion-headers-align" multi>
+            <mat-expansion-panel *ngFor="let sensor of shutterSensors">
+                <mat-expansion-panel-header>
+                <mat-panel-title class="text">
+                    {{sensor.name}}
+                </mat-panel-title>
+                <mat-panel-description class="text">
+                    Is Open: {{sensor.isOpen}}
+                    <img class="icon" src="/assets/pictures/Icons/Shutter.png"/>
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                
+                <div class="expansion-content">
+                    <mat-form-field appearance="fill">
+                        <mat-label>new name:</mat-label>
+                        <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
+                        </mat-form-field>
+                        <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
+                </div>
+            </mat-expansion-panel>
+            <mat-card class="add-device">
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.id}">Add Device</button></mat-card-content>
+            </mat-card>      
+        </mat-accordion>
+    </div>
+</div>
+
+<div class="normal-user-settings">
+    <div class="change-profile-container">
+        <h1 class="header">Change Profile</h1>
+        <form class="signin-form">
+          <mat-form-field class="signin-full-width">
+            <mat-label>New Username:</mat-label>
+            <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher" placeholder="{{currentUser?.username}}" required>
+            <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="usernameFormControl.hasError('hasLetters')">
+                Username must not contain numbers
+            </mat-error>
+            <mat-error *ngIf="usernameFormControl.hasError('minlength')">
+                The Username must be at least 3 letters long
+              </mat-error>
+            <mat-error *ngIf="!usernameFormControl.hasError('required')">
+              Please enter a valid username
+            </mat-error>
+            <mat-error *ngIf="usernameFormControl.hasError('required')">
+              Username is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </form>
+        <form class="signin-form">
+            <mat-form-field class="signin-full-width">
+            <mat-label>New Password:</mat-label>
+              <input matInput placeholder="Password" [type]="isHiding ? 'password' : 'text'" [formControl]="passwordFormControl" [errorStateMatcher]="matcher" required>
+              <mat-icon matSuffix (click)="isHiding = !isHiding">{{isHiding ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('minlength')">
+                The Password must be at least 4 letters long
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('hasNumber')">
+                Password must have at least 1 number
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('hasCapitalCase')">
+                Password must have at least 1 upper case letter!
+              </mat-error>
+              <mat-error *ngIf="passwordFormControl.hasError('hasSmallCase')">
+                Password must have at least 1 lower case letter!
+              </mat-error>
+            </mat-form-field>
+          </form>
+        <button class="change-btn" [routerLink]="['/']">Change Profile</button>
+    </div>
+</div>
+
+<div class="unsigned" id="unsignedSettings">
+    <h1 class="title">Please log in to get access to your devices</h1>
+</div>

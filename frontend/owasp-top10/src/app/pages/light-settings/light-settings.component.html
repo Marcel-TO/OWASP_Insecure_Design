@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+<app-background-left></app-background-left>
+<div class="devices-container" id="device">
+    <mat-drawer-container class="drawer-container" autosize>
+        <mat-drawer #drawer class="drawer-sidenav" mode="side">
+            <p class="single-sensor" id="sensor-btn" (click)="selectDevice(sensor)" *ngFor="let sensor of sensors">{{sensor.name}}</p>
+        </mat-drawer>
+
+        <div class="device-item">
+            <img class="device-image" src="/assets/pictures/Icons/Light.png" (click)="drawer.toggle()"/>
+            <h1 class="device-name">{{currentSensor?.name}}</h1>
+            <div class="lightMenu">
+                <div class="change-container">
+                    <p class="text">darker</p>
+                    <mat-slider min="0" max="10"><input matSliderThumb [(ngModel)]="brightness"></mat-slider>
+                    <p class="text">brighter</p>
+                </div>
+                <div class="change-container">
+                    <p class="text">cold</p>
+                    <mat-slider min="0" max="10"><input matSliderThumb [(ngModel)]="warmness"></mat-slider>
+                    <p class="text">warm</p>
+                </div>
+                <button class="set-btn" (click)="onSet()">Set</button>
+                <!-- <button class="presets-btn">Presets</button> -->
+            </div>
+        </div>
+      
+      </mat-drawer-container>
+</div>
+
+<div class="unsigned" id="unsignedTempSettings">
+    <h1 class="title">Please log in to get access to your devices</h1>
+</div>

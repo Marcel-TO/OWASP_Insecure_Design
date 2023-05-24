@@ -1,0 +1,123 @@
+.title {
+    position: absolute;
+    text-align: center;
+    font-family: Raleway, sans-serif;
+    font-size: 3rem;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.5em;
+}
+
+.text {
+    font-family: Raleway, sans-serif;
+    font-weight: bold;
+}
+  
+.expansion-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+    font-family: Raleway, sans-serif;
+}
+  
+.expansion-headers-align .mat-mdc-form-field + .mat-mdc-form-field {
+    margin-left: 8px;
+    font-family: Raleway, sans-serif;
+}
+
+.admin-settings {
+    font-family: Raleway, sans-serif;
+    margin: 5rem;
+
+    .admin-settings-device-container {
+        margin-top: 8rem;
+    }
+}
+
+input {
+    height: 50px;
+}
+
+.icon {
+    width: 35px;
+}
+
+.set-btn {
+    border: solid black;
+    color: white;
+    background-color: black;
+    height: 50px;
+    font-size: large;
+    cursor: pointer;
+    font-family: Raleway, sans-serif;
+}
+
+.add-device {
+    .add-device-btn {
+        border: solid transparent;
+        color: black;
+        background-color: transparent;
+        width: 100%;
+        font-size: large;
+        font-weight: bold;
+        cursor: pointer;
+        font-family: Raleway, sans-serif;
+    }
+}
+
+.expansion-content {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+
+.normal-user-settings {
+    margin: 5em;
+
+    .change-profile-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        border: 4px solid black;
+        width: 40vw;
+        background-color: white;
+        left: 50%;
+        transform: translate(-50%,0);
+      
+        .header {
+          margin-top: 1rem;
+        }
+      
+        .signin-form {
+          display: flex;
+          min-width: 100px;
+          max-width: 20vm;
+          width: 100%;
+        
+          .signin-full-width {
+            width: 100%;
+            margin: 1rem 2rem;
+          }
+        }
+      
+        .change-btn {
+          border: solid black;
+          color: white;
+          background-color: black;
+          width: 60%;
+          height: 2rem;
+          margin: 2rem;
+          font-size: large;
+          cursor: pointer;
+        }
+
+        mat-error {
+            background-color: red;
+            color: white;
+            transition: height 4s;
+            transition-timing-function: ease-in-out;
+          }
+      }
+}
