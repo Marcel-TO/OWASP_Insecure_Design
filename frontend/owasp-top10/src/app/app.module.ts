@@ -18,6 +18,7 @@ import { DeviceShowcaseComponent } from './pages/device-showcase/device-showcase
 import { TempSettingsComponent } from './pages/temp-settings/temp-settings.component';
 import { LightSettingsComponent } from './pages/light-settings/light-settings.component';
 import { ShutterSettingsComponent } from './pages/shutter-settings/shutter-settings.component';
+import { AddDeviceComponent } from './pages/add-device/add-device.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -28,7 +29,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { AddDeviceComponent } from './pages/add-device/add-device.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AddDeviceComponent } from './pages/add-device/add-device.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatCardModule,
