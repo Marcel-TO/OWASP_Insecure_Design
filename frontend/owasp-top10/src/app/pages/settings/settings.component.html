@@ -5,13 +5,13 @@
     <div class="admin-settings-device-container">
         <h1 class="text">Temperature Devices</h1>
         <mat-accordion class="expansion-headers-align" multi>
-            <mat-expansion-panel *ngFor="let sensor of tempSensors">
+            <mat-expansion-panel *ngFor="let sensor of thermostat?.sensors">
                 <mat-expansion-panel-header>
                 <mat-panel-title class="text">
                     {{sensor.name}}
                 </mat-panel-title>
                 <mat-panel-description class="text">
-                    {{sensor.temp}}°C
+                    {{sensor.temperature}}°C
                     <img class="icon" src="/assets/pictures/Icons/Temperature.png"/>
                 </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -26,7 +26,7 @@
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
-                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.id}">Add Device</button></mat-card-content>
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.account_Id}">Add Device</button></mat-card-content>
             </mat-card>   
         </mat-accordion>
     </div>
@@ -34,14 +34,14 @@
     <div class="admin-settings-device-container">
         <h1 class="text">Light Devices</h1>
         <mat-accordion class="expansion-headers-align" multi>
-            <mat-expansion-panel *ngFor="let sensor of lightSensors">
+            <mat-expansion-panel *ngFor="let sensor of smartBulb?.sensors">
                 <mat-expansion-panel-header>
                 <mat-panel-title class="text">
                     {{sensor.name}}
                 </mat-panel-title>
                 <mat-panel-description class="text">
                     <mat-slider min="0" max="10" disabled><input matSliderThumb [(ngModel)]="sensor.brightness">brightness</mat-slider>
-                    <mat-slider min="0" max="10" disabled><input matSliderThumb [(ngModel)]="sensor.warmness">warmness</mat-slider>
+                    <!-- <mat-slider min="0" max="10" disabled><input matSliderThumb [(ngModel)]="sensor.warmness">warmness</mat-slider> -->
                     <img class="icon" src="/assets/pictures/Icons/Light.png"/>
                 </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -55,7 +55,7 @@
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
-                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.id}">Add Device</button></mat-card-content>
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.account_Id}">Add Device</button></mat-card-content>
             </mat-card>            
         </mat-accordion>
     </div>
@@ -63,13 +63,13 @@
     <div class="admin-settings-device-container">
         <h1 class="text">Shutter Devices</h1>
         <mat-accordion class="expansion-headers-align" multi>
-            <mat-expansion-panel *ngFor="let sensor of shutterSensors">
+            <mat-expansion-panel *ngFor="let sensor of smartJalousine?.sensors">
                 <mat-expansion-panel-header>
                 <mat-panel-title class="text">
                     {{sensor.name}}
                 </mat-panel-title>
                 <mat-panel-description class="text">
-                    Is Open: {{sensor.isOpen}}
+                    Is Open: {{sensor.state}}
                     <img class="icon" src="/assets/pictures/Icons/Shutter.png"/>
                 </mat-panel-description>
                 </mat-expansion-panel-header>
@@ -83,7 +83,7 @@
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
-                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.id}">Add Device</button></mat-card-content>
+                <mat-card-content><button class="add-device-btn" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.account_Id}">Add Device</button></mat-card-content>
             </mat-card>      
         </mat-accordion>
     </div>
@@ -95,7 +95,7 @@
         <form class="signin-form">
           <mat-form-field class="signin-full-width">
             <mat-label>New Username:</mat-label>
-            <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher" placeholder="{{currentUser?.username}}" required>
+            <input matInput [formControl]="usernameFormControl" [errorStateMatcher]="matcher" placeholder="{{currentUser?.userName}}" required>
             <mat-hint>Errors appear instantly!</mat-hint>
             <mat-error *ngIf="usernameFormControl.hasError('hasLetters')">
                 Username must not contain numbers

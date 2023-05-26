@@ -1,14 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ErrorStateMatcher } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';
-import { LightSensor } from 'src/app/models/lightSensor';
-import { ShutterSensor } from 'src/app/models/shutterSensor';
-import { TempSensor } from 'src/app/models/tempSensor';
-import { Modelfactory } from 'src/app/models/modelfactory';
-import { Account } from 'src/app/models/account';
 import { CustomValidators } from 'src/app/models/custom-validators';
-
+import { DatabaseService } from 'src/app/components/database-services/database.service';
+import { Account } from 'src/app/models/database/Account';
+import { Thermostat } from 'src/app/models/database/Temperature/Thermostat';
+import { SmartBulb } from 'src/app/models/database/Light/SmartBulb';
+import { SmartJalousine } from 'src/app/models/database/Shutter/SmartJalousine';
+import { ErrorStateMatcher } from '@angular/material/core';
+import { SmartDevices } from 'src/app/models/database/SmartDevices';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -17,10 +17,9 @@ import { CustomValidators } from 'src/app/models/custom-validators';
 export class SettingsComponent implements OnInit {
   public currentUser?: Account;
   public accounts: Account[] = [];
-  public tempSensors: TempSensor[] = [];
-  public lightSensors: LightSensor[] = [];
-  public shutterSensors: ShutterSensor[] = [];
-  private modelFactory = new Modelfactory();
+  public thermostat?: Thermostat;
+  public smartBulb?: SmartBulb;
+  public smartJalousine?: SmartJalousine;
   
   matcher = new MyErrorStateMatcher();
   usernameFormControl = new FormControl('', Validators.compose([
@@ -37,32 +36,21 @@ export class SettingsComponent implements OnInit {
   ]));
   isHiding = true;
 
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.accounts = this.modelFactory.Accounts;
+  constructor(private activatedRoute: ActivatedRoute, private dbService: DatabaseService) {
   }
 
-  public onChangeSensorName(sensorname: string) {
-    let newname = (<HTMLInputElement>document.getElementById(sensorname + '-newName')).value;
+  public onChangeSensorName(newname:string) {
     console.log(newname)
   }
 
-  private checkUser(id:string) {
-    for (let user of this.accounts) {
-      if (id == user.id) {
-        return user;
-      }
-    }
-    return undefined
-  }
-
-  ngOnInit(): void {
-    let id_query = this.activatedRoute.snapshot.queryParams['user'];
-    this.currentUser = this.checkUser(id_query);
-
+  async ngOnInit() {
     let unsigned = document.getElementById('unsignedSettings');
     let devices = document.getElementById('device');
     let adminSettings = document.getElementById('admin-settings');
-    if (this.currentUser == undefined) {
+    
+    let id_query = this.activatedRoute.snapshot.queryParams['user'];
+    let tempUser = await this.dbService.GetByIDAccount(id_query);
+    if (tempUser.role == 'error') {
       if (devices != null) {
         devices.style.display = "none"
       }
@@ -75,17 +63,17 @@ export class SettingsComponent implements OnInit {
         unsigned.style.display = 'none'
       }
 
-      this.tempSensors = this.modelFactory.getTempSensors(this.currentUser.id);
-      this.lightSensors = this.modelFactory.getLightSensors(this.currentUser.id);
-      this.shutterSensors = this.modelFactory.getShutterSensors(this.currentUser.id);
-      
-      for (let acc of this.accounts) {
-        if (acc.id == this.currentUser.id) {
-          if (acc.role != 'admin') {
-            if (adminSettings != null) {
-              adminSettings.style.display = 'none';
-            }
-          }
+      this.currentUser = tempUser
+      console.log(this.currentUser.account_Id)
+      let devices: SmartDevices = await this.dbService.GetAllDevicesFromAccount(this.currentUser.account_Id)
+      this.smartBulb = devices.smartBulbs[0];
+      this.smartJalousine = devices.smartJalousines[0];
+      this.thermostat = devices.thermostats[0];
+      console.log(this.smartBulb)
+
+      if (this.currentUser.role != 'admin') {
+        if (adminSettings != null) {
+          adminSettings.style.display = 'none';
         }
       }
     }

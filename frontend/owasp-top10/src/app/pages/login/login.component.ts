@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, ReactiveFormsModule, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Account } from 'src/app/models/account';
+import { DatabaseService } from 'src/app/components/database-services/database.service';
 import { CustomValidators } from 'src/app/models/custom-validators';
-import { Modelfactory } from 'src/app/models/modelfactory';
+import { Account } from 'src/app/models/database/Account';
 
 @Component({
   selector: 'app-login',
@@ -27,35 +27,72 @@ export class LoginComponent implements OnInit{
   ]));
   isHiding = true;
   showDoesNotExist = false;
-  currentUser: Account | undefined = undefined;
+  currentUser?: Account;
   allUsers: Account[] = [];
 
-  constructor(private router: Router) {
-    let modelfactory = new Modelfactory()
-    this.allUsers = modelfactory.Accounts;
+  constructor(private router: Router, private dbService: DatabaseService) {
+    // let modelfactory = new Modelfactory()
+    // this.allUsers = modelfactory.Accounts;
   }
   
-  ngOnInit(): void {
+  async ngOnInit() {
+    let response = await this.dbService.LoginAccount('adminuser', '1Admin');
+    this.currentUser = await this.dbService.GetByIDAccount(response);
   }
 
-  public onLogin() {
-    if (!this.usernameFormControl.valid || !this.passwordFormControl.valid || this.allUsers == undefined) {
+  public async onLogin() {
+    if (!this.usernameFormControl.valid || !this.passwordFormControl.valid || this.allUsers == undefined || this.usernameFormControl.value == null || this.passwordFormControl.value == null) {
       return;
     }
 
-    let username = this.usernameFormControl.value;
+    let username: string = this.usernameFormControl.value;
     let password = this.passwordFormControl.value;
 
-    for (let user of this.allUsers) {
-      if (username == user.username && password == user.password) {
-        this.currentUser = user;
-        this.router.navigate(['/'], {queryParams: {user: user.id}})
-      }
+    let response = await this.dbService.LoginAccount(username, password);
+    let tempUser = await this.dbService.GetByIDAccount(response);
+    if (tempUser.role == 'error') {
+      this.usernameFormControl.setErrors({notExist: true});
+      return;
     }
+    
+    this.currentUser = tempUser
+    this.router.navigate(['/'], {queryParams: {user: this.currentUser.account_Id}})
 
-    this.usernameFormControl.setErrors({notExist: true})
 
     // this.router.navigate(['/'], {queryParams: {user: this.allUsers[0].id}})
+  }
+
+  public async onGetAccounts() {
+    this.allUsers = await this.dbService.GetAccounts();
+    console.log(this.allUsers);
+  }
+
+  public onTest() {
+    this.dbService.DeleteAccount(this.allUsers[0].account_Id)
+  }
+
+  public onCreateAccount() {
+    let role = 'admin'
+    let username = 'adminuser'
+    let password = '1Admin'
+    this.dbService.CreateAccount(role,username,password);
+  }
+
+  public async onCreateDevice() {
+    if (this.currentUser != null) {
+      // await this.dbService.CreateSmartBulb(this.currentUser.account_Id);
+      await this.dbService.CreateSmartJalousine(this.currentUser.account_Id);
+      await this.dbService.CreateThermostat(this.currentUser.account_Id);
+    }
+  }
+
+  public async onGetDevices() {
+    if (this.currentUser != null) {
+      let result = await this.dbService.GetAllDevicesFromAccount(this.currentUser.account_Id)
+      console.log(this.currentUser.account_Id)
+      console.log(result)
+    }
+    
   }
 }
 

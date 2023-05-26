@@ -3,15 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { response } from 'express';
 import { Observable, catchError, firstValueFrom, lastValueFrom, map, of, tap, throwError } from 'rxjs';
-import { Account } from 'src/app/models/account';
-import { HttpAccount } from 'src/app/models/database/HttpAccount';
+import { Account } from 'src/app/models/database/Account';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DatabaseAccountService {
-  public users: Account[] = [];
-  private errorUser: HttpAccount;
+  private errorUser: Account;
 
   constructor(private http: HttpClient) { 
     this.errorUser = {account_Id: 'error', role: 'error', userName: 'error', password: 'error'}
@@ -19,10 +17,9 @@ export class DatabaseAccountService {
 
   public async GetAll() {
     let users$;
-    let users: HttpAccount[] = [];
+    let users: Account[] = [];
     users$ = this.GetAccountsFromDB()
-    users = await lastValueFrom(users$);
-    return this.ConvertHttpAccounts(users)
+    return await lastValueFrom(users$);
   }
 
   public async Create(newUser: Account) {
@@ -32,7 +29,7 @@ export class DatabaseAccountService {
   }
 
   public async Delete(id: string) {
-    let users: HttpAccount[] = await lastValueFrom(this.GetAccountsFromDB());
+    let users: Account[] = await lastValueFrom(this.GetAccountsFromDB());
     for (let user of users) {
       if (user.account_Id == id) {
         await this.http.delete('http://localhost:5274/api/account/delete?id=' + id).subscribe(response => {
@@ -47,13 +44,13 @@ export class DatabaseAccountService {
   }
 
   public async GetByID(id: string) {
-    let user: HttpAccount =  await lastValueFrom(this.GetByIDFromDB(id));
-    return this.ConvertSingleHttpAccount(user);
+    let user: Account =  await lastValueFrom(this.GetByIDFromDB(id));
+    return user;
   }
   
 
   private GetAccountsFromDB() {
-    return this.http.get<HttpAccount[]>('http://localhost:5274/api/account/');
+    return this.http.get<Account[]>('http://localhost:5274/api/account/');
   }
 
   private LoginAccountRequest(username: string, password: string) {
@@ -65,24 +62,9 @@ export class DatabaseAccountService {
   }
 
   private GetByIDFromDB(id:string) {
-    console.log("Id that gets queried: " + id);
-    return this.http.get<HttpAccount>('http://localhost:5274/api/account/getById?id='+id).pipe(
+    return this.http.get<Account>('http://localhost:5274/api/account/getById?id='+id).pipe(
       catchError(() => {return of(this.errorUser)
     }));
-  }
-
-  private ConvertHttpAccounts(httpAccounts: HttpAccount[]): Account[] {
-    let accounts: Account[] = [];
-
-    for (let account of httpAccounts) {
-      accounts.push({id: account.account_Id, role: account.role, username: account.userName, password: account.password});
-    }
-    return accounts;
-  }
-
-  private ConvertSingleHttpAccount(httpAccount: HttpAccount): Account {
-    let account: Account = {id: httpAccount.account_Id, role: httpAccount.role, username: httpAccount.userName, password: httpAccount.password};
-    return account;
   }
 }
 

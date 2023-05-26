@@ -43,6 +43,8 @@
       </mat-form-field>
     </form>
     <button class="login-btn" (click)="onLogin()" [disabled]="(!usernameFormControl.valid || !passwordFormControl.valid)">Log In</button>
+    <button class="login-btn" (click)="onGetDevices()">Get Accounts</button>
+    <button class="login-btn" (click)="onCreateDevice()">Create Accounts</button>
     <mat-error *ngIf="usernameFormControl.hasError('notExist')">
       No User found with this combination
     </mat-error>

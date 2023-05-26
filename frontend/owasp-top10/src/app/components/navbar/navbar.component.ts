@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Account } from 'src/app/models/account';
-import { Modelfactory } from 'src/app/models/modelfactory';
+import { DatabaseService } from '../database-services/database.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,30 +10,19 @@ import { Modelfactory } from 'src/app/models/modelfactory';
 export class NavbarComponent implements OnInit {
   public currentUser?: string;
   public isSigned = false
-  public accounts: Account[] = [];
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
-    this.accounts = new Modelfactory().Accounts
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private dbService: DatabaseService) {
   }
 
-  private checkUser(id:string) {
-    for (let user of this.accounts) {
-      if (id == user.id) {
-        return id;
-      }
-    }
-    return undefined
-  }
-
-  ngOnInit(): void {
+  async ngOnInit() {
     let id_query  = this.activatedRoute.snapshot.queryParams['user'];
-    this.currentUser = this.checkUser(id_query);
-    console.log(this.currentUser)
-    if (this.currentUser != undefined) {
-      this.isSigned = true;
+    let tempUser = await this.dbService.GetByIDAccount(id_query);
+    if (tempUser.role == 'error') {
+      this.isSigned = false;
     }
     else {
-      this.isSigned = false;
+      this.currentUser = tempUser.account_Id;
+      this.isSigned = true;
     }
   }
 

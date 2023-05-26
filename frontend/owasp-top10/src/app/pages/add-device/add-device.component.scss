@@ -85,3 +85,10 @@ app-background {
     transform: translate(-50%, -50%);
     line-height: 1.5em;
 }
+
+mat-error {
+    background-color: red;
+    color: white;
+    transition: height 4s;
+    transition-timing-function: ease-in-out;
+  }

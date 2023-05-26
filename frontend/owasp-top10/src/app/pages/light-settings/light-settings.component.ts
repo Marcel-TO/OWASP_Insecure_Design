@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Account } from 'src/app/models/account';
-import { Actuator } from 'src/app/models/actuator';
-import { LightSensor } from 'src/app/models/lightSensor';
-import { Modelfactory } from 'src/app/models/modelfactory';
+import { DatabaseService } from 'src/app/components/database-services/database.service';
+import { Account } from 'src/app/models/database/Account';
+import { BulbActuator } from 'src/app/models/database/Light/BulbActuator';
+import { BulbSensor } from 'src/app/models/database/Light/BulbSensor';
+import { SmartBulb } from 'src/app/models/database/Light/SmartBulb';
 
 @Component({
   selector: 'app-light-settings',
@@ -11,19 +12,16 @@ import { Modelfactory } from 'src/app/models/modelfactory';
   styleUrls: ['./light-settings.component.scss']
 })
 export class LightSettingsComponent implements OnInit{
-  public currentUser?: string;
-  public currentSensor?: LightSensor;
+  public currentUser?: Account;
+  public currentSensor?: BulbSensor;
+  public currentActuator?: BulbActuator;
+  public currentDevice?: SmartBulb;
 
-  public accounts: Account[] = [];
-  public sensors: LightSensor[] = [];
-  public actuators: Actuator[] = [];
+  public devices?: SmartBulb[]
   public brightness?: number;
-  public warmness?: number;
   public isOpen = false;
-  private modelFactory = new Modelfactory()
   
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.accounts = this.modelFactory.Accounts;
+  constructor(private activatedRoute: ActivatedRoute, private dbService: DatabaseService) {
   }
   
   public onClickDrawer() {
@@ -40,28 +38,18 @@ export class LightSettingsComponent implements OnInit{
   public onSet() {
   }
 
-  public selectDevice(sensor: LightSensor) {
+  public selectDevice(sensor: BulbSensor) {
     this.currentSensor = sensor;
     this.brightness = this.currentSensor.brightness;
-    this.warmness = this.currentSensor.warmness;
   }
 
-  private checkUser(id:string) {
-    for (let user of this.accounts) {
-      if (id == user.id) {
-        return id;
-      }
-    }
-    return undefined
-  }
-
-  ngOnInit(): void {
-    let id_query = this.activatedRoute.snapshot.queryParams['user'];
-    this.currentUser = this.checkUser(id_query);
-
+  async ngOnInit() {
     let unsigned = document.getElementById('unsignedTempSettings');
     let devices = document.getElementById('device');
-    if (this.currentUser == undefined) {
+    let id_query = this.activatedRoute.snapshot.queryParams['user'];
+    let tempUser = await this.dbService.GetByIDAccount(id_query);
+
+    if (tempUser.role == 'error') {
       if (devices != null) {
         devices.style.display = "none"
       }
@@ -70,10 +58,11 @@ export class LightSettingsComponent implements OnInit{
       }
     }
     else {
+      this.currentUser = tempUser
       if (unsigned != null) {
         unsigned.style.display = 'none'
       }
-      this.sensors = this.modelFactory.getLightSensors(this.currentUser);
+      // Get SmartBulbs
     }
   }
 }

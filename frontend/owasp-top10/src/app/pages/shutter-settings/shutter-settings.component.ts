@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Account } from 'src/app/models/account';
-import { Modelfactory } from 'src/app/models/modelfactory';
-import { ShutterSensor } from 'src/app/models/shutterSensor';
+import { SmartJalousine } from 'src/app/models/database/Shutter/SmartJalousine';
 
 @Component({
   selector: 'app-shutter-settings',
@@ -10,67 +8,67 @@ import { ShutterSensor } from 'src/app/models/shutterSensor';
   styleUrls: ['./shutter-settings.component.scss']
 })
 export class ShutterSettingsComponent {
-  public currentUser?: string;
-  public currentSensor?: ShutterSensor;
+  // public currentUser?: string;
+  // public currentSensor?: SmartJalousine;
 
-  public accounts: Account[] = [];
-  public sensors: ShutterSensor[] = [];
-  public shutterOpen: boolean = false;
-  public isOpen = false;
-  private modelFactory = new Modelfactory();
+  // // public accounts: Account[] = [];
+  // // public sensors: ShutterSensor[] = [];
+  // // public shutterOpen: boolean = false;
+  // // public isOpen = false;
+  // // private modelFactory = new Modelfactory();
   
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.accounts = this.modelFactory.Accounts;
-  }
+  // constructor(private activatedRoute: ActivatedRoute) {
+  //   // this.accounts = this.modelFactory.Accounts;
+  // }
 
-  public onClickDrawer() {
-    let menu = document.getElementById('shutterMenu');
+  // public onClickDrawer() {
+  //   let menu = document.getElementById('shutterMenu');
 
-    if (this.isOpen) {
-      this.isOpen = false;
-      if (menu != null) {
-        menu.style.display = "none";
-      }
-    }
-  }
+  //   if (this.isOpen) {
+  //     this.isOpen = false;
+  //     if (menu != null) {
+  //       menu.style.display = "none";
+  //     }
+  //   }
+  // }
 
-  public onChangeShutter() {
-    this.shutterOpen = !this.shutterOpen;
-  }
+  // public onChangeShutter() {
+  //   this.shutterOpen = !this.shutterOpen;
+  // }
 
-  public selectDevice(sensor: ShutterSensor) {
-    this.currentSensor = sensor;
-    this.shutterOpen = this.currentSensor.isOpen;
-  }
+  // public selectDevice(sensor: ShutterSensor) {
+  //   this.currentSensor = sensor;
+  //   this.shutterOpen = this.currentSensor.isOpen;
+  // }
 
-  private checkUser(id:string) {
-    for (let user of this.accounts) {
-      if (id == user.id) {
-        return id;
-      }
-    }
-    return undefined
-  }
+  // private checkUser(id:string) {
+  //   for (let user of this.accounts) {
+  //     if (id == user.id) {
+  //       return id;
+  //     }
+  //   }
+  //   return undefined
+  // }
 
-  ngOnInit(): void {
-    let id_query = this.activatedRoute.snapshot.queryParams['user'];
-    this.currentUser = this.checkUser(id_query);
+  // ngOnInit(): void {
+  //   let id_query = this.activatedRoute.snapshot.queryParams['user'];
+  //   this.currentUser = this.checkUser(id_query);
 
-    let unsigned = document.getElementById('unsignedShutterSettings');
-    let devices = document.getElementById('device');
-    if (this.currentUser == undefined) {
-      if (devices != null) {
-        devices.style.display = "none"
-      }
-      if (unsigned != null) {
-        unsigned.style.display = 'unset'
-      }
-    }
-    else {
-      if (unsigned != null) {
-        unsigned.style.display = 'none'
-      }
-      this.sensors = this.modelFactory.getShutterSensors(this.currentUser)
-    }
-  }
+  //   let unsigned = document.getElementById('unsignedShutterSettings');
+  //   let devices = document.getElementById('device');
+  //   if (this.currentUser == undefined) {
+  //     if (devices != null) {
+  //       devices.style.display = "none"
+  //     }
+  //     if (unsigned != null) {
+  //       unsigned.style.display = 'unset'
+  //     }
+  //   }
+  //   else {
+  //     if (unsigned != null) {
+  //       unsigned.style.display = 'none'
+  //     }
+  //     this.sensors = this.modelFactory.getShutterSensors(this.currentUser)
+  //   }
+  // }
 }

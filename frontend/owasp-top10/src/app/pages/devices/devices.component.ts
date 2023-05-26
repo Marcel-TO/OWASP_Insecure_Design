@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router'
-import { Account } from 'src/app/models/account';
-import { Modelfactory } from 'src/app/models/modelfactory';
+import { DatabaseService } from 'src/app/components/database-services/database.service';
+import { Account } from 'src/app/models/database/Account';
 
 @Component({
   selector: 'app-devices',
@@ -9,28 +9,19 @@ import { Modelfactory } from 'src/app/models/modelfactory';
   styleUrls: ['./devices.component.scss']
 })
 export class DevicesComponent implements OnInit {
-  public currentUser?: string;
-  public accounts: Account[] = [];
+  public currentUser?: Account;
   
-  constructor(private activatedRoute: ActivatedRoute) {
-    this.accounts = new Modelfactory().Accounts
+  constructor(private activatedRoute: ActivatedRoute, private dbService: DatabaseService) {
   }
 
-  private checkUser(id:string) {
-    for (let user of this.accounts) {
-      if (id == user.id) {
-        return id;
-      }
-    }
-    return undefined
-  }
-
-  ngOnInit(): void {
+  async ngOnInit() {
     let id_query = this.activatedRoute.snapshot.queryParams['user'];
-    this.currentUser = this.checkUser(id_query);
+    let tempUser = await this.dbService.GetByIDAccount(id_query);
     let devices = document.getElementById('devices');
     let unsigned = document.getElementById('unsignedDevs');
-    if (this.currentUser == undefined) {
+
+    
+    if (tempUser.role == 'error') {
       if (devices != null) {
         devices.style.display = 'none'
       }
@@ -39,6 +30,7 @@ export class DevicesComponent implements OnInit {
       }
     }
     else {
+      this.currentUser = tempUser;
       if (unsigned != null) {
         unsigned.style.display = 'none'
       }

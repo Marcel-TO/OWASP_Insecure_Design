@@ -7,7 +7,10 @@
         <div class="menu">
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput id="new-temp-name" name="new-temp-name" placeholder="Name"/>
+                <input matInput id="new-temp-name" name="new-temp-name" placeholder="Name" [formControl]="tempNameFormControl" [errorStateMatcher]="matcher"/>
+                <mat-error *ngIf="tempNameFormControl.hasError('minlength')">
+                    The Name must be at least 4 letters long
+                </mat-error>
             </mat-form-field>
 
             <div class="change-container">
@@ -16,7 +19,7 @@
                 <button class="change-btn" (click)="onIncreaseTemp()">+</button>
             </div>
 
-            <button class="set-btn">Set</button>
+            <button class="set-btn" (click)="onCreateTempSensor()">Set</button>
             <!-- <button class="presets-btn">Presets</button> -->
         </div>
     </div>
@@ -27,21 +30,24 @@
         <div class="menu">
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput id="new-light-name" name="new-light-name" placeholder="Name"/>
+                <input matInput id="new-light-name" name="new-light-name" placeholder="Name" [formControl]="lightNameFormControl" [errorStateMatcher]="matcher"/>
+                <mat-error *ngIf="lightNameFormControl.hasError('minlength')">
+                    The Name must be at least 4 letters long
+                </mat-error>
             </mat-form-field>
 
             <div class="change-container">
                 <p class="text">darker</p>
-                <mat-slider min="1" max="10" step="0.5" value="5"><input matSliderThumb></mat-slider>
+                <mat-slider min="1" max="10" step="1" value="0"><input matSliderThumb [(ngModel)]="brightness"></mat-slider>
                 <p class="text">brighter</p>
             </div>
-            <div class="change-container">
+            <!-- <div class="change-container">
                 <p class="text">cold</p>
                 <mat-slider><input matSliderThumb></mat-slider>
                 <p class="text">warm</p>
-            </div>
+            </div> -->
 
-            <button class="set-btn">Set</button>
+            <button class="set-btn" (click)="onCreateLightSensor()">Set</button>
             <!-- <button class="presets-btn">Presets</button> -->
         </div>
     </div>
@@ -52,15 +58,18 @@
         <div class="menu">
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input matInput id="new-shutter-name" name="new-shutter-name" placeholder="Name"/>
+                <input matInput id="new-shutter-name" name="new-shutter-name" placeholder="Name" [formControl]="shutterNameFormControl" [errorStateMatcher]="matcher"/>
+                <mat-error *ngIf="shutterNameFormControl.hasError('minlength')">
+                    The Name must be at least 4 letters long
+                </mat-error>
             </mat-form-field>
 
             <mat-chip-listbox class="menu">
-                <mat-chip-option selected>opened</mat-chip-option>
-                <mat-chip-option>closed</mat-chip-option>
+                <mat-chip-option [selected]="isOpen" (click)="onChangeShutterState()">opened</mat-chip-option>
+                <mat-chip-option [selected]="!isOpen">closed</mat-chip-option>
             </mat-chip-listbox>
 
-            <button class="set-btn">Set</button>
+            <button class="set-btn" (click)="onCreateShutterSensor()">Set</button>
         </div>
     </div>
 </div>
