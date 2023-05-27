@@ -89,22 +89,35 @@ Classes/entities have been declared in the .NET-project. Running the migration c
 Steps for migrating the database via Visual Studio Code (For Visual Studio or more info: https://learn.microsoft.com/en-us/ef/core/managing-schemas/migrations/?tabs=vs):
 
 (Within the project folder "SmartHomeApi")
+
 **1. Adding migration**
+
 `dotnet ef migrations add InitialCreate`
 
 **2. Adding MySql database to corresponding migration**
+
 `dotnet ef database update`
 
 ## API (REST)
 PLEASE READ FOLLOWING RELEVANT INFO:
+
 Running on `localhost` with Swagger UI. Example: `http://localhost:5274/swagger/index.html`.
+
 Reponse: HTTP-Response with data. Example: `OK()` and `body` containing the data
- headers: "content-type":"application/json"
+
+headers: "content-type":"application/json"
 
 Request: All the requests should work the same if there is no example given.
 
-INSERTING/DELETIONS ETC. OF DEVICES: A SMART DEVICE (Thermostat etc.) CAN ONLY BE CREATED FOR AN EXISTING ACCOUNT-HOLDER. A SENSOR/ACTUATOR (such as thermostat-sensor etc.) CAN ONLY BE CREATED FOR ITS CORRESPONDING EXISTING SMART DEVICE.
-THE DEFAULT GUID IS: 00000000-0000-0000-0000-000000000000.
+**_INSERTING/DELETIONS ETC. OF DEVICES A SMART DEVICE (Thermostat etc.)_**
+
+CAN ONLY BE CREATED FOR AN EXISTING ACCOUNT-HOLDER. 
+
+A SENSOR/ACTUATOR (such as thermostat-sensor etc.) CAN ONLY BE **CREATED** FOR ITS CORRESPONDING EXISTING SMART DEVICE.
+
+THE DEFAULT GUID IS: **00000000-0000-0000-0000-000000000000**.
+
+Account objects need to be **null** within **json request body** of other objects (See example thermostat etc.) -> "account": null,
 
 ### Endpoints
 header: 
@@ -171,10 +184,33 @@ Example-body:
 
 RETURNS YOU ID OF LOGGED IN USER AND OK RESPONSE
 
+### LoggedData
+- **_GET: /api/log  -> Gets all logged entries_**
+- **_GET: /api/log/getById  -> Gets a logged entry by its id*
+- **_GET: /api/log/getByAccountId  -> Gets all logged entries matching an account id**
+- **_POST: /api/log/create  -> Create an logged entry_**
+
+Example-body:
+
+{
+
+"log_Id": "00000000-0000-0000-0000-000000000000",
+
+"data": "Some logged data",
+ 
+"acc_Id": "43572ee6-61b3-405e-980e-352907c2e2a7",
+ 
+"account": null 
+
+}
+
+- **_DELETE: /api/log/delete  -> Deletes an logged entry**
+
+
 ------------------
 ### Thermostat
-- **_GET: /api/thermostat  -> Gets all thermostats_**
-- **_GET: /api/thermostat/getById  -> Gets a thermostat by its id**
+- **_GET: /api/log  -> Gets all thermostats_**
+- **_GET: /api/log/getById  -> Gets a thermostat by its id**
 - **_POST: /api/thermostat/create  -> Create a new thermostat_**
 
 Example-body:
