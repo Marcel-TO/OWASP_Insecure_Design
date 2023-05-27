@@ -5,13 +5,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DatabaseService } from 'src/app/components/database-services/database.service';
 import { CustomValidators } from 'src/app/models/custom-validators';
 import { Account } from 'src/app/models/database/Account';
+import { SmartDevices } from 'src/app/models/database/SmartDevices';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit{
+export class LoginComponent {
   usernameFormControl = new FormControl('', Validators.compose([
     Validators.required,
     Validators.minLength(3),
@@ -28,20 +29,12 @@ export class LoginComponent implements OnInit{
   isHiding = true;
   showDoesNotExist = false;
   currentUser?: Account;
-  allUsers: Account[] = [];
 
   constructor(private router: Router, private dbService: DatabaseService) {
-    // let modelfactory = new Modelfactory()
-    // this.allUsers = modelfactory.Accounts;
-  }
-  
-  async ngOnInit() {
-    let response = await this.dbService.LoginAccount('adminuser', '1Admin');
-    this.currentUser = await this.dbService.GetByIDAccount(response);
   }
 
   public async onLogin() {
-    if (!this.usernameFormControl.valid || !this.passwordFormControl.valid || this.allUsers == undefined || this.usernameFormControl.value == null || this.passwordFormControl.value == null) {
+    if (!this.usernameFormControl.valid || !this.passwordFormControl.valid || this.usernameFormControl.value == null || this.passwordFormControl.value == null) {
       return;
     }
 
@@ -55,20 +48,22 @@ export class LoginComponent implements OnInit{
       return;
     }
     
-    this.currentUser = tempUser
+    this.currentUser = tempUser;
+    await this.checkForDevices(this.currentUser);
     this.router.navigate(['/'], {queryParams: {user: this.currentUser.account_Id}})
-
-
-    // this.router.navigate(['/'], {queryParams: {user: this.allUsers[0].id}})
   }
 
-  public async onGetAccounts() {
-    this.allUsers = await this.dbService.GetAccounts();
-    console.log(this.allUsers);
-  }
-
-  public onTest() {
-    this.dbService.DeleteAccount(this.allUsers[0].account_Id)
+  private async checkForDevices(user: Account) {
+    let devices: SmartDevices = await this.dbService.GetAllDevicesFromAccount(user.account_Id);
+    if (devices.smartBulbs.length < 1) {
+      await this.dbService.CreateSmartBulb(user.account_Id);
+    }
+    if (devices.thermostats.length < 1) {
+      await this.dbService.CreateThermostat(user.account_Id);
+    }
+    if (devices.smartJalousines.length < 1) {
+      await this.dbService.CreateSmartJalousine(user.account_Id);
+    }
   }
 
   public onCreateAccount() {

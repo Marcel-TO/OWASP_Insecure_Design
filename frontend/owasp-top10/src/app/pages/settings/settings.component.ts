@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CustomValidators } from 'src/app/models/custom-validators';
 import { DatabaseService } from 'src/app/components/database-services/database.service';
 import { Account } from 'src/app/models/database/Account';
@@ -9,6 +9,9 @@ import { SmartBulb } from 'src/app/models/database/Light/SmartBulb';
 import { SmartJalousine } from 'src/app/models/database/Shutter/SmartJalousine';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { SmartDevices } from 'src/app/models/database/SmartDevices';
+import { ThermostatSensor } from 'src/app/models/database/Temperature/ThermostatSensor';
+import { BulbSensor } from 'src/app/models/database/Light/BulbSensor';
+import { JalousineSensor } from 'src/app/models/database/Shutter/JalousineSensor';
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
@@ -36,11 +39,73 @@ export class SettingsComponent implements OnInit {
   ]));
   isHiding = true;
 
-  constructor(private activatedRoute: ActivatedRoute, private dbService: DatabaseService) {
+  constructor(private router: Router,private activatedRoute: ActivatedRoute, private dbService: DatabaseService) {
   }
 
-  public onChangeSensorName(newname:string) {
-    console.log(newname)
+  public async onChangeThermostatSensorName(sensor:ThermostatSensor) {
+    let newname = (<HTMLInputElement>document.getElementById(sensor.name+'-newName')).value;
+    await this.dbService.UpdateThermostatSensor(sensor.sensor_Id, newname, sensor.temperature, sensor.therm_Id);
+    await this.updateDevices();
+  }
+
+  public async onDeleteThermostatSensor(sensor: ThermostatSensor) {
+    if (this.currentUser == null) {
+      return;
+    }
+    await this.dbService.DeleteThermostatSensor(sensor.sensor_Id);
+    await this.updateDevices()
+  }
+
+  public async onChangeBulbSensorName(sensor:BulbSensor) {
+    let newname = (<HTMLInputElement>document.getElementById(sensor.name+'-newName')).value;
+    await this.dbService.UpdateBulbSensor(sensor.sensor_Id, newname, sensor.brightness, sensor.bulb_Id);
+    await this.updateDevices();
+  }
+
+  public async onDeleteBulbSensor(sensor: BulbSensor) {
+    if (this.currentUser == null) {
+      return;
+    }
+    await this.dbService.DeleteBulbSensor(sensor.sensor_Id);
+    await this.updateDevices()
+  }
+
+  public async onChangeJalousineSensorName(sensor:JalousineSensor) {
+    let newname = (<HTMLInputElement>document.getElementById(sensor.name+'-newName')).value;
+    await this.dbService.UpdateJalousineSensor(sensor.sensor_Id, newname, sensor.state, sensor.jal_Id);
+    await this.updateDevices();
+  }
+
+  public async onDeleteJalousineSensor(sensor: JalousineSensor) {
+    if (this.currentUser == null) {
+      return;
+    }
+    await this.dbService.DeleteJalousineSensor(sensor.sensor_Id);
+    await this.updateDevices()
+  }
+
+  public async onChangeProfile() {
+    if (!this.usernameFormControl.valid || !this.passwordFormControl.valid || this.usernameFormControl.value == null || this.passwordFormControl.value == null || this.currentUser == null) {
+      return;
+    }
+
+    let username: string = this.usernameFormControl.value;
+    let password = this.passwordFormControl.value;
+
+    await this.dbService.UpdateAccount(this.currentUser.account_Id, username, this.currentUser.role, password);
+    this.router.navigate(['/'], {queryParams: {user: this.currentUser.account_Id}})
+  }
+
+  private async updateDevices() {
+    if (this.currentUser == null) {
+      return;
+    }
+
+    let devices: SmartDevices = await this.dbService.GetAllDevicesFromAccount(this.currentUser.account_Id)
+    this.smartBulb = devices.smartBulbs[0];
+    this.smartJalousine = devices.smartJalousines[0];
+    this.thermostat = devices.thermostats[0];
+    // console.log(this.thermostat)
   }
 
   async ngOnInit() {
@@ -64,13 +129,7 @@ export class SettingsComponent implements OnInit {
       }
 
       this.currentUser = tempUser
-      console.log(this.currentUser.account_Id)
-      let devices: SmartDevices = await this.dbService.GetAllDevicesFromAccount(this.currentUser.account_Id)
-      this.smartBulb = devices.smartBulbs[0];
-      this.smartJalousine = devices.smartJalousines[0];
-      this.thermostat = devices.thermostats[0];
-      console.log(this.smartBulb)
-
+      await this.updateDevices();
       if (this.currentUser.role != 'admin') {
         if (adminSettings != null) {
           adminSettings.style.display = 'none';

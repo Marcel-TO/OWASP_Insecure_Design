@@ -1,9 +1,10 @@
-<!-- <app-navbar></app-navbar>
+<app-navbar></app-navbar>
 <app-background-left></app-background-left>
 <div class="devices-container" id="device">
     <mat-drawer-container class="drawer-container" autosize>
         <mat-drawer #drawer class="drawer-sidenav" mode="side">
-            <p class="single-sensor" id="sensor-btn" (click)="selectDevice(sensor)" *ngFor="let sensor of sensors">{{sensor.name}}</p>
+            <p class="single-sensor" id="sensor-btn" (click)="selectDevice(sensor)" *ngFor="let sensor of currentDevice?.sensors">{{sensor.name}}</p>
+            <button class="add-device" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.account_Id}">Add Device</button>
         </mat-drawer>
 
         <div class="device-item">
@@ -12,10 +13,10 @@
             <div class="tempMenu" id="tempMenu">
                 <div class="change-container">
                     <button class="change-btn" (click)="onDegreaseTemp()">-</button>
-                    <h1 class="text">{{currentSensor?.temp}} °C</h1>
+                    <h1 class="text">{{currentSensor?.temperature}} °C</h1>
                     <button class="change-btn" (click)="onIncreaseTemp()">+</button>
                 </div>
-                <button class="set-btn">Set</button>
+                <button class="set-btn" (click)="onSet()">Set</button>
             </div>
         </div>
       
@@ -24,4 +25,4 @@
 
 <div class="unsigned" id="unsignedTempSettings">
     <h1 class="title">Please log in to get access to your devices</h1>
-</div> -->
+</div>

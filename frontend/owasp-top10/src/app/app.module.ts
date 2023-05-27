@@ -19,6 +19,7 @@ import { TempSettingsComponent } from './pages/temp-settings/temp-settings.compo
 import { LightSettingsComponent } from './pages/light-settings/light-settings.component';
 import { ShutterSettingsComponent } from './pages/shutter-settings/shutter-settings.component';
 import { AddDeviceComponent } from './pages/add-device/add-device.component';
+import { SignUpComponent } from './pages/sign-up/sign-up.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
@@ -48,7 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     TempSettingsComponent,
     LightSettingsComponent,
     ShutterSettingsComponent,
-    AddDeviceComponent
+    AddDeviceComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

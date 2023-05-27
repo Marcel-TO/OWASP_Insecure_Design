@@ -1,7 +1,7 @@
 import { Thermostat } from "./Thermostat";
 
 export interface ThermostatSensor {
-    sensor_id:string,
+    sensor_Id:string,
     name:string,
     status:string,
     temperature:number,

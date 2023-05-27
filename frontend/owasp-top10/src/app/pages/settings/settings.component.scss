@@ -47,6 +47,19 @@ input {
     color: white;
     background-color: black;
     height: 50px;
+    width: 100px;
+    font-size: large;
+    cursor: pointer;
+    font-family: Raleway, sans-serif;
+}
+
+.delete-btn {
+    border: solid black;
+    color: black;
+    background-color: white;
+    height: 50px;
+    width: 100px;
+    // margin-left: 1em;
     font-size: large;
     cursor: pointer;
     font-family: Raleway, sans-serif;

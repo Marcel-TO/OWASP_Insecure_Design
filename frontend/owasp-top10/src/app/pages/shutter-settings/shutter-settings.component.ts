@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DatabaseService } from 'src/app/components/database-services/database.service';
+import { Account } from 'src/app/models/database/Account';
+import { SmartBulb } from 'src/app/models/database/Light/SmartBulb';
+import { JalousineSensor } from 'src/app/models/database/Shutter/JalousineSensor';
 import { SmartJalousine } from 'src/app/models/database/Shutter/SmartJalousine';
 
 @Component({
@@ -8,67 +12,68 @@ import { SmartJalousine } from 'src/app/models/database/Shutter/SmartJalousine';
   styleUrls: ['./shutter-settings.component.scss']
 })
 export class ShutterSettingsComponent {
-  // public currentUser?: string;
-  // public currentSensor?: SmartJalousine;
+  public currentUser?: Account;
+  public currentSensor?: JalousineSensor;
+  public currentDevice?: SmartJalousine;
+  public allSensors?: SmartJalousine[] = [];
 
-  // // public accounts: Account[] = [];
-  // // public sensors: ShutterSensor[] = [];
-  // // public shutterOpen: boolean = false;
-  // // public isOpen = false;
-  // // private modelFactory = new Modelfactory();
+  public shutterOpen: boolean = false;
+  public isOpen = false;
   
-  // constructor(private activatedRoute: ActivatedRoute) {
-  //   // this.accounts = this.modelFactory.Accounts;
-  // }
+  constructor(private activatedRoute: ActivatedRoute, private dbService:DatabaseService) {
+  }
 
-  // public onClickDrawer() {
-  //   let menu = document.getElementById('shutterMenu');
+  public onClickDrawer() {
+    let menu = document.getElementById('shutterMenu');
 
-  //   if (this.isOpen) {
-  //     this.isOpen = false;
-  //     if (menu != null) {
-  //       menu.style.display = "none";
-  //     }
-  //   }
-  // }
+    if (this.isOpen) {
+      this.isOpen = false;
+      if (menu != null) {
+        menu.style.display = "none";
+      }
+    }
+  }
 
-  // public onChangeShutter() {
-  //   this.shutterOpen = !this.shutterOpen;
-  // }
+  public onChangeShutter() {
+    this.shutterOpen = !this.shutterOpen;
+  }
 
-  // public selectDevice(sensor: ShutterSensor) {
-  //   this.currentSensor = sensor;
-  //   this.shutterOpen = this.currentSensor.isOpen;
-  // }
+  public selectDevice(sensor: JalousineSensor) {
+    this.currentSensor = sensor;
+    this.shutterOpen = JSON.parse(this.currentSensor.state);
+  }
 
-  // private checkUser(id:string) {
-  //   for (let user of this.accounts) {
-  //     if (id == user.id) {
-  //       return id;
-  //     }
-  //   }
-  //   return undefined
-  // }
+  public async onSet() {
+    if (this.currentSensor == null || this.currentDevice == null) {
+      return;
+    }
+    await this.dbService.UpdateJalousineSensor(this.currentSensor.sensor_Id, this.currentSensor.name, String(this.shutterOpen), this.currentSensor.jal_Id);
+    this.allSensors = await this.dbService.GettAllSmartJalousinesFromAccount(this.currentDevice.acc_Id)
+    this.currentDevice = this.allSensors[0];
+  }
 
-  // ngOnInit(): void {
-  //   let id_query = this.activatedRoute.snapshot.queryParams['user'];
-  //   this.currentUser = this.checkUser(id_query);
+  async ngOnInit() {
+    let unsigned = document.getElementById('unsignedShutterSettings');
+    let devices = document.getElementById('device');
+    let id_query = this.activatedRoute.snapshot.queryParams['user'];
+    let tempUser = await this.dbService.GetByIDAccount(id_query);
 
-  //   let unsigned = document.getElementById('unsignedShutterSettings');
-  //   let devices = document.getElementById('device');
-  //   if (this.currentUser == undefined) {
-  //     if (devices != null) {
-  //       devices.style.display = "none"
-  //     }
-  //     if (unsigned != null) {
-  //       unsigned.style.display = 'unset'
-  //     }
-  //   }
-  //   else {
-  //     if (unsigned != null) {
-  //       unsigned.style.display = 'none'
-  //     }
-  //     this.sensors = this.modelFactory.getShutterSensors(this.currentUser)
-  //   }
-  // }
+    if (tempUser.role == 'error') {
+      if (devices != null) {
+        devices.style.display = "none"
+      }
+      if (unsigned != null) {
+        unsigned.style.display = 'unset'
+      }
+    }
+    else {
+      this.currentUser = tempUser;
+      this.allSensors = await this.dbService.GettAllSmartJalousinesFromAccount(this.currentUser.account_Id);
+      this.currentDevice = this.allSensors[0];
+
+      if (unsigned != null) {
+        unsigned.style.display = 'none'
+      }
+    }
+  }
 }

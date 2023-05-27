@@ -21,8 +21,11 @@
                         <mat-label>new name:</mat-label>
                         <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
                     </mat-form-field>
-        
-                    <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
+                    
+                    <div class="btn-row">
+                        <button class="set-btn" (click)="onChangeThermostatSensorName(sensor)">Change</button>
+                        <button class="delete-btn" (click)="onDeleteThermostatSensor(sensor)">Delete</button>
+                    </div>
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
@@ -51,7 +54,10 @@
                         <mat-label>new name:</mat-label>
                         <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
                         </mat-form-field>
-                        <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
+                        <div class="btn-row">
+                            <button class="set-btn" (click)="onChangeBulbSensorName(sensor)">Change</button>
+                            <button class="delete-btn" (click)="onDeleteBulbSensor(sensor)">Delete</button>
+                        </div>
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
@@ -79,7 +85,10 @@
                         <mat-label>new name:</mat-label>
                         <input matInput id="{{sensor.name}}-newName" name="{{sensor.name}}-newName" value="{{sensor.name}}"/>
                         </mat-form-field>
-                        <button class="set-btn" (click)="onChangeSensorName(sensor.name)">Set</button>
+                        <div class="btn-row">
+                            <button class="set-btn" (click)="onChangeJalousineSensorName(sensor)">Change</button>
+                            <button class="delete-btn" (click)="onDeleteJalousineSensor(sensor)">Delete</button>
+                        </div>
                 </div>
             </mat-expansion-panel>
             <mat-card class="add-device">
@@ -133,7 +142,7 @@
               </mat-error>
             </mat-form-field>
           </form>
-        <button class="change-btn" [routerLink]="['/']">Change Profile</button>
+        <button class="change-btn" (click)="onChangeProfile()">Change Profile</button>
     </div>
 </div>
 

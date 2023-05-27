@@ -1,7 +1,7 @@
-<app-navbar id="navbar"></app-navbar>
+<app-navbar></app-navbar>
 <app-background></app-background>
-<div class="login-container">
-    <h1 class="header">Login</h1>
+<div class="sign-up-container">
+    <h1 class="header">Sign Up</h1>
     <form class="signin-form">
       <mat-form-field class="signin-full-width">
         <mat-label>Username</mat-label>
@@ -42,9 +42,13 @@
         </mat-error>
       </mat-form-field>
     </form>
+    <mat-chip-listbox class="menu">
+        <mat-chip-option [selected]="isAdminRole" (click)="onChangeRole()">Admin</mat-chip-option>
+        <mat-chip-option [selected]="!isAdminRole" (click)="onChangeRole()">Normal</mat-chip-option>
+    </mat-chip-listbox>
+
     <div class="btn-row">
-      <button class="login-btn" (click)="onLogin()" [disabled]="(!usernameFormControl.valid || !passwordFormControl.valid)">Log In</button>
-      <button class="create-btn" [routerLink]="['/sign-up']">Create User</button>
+      <button class="login-btn" (click)="onSignUp()" [disabled]="(!usernameFormControl.valid || !passwordFormControl.valid)">Sign Up</button>
     </div>
     <mat-error *ngIf="usernameFormControl.hasError('notExist')">
       No User found with this combination

@@ -3,3 +3,9 @@
 <div class="unsigned" id="unsignedHistory">
     <h1 class="title">Please log in to get access to your devices</h1>
 </div>
+
+<div id="history">
+    <mat-card *ngFor="let log of logs">
+        <mat-card-content>{{log.data}}</mat-card-content>
+    </mat-card>   
+</div>

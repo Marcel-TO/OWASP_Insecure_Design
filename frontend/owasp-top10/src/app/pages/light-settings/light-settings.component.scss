@@ -25,6 +25,16 @@ mat-drawer {
     align-items: center;
     justify-content: center;
   }
+
+  .add-device {
+    width: 100%;
+    border: solid white;
+    color: white;
+    background-color: black;
+    height: 5%;
+    font-family: Raleway, sans-serif;
+    cursor: pointer;
+  }
   
   .drawer-sidenav {
     padding: 20px;

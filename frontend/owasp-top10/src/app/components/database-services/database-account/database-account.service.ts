@@ -28,6 +28,12 @@ export class DatabaseAccountService {
     })
   }
 
+  public async Update(user: Account) {
+    await this.http.put('http://localhost:5274/api/account/update', user).subscribe(response => {
+      console.log(response)
+    })
+  }
+
   public async Delete(id: string) {
     let users: Account[] = await lastValueFrom(this.GetAccountsFromDB());
     for (let user of users) {

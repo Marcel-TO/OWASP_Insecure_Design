@@ -11,12 +11,16 @@ import { SmartJalousine } from 'src/app/models/database/Shutter/SmartJalousine';
   providedIn: 'root'
 })
 export class DatabaseShutterService {
-  private errorUser: Account
-  private errorSmartJalousine: SmartJalousine
+  private errorUser: Account;
+  private errorSmartJalousine: SmartJalousine;
+  private errorSensor: JalousineSensor;
+  private errorActuator: JalousineActuator;
 
   constructor(private http: HttpClient) {
-    this.errorUser = {account_Id: 'error', role: 'error', userName: 'error', password: 'error'}
-    this.errorSmartJalousine = {jalousine_Id: Guid, acc_Id: 'error', account: this.errorUser, sensors: [], actuators: []}
+    this.errorUser = {account_Id: 'error', role: 'error', userName: 'error', password: 'error'};
+    this.errorSmartJalousine = {jalousine_Id: Guid, acc_Id: 'error', account: this.errorUser, sensors: [], actuators: []};
+    this.errorSensor = {sensor_Id:Guid, name:'error',status:'error',state:'error',actuator_Id:'error',jal_Id:'error',smartJalousine:null}; 
+    this.errorActuator = {actuator_Id:Guid, name:'error',status:'error',target_State:'error',sensor_Id:'error',jal_Id:'error',smartJalousine:null};
   }
 
   public async GetAll() {
@@ -40,6 +44,18 @@ export class DatabaseShutterService {
     let smartJalousine: SmartJalousine =  await lastValueFrom(this.GetByIDFromDB(id));
     return smartJalousine
   }
+
+  public async GetByIDJalousineSensor(id:string) {
+    return await lastValueFrom(this.http.get<JalousineSensor>('http://localhost:5274/api/jalousine/sensor/getById?id='+id).pipe(
+      catchError(() => {return of(this.errorSensor)
+    })));
+  }
+
+  public async GetByIDJalousineActuator(id:string) {
+    return await lastValueFrom(this.http.get<JalousineActuator>('http://localhost:5274/api/jalousine/actuator/getById?id='+id).pipe(
+      catchError(() => {return of(this.errorActuator)
+    })));
+  }
   
 
   public GetSmartJalousineFromDB() {
@@ -47,7 +63,7 @@ export class DatabaseShutterService {
   }
 
   public GetByIDFromDB(id:string) {
-    return this.http.get<SmartJalousine>('http://localhost:5274/api/bulb/getById?id='+id).pipe(
+    return this.http.get<SmartJalousine>('http://localhost:5274/api/jalousine/getById?id='+id).pipe(
       catchError(() => {return of(this.errorSmartJalousine)
     }));
   }
@@ -60,6 +76,12 @@ export class DatabaseShutterService {
 
   public async CreateJalousineActuator(jalousineActuator: JalousineActuator) {
     await this.http.post('http://localhost:5274/api/jalousine/actuator/create', jalousineActuator).subscribe(response => {
+      console.log(response)
+    })
+  }
+
+  public async UpdateJalousineSensor(jalousineSensor: JalousineSensor) {
+    await this.http.put('http://localhost:5274/api/jalousine/sensor/update', jalousineSensor).subscribe(response => {
       console.log(response)
     })
   }

@@ -30,6 +30,16 @@ mat-drawer {
     padding: 20px;
   }
 
+  .add-device {
+    width: 100%;
+    border: solid white;
+    color: white;
+    background-color: black;
+    height: 5%;
+    font-family: Raleway, sans-serif;
+    cursor: pointer;
+  }
+
   .toggle-btn {
     cursor: pointer;
 

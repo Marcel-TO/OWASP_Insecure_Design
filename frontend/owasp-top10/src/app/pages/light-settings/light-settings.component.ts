@@ -14,11 +14,10 @@ import { SmartBulb } from 'src/app/models/database/Light/SmartBulb';
 export class LightSettingsComponent implements OnInit{
   public currentUser?: Account;
   public currentSensor?: BulbSensor;
-  public currentActuator?: BulbActuator;
   public currentDevice?: SmartBulb;
+  public allDevices?: SmartBulb[] = [];
 
-  public devices?: SmartBulb[]
-  public brightness?: number;
+  public brightness: number = 0;
   public isOpen = false;
   
   constructor(private activatedRoute: ActivatedRoute, private dbService: DatabaseService) {
@@ -35,7 +34,13 @@ export class LightSettingsComponent implements OnInit{
     }
   }
 
-  public onSet() {
+  public async onSet() {
+    if (this.currentSensor == null || this.currentDevice == null) {
+      return;
+    }
+    await this.dbService.UpdateBulbSensor(this.currentSensor.sensor_Id, this.currentSensor.name, this.brightness, this.currentSensor.bulb_Id);
+    this.allDevices = await this.dbService.GettAllSmartBulbsFromAccount(this.currentDevice.acc_Id)
+    this.currentDevice = this.allDevices[0];
   }
 
   public selectDevice(sensor: BulbSensor) {
@@ -59,10 +64,12 @@ export class LightSettingsComponent implements OnInit{
     }
     else {
       this.currentUser = tempUser
+      this.allDevices = await this.dbService.GettAllSmartBulbsFromAccount(this.currentUser.account_Id)
+      this.currentDevice = this.allDevices[0];
+
       if (unsigned != null) {
         unsigned.style.display = 'none'
       }
-      // Get SmartBulbs
     }
   }
 }

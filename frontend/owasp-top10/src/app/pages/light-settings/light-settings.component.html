@@ -4,6 +4,7 @@
     <mat-drawer-container class="drawer-container" autosize>
         <mat-drawer #drawer class="drawer-sidenav" mode="side">
             <p class="single-sensor" id="sensor-btn" (click)="selectDevice(sensor)" *ngFor="let sensor of currentDevice?.sensors">{{sensor.name}}</p>
+            <button class="add-device" [routerLink]="['/settings/add-device']" [queryParams]="{user: currentUser?.account_Id}">Add Device</button>
         </mat-drawer>
 
         <div class="device-item">
@@ -15,6 +16,7 @@
                     <mat-slider min="0" max="10"><input matSliderThumb [(ngModel)]="brightness"></mat-slider>
                     <p class="text">brighter</p>
                 </div>
+                <h1 class="device-name">{{brightness}}</h1>
                 <!-- <div class="change-container">
                     <p class="text">cold</p>
                     <mat-slider min="0" max="10"><input matSliderThumb [(ngModel)]="warmness"></mat-slider>
