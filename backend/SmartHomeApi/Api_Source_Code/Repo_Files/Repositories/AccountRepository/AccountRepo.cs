@@ -82,8 +82,10 @@ public class AccountRepo : IRepository<DT_Account, Guid>
                 this.context.Accounts.Attach(account);
                 this.context.Entry(account).Property(e => e.UserName).IsModified = true;
                 this.context.Entry(account).Property(e => e.Role).IsModified = true;
+                this.context.Entry(account).Property(e => e.Password).IsModified = true;
                 account.UserName = entry.UserName;
                 account.Role = entry.Role;
+                account.Password = this.passwordHasher.HashPassword(entry.Password);
                 this.Save();  
                 return true;
             }
