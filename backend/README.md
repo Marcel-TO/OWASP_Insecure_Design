@@ -44,8 +44,8 @@ The database model is as following:
 **_thermostat_actuators_**
 
 | actuator_id | name  | status | target_temperature | sensor_id | therm_id |
-| :---------: | :---: | :----: | :----------------: | :-------: | :------: | ----- |
-|    . . .    | . . . | . . .  |       . . .        |   . . .   |  . . .   | . . . |
+| :---------: | :---: | :----: | :----------------: | :-------: | :------: |
+|    . . .    | . . . | . . .  |       . . .        |   . . .   |  . . .   |
 
 **_light_bulbs_**
 | smartbulb_id | acc_id |
@@ -61,8 +61,8 @@ The database model is as following:
 **_bulb_actuators_**
 
 | actuator_id | name  | status | target_brightness | sensor_id | bulb_id |
-| :---------: | :---: | :----: | :---------------: | :-------: | :-----: | ----- |
-|    . . .    | . . . | . . .  |       . . .       |   . . .   |  . . .  | . . . |
+| :---------: | :---: | :----: | :---------------: | :-------: | :-----: |
+|    . . .    | . . . | . . .  |       . . .       |   . . .   |  . . .  |
 
 **_jalousines_**
 | jalousine_id | acc_id |
@@ -78,8 +78,8 @@ The database model is as following:
 **_jalousine_actuator_**
 
 | actuator_id | name  | status | target_state | sensor_id | jal_id |
-| :---------: | :---: | :----: | :----------: | :-------: | :----: | ----- |
-|    . . .    | . . . | . . .  |    . . .     |    . . .  | . . .  | . . . |
+| :---------: | :---: | :----: | :----------: | :-------: | :----: | 
+|    . . .    | . . . | . . .  |    . . .     |    . . .  | . . .  |
 
 ### Migration
 
@@ -186,8 +186,8 @@ RETURNS YOU ID OF LOGGED IN USER AND OK RESPONSE
 ### LoggedData
 
 - **_GET: /api/log -> Gets all logged entries_**
-- \*_\_GET: /api/log/getById -> Gets a logged entry by its id_
-- **\_GET: /api/log/getByAccountId -> Gets all logged entries matching an account id**
+- **_GET: /api/log/getById -> Gets a logged entry by its id_
+- **_GET: /api/log/getByAccountId -> Gets all logged entries matching an account id**
 - **_POST: /api/log/create -> Create an logged entry_**
 
 Example-body:
@@ -204,14 +204,14 @@ Example-body:
 
 }
 
-- **\_DELETE: /api/log/delete -> Deletes an logged entry**
+- **_DELETE: /api/log/delete -> Deletes an logged entry**
 
 ---
 
 ### Thermostat
 
 - **_GET: /api/log -> Gets all thermostats_**
-- **\_GET: /api/log/getById -> Gets a thermostat by its id**
+- **_GET: /api/log/getById -> Gets a thermostat by its id**
 - **_POST: /api/thermostat/create -> Create a new thermostat_**
 
 Example-body:
