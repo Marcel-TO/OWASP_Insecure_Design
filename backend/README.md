@@ -186,7 +186,7 @@ RETURNS YOU ID OF LOGGED IN USER AND OK RESPONSE
 ### LoggedData
 
 - **_GET: /api/log -> Gets all logged entries_**
-- **_GET: /api/log/getById -> Gets a logged entry by its id_
+- **_GET: /api/log/getById -> Gets a logged entry by its id_**
 - **_GET: /api/log/getByAccountId -> Gets all logged entries matching an account id**
 - **_POST: /api/log/create -> Create an logged entry_**
 
