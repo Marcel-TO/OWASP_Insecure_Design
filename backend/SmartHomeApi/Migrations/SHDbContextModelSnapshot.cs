@@ -170,6 +170,26 @@ namespace SmartHomeApi.Migrations
                     b.ToTable("jalousine_sensors");
                 });
 
+            modelBuilder.Entity("SmartHomeApi.Api_Source_Code.Models.LoggedData", b =>
+                {
+                    b.Property<Guid>("Log_Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid>("Acc_Id")
+                        .HasColumnType("char(36)");
+
+                    b.Property<string>("Data")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Log_Id");
+
+                    b.HasIndex("Acc_Id");
+
+                    b.ToTable("logs");
+                });
+
             modelBuilder.Entity("SmartHomeApi.Api_Source_Code.Models.SmartBulb", b =>
                 {
                     b.Property<Guid>("Smartbulb_Id")
@@ -321,6 +341,17 @@ namespace SmartHomeApi.Migrations
                     b.Navigation("SmartJalousine");
                 });
 
+            modelBuilder.Entity("SmartHomeApi.Api_Source_Code.Models.LoggedData", b =>
+                {
+                    b.HasOne("SmartHomeApi.Api_Source_Code.Models.Account", "Account")
+                        .WithMany("LoggedDatas")
+                        .HasForeignKey("Acc_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+                });
+
             modelBuilder.Entity("SmartHomeApi.Api_Source_Code.Models.SmartBulb", b =>
                 {
                     b.HasOne("SmartHomeApi.Api_Source_Code.Models.Account", "Account")
@@ -378,6 +409,8 @@ namespace SmartHomeApi.Migrations
 
             modelBuilder.Entity("SmartHomeApi.Api_Source_Code.Models.Account", b =>
                 {
+                    b.Navigation("LoggedDatas");
+
                     b.Navigation("SmartBulbs");
 
                     b.Navigation("SmartJalousines");

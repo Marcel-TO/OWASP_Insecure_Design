@@ -11,6 +11,8 @@ namespace SmartHomeApi.Api_Source_Code.Contexts;
 
     public DbSet<Account> Accounts{get;set;}
 
+    public DbSet<LoggedData> LoggedDatas{get;set;}
+
     public DbSet<Thermostat> Thermostats{get;set;}
     public DbSet<ThermostatSensor> ThermostatSensors{get;set;}
     public DbSet<ThermostatActuator> ThermostatActuators{get;set;}
@@ -25,7 +27,13 @@ namespace SmartHomeApi.Api_Source_Code.Contexts;
         
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     { 
-      modelBuilder.Entity<Account>()
+            modelBuilder.Entity<Account>()
+            .HasMany(e => e.LoggedDatas)
+            .WithOne(e => e.Account)
+            .HasForeignKey(e => e.Acc_Id)
+            .HasPrincipalKey(e => e.Account_Id);
+
+            modelBuilder.Entity<Account>()
             .HasMany(e => e.SmartBulbs)
             .WithOne(e => e.Account)
             .HasForeignKey(e => e.Acc_Id)
@@ -36,6 +44,7 @@ namespace SmartHomeApi.Api_Source_Code.Contexts;
             .WithOne(e => e.Account)
             .HasForeignKey(e => e.Acc_Id)
             .HasPrincipalKey(e => e.Account_Id);
+
 
             modelBuilder.Entity<Account>()
             .HasMany(e => e.SmartJalousines)

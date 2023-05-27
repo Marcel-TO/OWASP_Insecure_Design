@@ -1,6 +1,4 @@
-using Microsoft.EntityFrameworkCore;
 using SmartHomeApi.Api_Source_Code.Config;
-using SmartHomeApi.Api_Source_Code.Contexts;
 
 public static class StartUp{
 

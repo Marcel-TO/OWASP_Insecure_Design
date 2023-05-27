@@ -6,6 +6,8 @@ namespace SmartHomeApi.Api_Source_Code.Repositories.Wrapper
     {
         private SHDbContext repoContext;
         private AccountRepo account;
+        
+        private LoggedDataRepo loggedData;
 
         private SmartDevicesRepo smartDevices;
         private ThermostatRepo thermostat;
@@ -21,7 +23,9 @@ namespace SmartHomeApi.Api_Source_Code.Repositories.Wrapper
         private JalousineActuatorRepo jalousineActuator;
        
         public AccountRepo Account { get { return this.account; } }
-
+        
+        public LoggedDataRepo LoggedData { get { return this.loggedData; } }
+        
         public SmartDevicesRepo SmartDevices { get { return this.smartDevices; } }
 
         public ThermostatRepo Thermostat { get { return this.thermostat; } }
@@ -44,19 +48,21 @@ namespace SmartHomeApi.Api_Source_Code.Repositories.Wrapper
             this.repoContext = repositoryContext;
             this.account = new AccountRepo(this.repoContext);
 
+            this.loggedData = new LoggedDataRepo(this.repoContext);
+
             this.smartDevices = new SmartDevicesRepo(this.repoContext); 
 
             this.thermostat = new ThermostatRepo(this.repoContext);
             this.thermostatSensor = new ThermostatSensorRepo(this.repoContext);
             this.thermostatActuator = new ThermostatActuatorRepo(this.repoContext);
 
-            this.smartBulb = new SmartBulbRepo(this.repoContext);;
-            this.bulbSensor = new BulbSensorRepo(this.repoContext);;
-            this.bulbActuator = new BulbActuatorRepo(this.repoContext);;
+            this.smartBulb = new SmartBulbRepo(this.repoContext);
+            this.bulbSensor = new BulbSensorRepo(this.repoContext);
+            this.bulbActuator = new BulbActuatorRepo(this.repoContext);
 
-            this.smartJalousine = new SmartJalousineRepo(this.repoContext);;
-            this.jalousineSensor = new JalousineSensorRepo(this.repoContext);;
-            this.jalousineActuator = new JalousineActuatorRepo(this.repoContext);;
+            this.smartJalousine = new SmartJalousineRepo(this.repoContext);
+            this.jalousineSensor = new JalousineSensorRepo(this.repoContext);
+            this.jalousineActuator = new JalousineActuatorRepo(this.repoContext);
         }
     }
 }
