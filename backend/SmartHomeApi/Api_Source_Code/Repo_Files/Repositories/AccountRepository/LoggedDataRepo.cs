@@ -49,11 +49,23 @@ public class LoggedDataRepo : IRepository<LoggedData, Guid>
 
     public Tuple<bool,Guid> Insert(LoggedData entry)
     {
-       entry.Log_Id = Guid.NewGuid();
-       LoggedData loggedData = new LoggedData(entry.Log_Id,entry.Acc_Id,entry.Data);
-       this.context.LoggedDatas.Add(loggedData);
-       this.Save();
-    return Tuple.Create(true, entry.Log_Id);
+        var parent = context.Accounts
+                       .Where(acc => entry.Acc_Id == acc.Account_Id)
+                       .Include(acc => acc.LoggedDatas)
+                       .FirstOrDefault();
+  
+        if(parent is not null)
+        { 
+            this.context.Entry(parent).State = EntityState.Modified;
+            this.context.Entry(parent).Collection("LoggedDatas").Load();
+            var loggedData = new LoggedData(Guid.NewGuid(),entry.Acc_Id,entry.Data);
+            this.context.LoggedDatas.Add(loggedData);
+            this.Save();
+        
+            return Tuple.Create(true, loggedData.Log_Id);
+        }
+
+       return Tuple.Create(false, Guid.Empty);
     }
     
     public bool Delete(Guid id)
