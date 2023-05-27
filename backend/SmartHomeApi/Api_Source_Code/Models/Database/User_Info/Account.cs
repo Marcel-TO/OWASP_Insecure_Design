@@ -25,6 +25,7 @@ public class Account
     public virtual ICollection<Thermostat> Thermostats {get;set;}
     public virtual ICollection<SmartBulb> SmartBulbs {get;set;} 
     public virtual ICollection<SmartJalousine> SmartJalousines {get;set;}  
+    public virtual ICollection<LoggedData> LoggedDatas {get;set;}
     public Account(Guid account_Id, string role, string userName, string password){
         this.Account_Id = account_Id;
         this.Role = role;
@@ -33,6 +34,7 @@ public class Account
         this.Thermostats = new List<Thermostat>();
         this.SmartBulbs = new List<SmartBulb>();
         this.SmartJalousines = new List<SmartJalousine>();
+        this.LoggedDatas = new List<LoggedData>();
     }
 
     

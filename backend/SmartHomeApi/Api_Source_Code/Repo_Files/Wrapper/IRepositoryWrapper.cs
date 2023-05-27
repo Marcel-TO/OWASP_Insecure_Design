@@ -4,7 +4,7 @@ namespace SmartHomeApi.Api_Source_Code.Repositories.Wrapper
     public interface IRepositoryWrapper
     {
         AccountRepo Account { get; }
-
+        LoggedDataRepo LoggedData { get; }
         SmartDevicesRepo SmartDevices { get; }
 
         ThermostatRepo Thermostat { get; }
