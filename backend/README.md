@@ -45,7 +45,7 @@ The database model is as following:
 
 | actuator_id | name  | status | target_temperature | sensor_id | therm_id |
 | :---------: | :---: | :----: | :----------------: | :-------: | :------: | ----- |
-|    . . .    | . . . | . . .  |       . . .        |           |  . . .   | . . . |
+|    . . .    | . . . | . . .  |       . . .        |   . . .   |  . . .   | . . . |
 
 **_light_bulbs_**
 | smartbulb_id | acc_id |
@@ -62,7 +62,7 @@ The database model is as following:
 
 | actuator_id | name  | status | target_brightness | sensor_id | bulb_id |
 | :---------: | :---: | :----: | :---------------: | :-------: | :-----: | ----- |
-|    . . .    | . . . | . . .  |       . . .       |           |  . . .  | . . . |
+|    . . .    | . . . | . . .  |       . . .       |   . . .   |  . . .  | . . . |
 
 **_jalousines_**
 | jalousine_id | acc_id |
@@ -79,7 +79,7 @@ The database model is as following:
 
 | actuator_id | name  | status | target_state | sensor_id | jal_id |
 | :---------: | :---: | :----: | :----------: | :-------: | :----: | ----- |
-|    . . .    | . . . | . . .  |    . . .     |           | . . .  | . . . |
+|    . . .    | . . . | . . .  |    . . .     |    . . .  | . . .  | . . . |
 
 ### Migration
 
@@ -103,11 +103,6 @@ PLEASE READ FOLLOWING RELEVANT INFO:
 Running on `localhost` with Swagger UI. Example: `http://localhost:5274/swagger/index.html`.
 
 Reponse: HTTP-Response with data. Example: `OK()` and `body` containing the data
-<<<<<<< HEAD
-=======
-
-> > > > > > > 416c5b2752dda54e06ed48dd0d2828a4256d0fa1
-> > > > > > > headers: "content-type":"application/json"
 
 Request: All the requests should work the same if there is no example given.
 
