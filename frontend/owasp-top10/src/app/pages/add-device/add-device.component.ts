@@ -59,7 +59,7 @@ export class AddDeviceComponent {
     let newname = (<HTMLInputElement>document.getElementById('new-light-name')).value;
     await this.dbService.CreateBulbSensor(newname, this.brightness, this.smartBulb.smartbulb_Id)
     if (this.currentUser != null) {
-      this.router.navigate(['/settings'], {queryParams: {user: this.currentUser.account_Id}})
+      this.router.navigate(['/devices'], {queryParams: {user: this.currentUser.account_Id}})
     }
   }
 
@@ -81,7 +81,7 @@ export class AddDeviceComponent {
     let newname = (<HTMLInputElement>document.getElementById('new-shutter-name')).value;
     await this.dbService.CreateJalousineSensor(newname, this.isOpen, this.smartJalousine.jalousine_Id)
     if (this.currentUser != null) {
-      this.router.navigate(['/settings'], {queryParams: {user: this.currentUser.account_Id}})
+      this.router.navigate(['/devices'], {queryParams: {user: this.currentUser.account_Id}})
     }
   }
 
