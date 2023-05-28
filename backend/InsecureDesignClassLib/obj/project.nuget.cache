@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pxYegHrlK3mCHrDL6DvoqEJ4HtNi5ESMP/JYeRme/vfFCrpJIEvn203JHHJZDN3N9Q0nJqZZpRh4nIiSCsEKmw==",
+  "dgSpecHash": "QwotVBxhIzhpLNflAy74ytfyFM0+H6wx0dGHI9LUsvSf1kCmt6W7+aoOOZOw40Age2xQ8sRWtXmt5UlNKvtTPw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\chris\\Desktop\\Fh\\4.Semester\\It-Sicherheit\\Uebung_2\\OWASP_Insecure_Design\\backend\\InsecureDesignClassLib\\InsecureDesignClassLib.csproj",
+  "projectFilePath": "/Users/marcel/Desktop/Studium/4.Semester/IT Security/GIT/backend/InsecureDesignClassLib/InsecureDesignClassLib.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
