@@ -70,7 +70,7 @@ export class AddDeviceComponent {
     let newname = (<HTMLInputElement>document.getElementById('new-temp-name')).value;
     await this.dbService.CreateThermostatSensor(newname, this.degree, this.thermostat.thermostat_Id)
     if (this.currentUser != null) {
-      this.router.navigate(['/settings'], {queryParams: {user: this.currentUser.account_Id}})
+      this.router.navigate(['/devices'], {queryParams: {user: this.currentUser.account_Id}})
     }
   }
 
