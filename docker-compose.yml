@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: frontend/owasp-top10
+      target: builder
+    ports:
+      - 4200:4200
+    volumes:
+      - ./frontend/owasp-top10:/project
+      - /project/node_modules
+    networks:
+      - owasp-top10
+  
+  backend:
+    build: backend/SmartHomeApi
+    ports:
+      - 5274:5274
+    networks:
+      - owasp-top10
+  db:
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: TopSecret1234
+    # If you really want to use MS SQL Server, uncomment the following line
+    image: mcr.microsoft.com/mssql/server
+    networks:
+      - owasp-top10
+    restart: always
+    healthcheck:
+        test: ["CMD-SHELL", "/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P TopSecret1234 -Q 'SELECT 1' || exit 1"]
+        interval: 10s
+        retries: 10
+        start_period: 10s
+        timeout: 3s     
+
+networks:
+  owasp-top10:
+    driver: bridge
